@@ -44,14 +44,6 @@
 #define DefineRedColor [UIColor colorWithRed:205/255.0 green:50/255.0 blue:57/255.0 alpha:1]
 //----------------------图片----------------------------
 
-//读取本地图片
-#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
-
-//定义UIImage对象
-#define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
-
-//定义UIImage对象
-#define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer]]
 
 #define ip @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do"
 #define notNet @"连接网络失败"
