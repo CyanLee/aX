@@ -48,6 +48,8 @@
 #define ip @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do"
 #define notNet @"连接网络失败"
 #import "NetTools.h"
+#import "SVProgressHUD.h"
+
 //打印日志
 #define LOG_OPEN
 #ifdef LOG_OPEN
