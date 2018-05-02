@@ -56,6 +56,8 @@
 		4D970A892099A5E900D0BD14 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A7D2099A5E900D0BD14 /* NSObject+MJProperty.m */; };
 		4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A7F2099A5E900D0BD14 /* NSString+MJExtension.m */; };
 		4D970A912099A6F500D0BD14 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A902099A6F500D0BD14 /* UIView+Frame.m */; };
+		5D89265C2099B05C00C8A792 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8926572099B05C00C8A792 /* HistoryViewController.m */; };
+		5D89265D2099B05C00C8A792 /* HistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D89265B2099B05C00C8A792 /* HistoryHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,10 @@
 		4D970A8F2099A6F500D0BD14 /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		4D970A902099A6F500D0BD14 /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		5D8926492099520A00C8A792 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		5D8926562099B05C00C8A792 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		5D8926572099B05C00C8A792 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		5D89265A2099B05C00C8A792 /* HistoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryHeaderView.h; sourceTree = "<group>"; };
+		5D89265B2099B05C00C8A792 /* HistoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +284,7 @@
 		4D29B12D20917460004C8324 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				5D8926542099B05C00C8A792 /* History */,
 				4D803B922092C07300A553DA /* Login */,
 				4D29B12E20917460004C8324 /* Home */,
 				4D29B13220917460004C8324 /* Mine */,
@@ -599,6 +606,41 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		5D8926542099B05C00C8A792 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5D8926552099B05C00C8A792 /* C */,
+				5D8926582099B05C00C8A792 /* M */,
+				5D8926592099B05C00C8A792 /* V */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		5D8926552099B05C00C8A792 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5D8926562099B05C00C8A792 /* HistoryViewController.h */,
+				5D8926572099B05C00C8A792 /* HistoryViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		5D8926582099B05C00C8A792 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		5D8926592099B05C00C8A792 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				5D89265A2099B05C00C8A792 /* HistoryHeaderView.h */,
+				5D89265B2099B05C00C8A792 /* HistoryHeaderView.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -748,6 +790,7 @@
 				4D29B10A209172AC004C8324 /* main.m in Sources */,
 				4D970A912099A6F500D0BD14 /* UIView+Frame.m in Sources */,
 				4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */,
+				5D89265C2099B05C00C8A792 /* HistoryViewController.m in Sources */,
 				4D970A5020994B6500D0BD14 /* AFURLSessionManager.m in Sources */,
 				4D29B159209174DD004C8324 /* MASCompositeConstraint.m in Sources */,
 				4D970A852099A5E900D0BD14 /* MJPropertyType.m in Sources */,
@@ -761,6 +804,7 @@
 				4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */,
 				4D970A4E20994B6500D0BD14 /* AFURLRequestSerialization.m in Sources */,
 				4D970A812099A5E900D0BD14 /* MJExtensionConst.m in Sources */,
+				5D89265D2099B05C00C8A792 /* HistoryHeaderView.m in Sources */,
 				4D970A832099A5E900D0BD14 /* MJProperty.m in Sources */,
 				4D970A632099955C00D0BD14 /* SVIndefiniteAnimatedView.m in Sources */,
 				4D05D81220917E2D00CFD881 /* MineViewController.m in Sources */,
