@@ -135,7 +135,7 @@
         make.height.mas_equalTo(44);
     }];
     self.pswView = psw;
-    
+    //wde 
     UIImageView *tip = [[UIImageView alloc]init];
     [self.pswView addSubview:tip];
     [tip mas_makeConstraints:^(MASConstraintMaker *make) {
