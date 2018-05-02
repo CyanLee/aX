@@ -181,6 +181,7 @@
     
 }
 - (void)setupLoginBtn{
+    //斤斤计较军军军军军军军军
     UIButton *btn = [[UIButton alloc]init];
     [self.cover addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
