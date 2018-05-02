@@ -23,7 +23,7 @@
     key.backgroundColor = [UIColor whiteColor];
     [key makeKeyAndVisible];
     self.window = key;
-    
+    ///!!!!!!!!
     return YES;
 }
 
