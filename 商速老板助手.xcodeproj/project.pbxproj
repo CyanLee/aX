@@ -38,6 +38,7 @@
 		4D970A4E20994B6500D0BD14 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A4620994B6500D0BD14 /* AFURLRequestSerialization.m */; };
 		4D970A4F20994B6500D0BD14 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A4820994B6500D0BD14 /* AFURLResponseSerialization.m */; };
 		4D970A5020994B6500D0BD14 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A4A20994B6500D0BD14 /* AFURLSessionManager.m */; };
+		4D970A57209962E200D0BD14 /* NetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A56209962E200D0BD14 /* NetTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,8 @@
 		4D970A4820994B6500D0BD14 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		4D970A4920994B6500D0BD14 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4D970A4A20994B6500D0BD14 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		4D970A55209962E100D0BD14 /* NetTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetTools.h; sourceTree = "<group>"; };
+		4D970A56209962E200D0BD14 /* NetTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetTools.m; sourceTree = "<group>"; };
 		5D8926492099520A00C8A792 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -464,6 +467,8 @@
 		4D970A3C20994B6500D0BD14 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				4D970A55209962E100D0BD14 /* NetTools.h */,
+				4D970A56209962E200D0BD14 /* NetTools.m */,
 				5D8926492099520A00C8A792 /* AFNetworking.h */,
 				4D970A3D20994B6500D0BD14 /* AFCompatibilityMacros.h */,
 				4D970A3E20994B6500D0BD14 /* AFHTTPSessionManager.h */,
@@ -621,6 +626,7 @@
 				4D970A4D20994B6500D0BD14 /* AFSecurityPolicy.m in Sources */,
 				4D29B15D209174DD004C8324 /* MASViewAttribute.m in Sources */,
 				4D05D7FD2091793400CFD881 /* TabController.m in Sources */,
+				4D970A57209962E200D0BD14 /* NetTools.m in Sources */,
 				4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */,
 				4D05D81520917E4500CFD881 /* PromoteViewController.m in Sources */,
 				4D29B15B209174DD004C8324 /* MASConstraintMaker.m in Sources */,
@@ -797,8 +803,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UQMJ3SY2V6;
-				GCC_PREFIX_HEADER = "/Users/lizhaofeng/Desktop/aX/scoure/商速老板助手/商速老板助手/PrefixHeader.pch";
+				DEVELOPMENT_TEAM = K53NXL2T25;
+				GCC_PREFIX_HEADER = "/Users/zhaoning/Desktop/XX/aX/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
@@ -812,8 +818,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UQMJ3SY2V6;
-				GCC_PREFIX_HEADER = "/Users/lizhaofeng/Desktop/aX/scoure/商速老板助手/商速老板助手/PrefixHeader.pch";
+				DEVELOPMENT_TEAM = K53NXL2T25;
+				GCC_PREFIX_HEADER = "/Users/zhaoning/Desktop/XX/aX/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";

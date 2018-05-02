@@ -201,22 +201,18 @@
 
 - (void)loginDidClicked{
     DLog(@"%s",__func__);
-//    TabController *tab = [[TabController alloc]init];
-//    UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-//    key.rootViewController = tab;
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 15;
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
     [dic setObject:@"bkl1321809lmk" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
-    //http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do
-    [manager POST:ip parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        DLog(@"responseObject == %@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        DLog(@"error == %@",error);
+    [NetTools POST:ip parameters:dic success:^(id responseObject) {
+        TabController *tab = [[TabController alloc]init];
+        UIWindow *key = [[UIApplication sharedApplication] keyWindow];
+        key.rootViewController = tab;
+    } failure:^(NSString *errStr) {
+        DLog(@"errStr == %@",errStr);
     }];
 }
 

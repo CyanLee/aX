@@ -54,8 +54,8 @@
 #define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer]]
 
 #define ip @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do"
-
-#import "AFNetworking.h"
+#define notNet @"连接网络失败"
+#import "NetTools.h"
 //打印日志
 #define LOG_OPEN
 #ifdef LOG_OPEN
