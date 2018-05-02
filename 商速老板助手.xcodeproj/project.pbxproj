@@ -804,7 +804,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K53NXL2T25;
-				GCC_PREFIX_HEADER = "/Users/zhaoning/Desktop/XX/aX/商速老板助手/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
@@ -819,7 +819,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K53NXL2T25;
-				GCC_PREFIX_HEADER = "/Users/zhaoning/Desktop/XX/aX/商速老板助手/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
