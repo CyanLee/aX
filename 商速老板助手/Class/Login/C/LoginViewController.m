@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    //键盘动画
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didClickKeyboard:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didKboardDisappear:) name:UIKeyboardWillHideNotification object:nil];
