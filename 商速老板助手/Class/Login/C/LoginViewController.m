@@ -176,6 +176,7 @@
 
 - (void)forgetDidClicked{
     DLog(@"%s",__func__);
+    //斤斤计较军军军军军军军军
     ForgetViewController *forget = [[ForgetViewController alloc] init];
     [self.navigationController pushViewController:forget animated:true];
     
