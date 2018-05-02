@@ -10,6 +10,8 @@
 #import "ForgetViewController.h"
 #import "CoverView.h"
 #import "TabController.h"
+#import "HistoryViewController.h"
+
 @interface LoginViewController ()
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIView *logoView;
@@ -210,9 +212,14 @@
     [SVProgressHUD showWithStatus:@"正在登录"];
     [NetTools POST:ip parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];
-        TabController *tab = [[TabController alloc]init];
+//        TabController *tab = [[TabController alloc]init];
+//        UIWindow *key = [[UIApplication sharedApplication] keyWindow];
+//        key.rootViewController = tab;
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[HistoryViewController new]];
+        navi.navigationBarHidden = YES;
+        navi.navigationBar.shadowImage = [UIImage new];
         UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-        key.rootViewController = tab;
+                key.rootViewController = navi;
     } failure:^(NSString *errStr) {
         DLog(@"errStr == %@",errStr);
         [SVProgressHUD showErrorWithStatus:errStr];
