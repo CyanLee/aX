@@ -54,6 +54,7 @@
     cover.backgroundColor = [UIColor whiteColor];
     __weak typeof(self) ws = self;
     [self.cover setTouchBegin:^{
+        //x
         [ws.cover endEditing:true];
     }];
 }
