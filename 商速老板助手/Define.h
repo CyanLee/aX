@@ -49,6 +49,8 @@
 #define notNet @"连接网络失败"
 #import "NetTools.h"
 #import "SVProgressHUD.h"
+#import "MJExtension.h"
+
 
 //打印日志
 #define LOG_OPEN
