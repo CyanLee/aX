@@ -10,8 +10,12 @@
 
 @interface HistoryHeaderView : UIView
 
+//返回
+@property (nonatomic,strong) UIButton *backBtn;
 //改店标
-@property (nonatomic,strong) UIButton *headerBtn;
+@property (nonatomic,strong) UIImageView *headerView;
+//店名
+@property (nonatomic,strong) UILabel *titleLabel;
 //历史数据
 @property (nonatomic,strong) UIButton *historyBtn;
 //选择店铺
