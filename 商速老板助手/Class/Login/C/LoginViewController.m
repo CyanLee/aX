@@ -207,28 +207,21 @@
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
     [dic setObject:@"bkl1321809lmk" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
+    [SVProgressHUD showWithStatus:@"正在登录"];
     [NetTools POST:ip parameters:dic success:^(id responseObject) {
+        [SVProgressHUD dismiss];
         TabController *tab = [[TabController alloc]init];
         UIWindow *key = [[UIApplication sharedApplication] keyWindow];
         key.rootViewController = tab;
     } failure:^(NSString *errStr) {
         DLog(@"errStr == %@",errStr);
+        [SVProgressHUD showErrorWithStatus:errStr];
     }];
 }
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-
-
-
-
-
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning {
