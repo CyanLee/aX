@@ -57,7 +57,7 @@
         }];
         self.switchTime = switchTime;
         
-        CGFloat btnW = 80;
+        CGFloat btnW = kWidth == 320 ? 70 : 80;
         NSArray *arr = @[@"日",@"周",@"月",@"年"];
         CGFloat firstX = (kWidth-arr.count*btnW)/arr.count;
         for (int i = 0; i < arr.count; i++) {

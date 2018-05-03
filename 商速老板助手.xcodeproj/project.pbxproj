@@ -30,6 +30,7 @@
 		4D29B160209174DD004C8324 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B152209174DD004C8324 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B154209174DD004C8324 /* View+MASAdditions.m */; };
 		4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */; };
+		4D757449209AF15D00D6359A /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D757448209AF15D00D6359A /* InfoView.m */; };
 		4D7B90F420940C9500322767 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F320940C9500322767 /* ForgetViewController.m */; };
 		4D7B90F7209410DD00322767 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F6209410DD00322767 /* CoverView.m */; };
 		4D803B982092C08100A553DA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D803B972092C08100A553DA /* LoginViewController.m */; };
@@ -132,6 +133,8 @@
 		4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		4D29B16320917557004C8324 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		4D29B16420917659004C8324 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4D757447209AF15D00D6359A /* InfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InfoView.h; path = "商速老板助手/Tools/UIView/InfoView.h"; sourceTree = SOURCE_ROOT; };
+		4D757448209AF15D00D6359A /* InfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoView.m; path = "商速老板助手/Tools/UIView/InfoView.m"; sourceTree = SOURCE_ROOT; };
 		4D7B90F220940C9500322767 /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
 		4D7B90F320940C9500322767 /* ForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetViewController.m; sourceTree = "<group>"; };
 		4D7B90F5209410DD00322767 /* CoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoverView.h; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 		4D29B13120917460004C8324 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				4D757447209AF15D00D6359A /* InfoView.h */,
+				4D757448209AF15D00D6359A /* InfoView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -821,6 +826,7 @@
 				4D970A57209962E200D0BD14 /* NetTools.m in Sources */,
 				4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */,
 				4D970A882099A5E900D0BD14 /* NSObject+MJKeyValue.m in Sources */,
+				4D757449209AF15D00D6359A /* InfoView.m in Sources */,
 				4D05D81520917E4500CFD881 /* PromoteViewController.m in Sources */,
 				4D29B15B209174DD004C8324 /* MASConstraintMaker.m in Sources */,
 				4D29B160209174DD004C8324 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

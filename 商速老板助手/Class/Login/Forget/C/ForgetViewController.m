@@ -234,8 +234,10 @@
         [SVProgressHUD showErrorWithStatus:@"请确认新密码"];
         return;
     }
-    
-    [self.navigationController popViewControllerAnimated:true];
+    TabController *tab = [[TabController alloc]init];
+    UIWindow *key = [[UIApplication sharedApplication] keyWindow];
+    key.rootViewController = tab;
+   // [self.navigationController popViewControllerAnimated:true];
 }
 
 - (void)didClickKeyboard:(NSNotification *)noti{
