@@ -13,6 +13,11 @@
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIView *tfView;
 @property (nonatomic,weak)UIButton *confirmBtn;
+@property (nonatomic,weak)UIButton *getCode;
+@property (nonatomic,weak)UITextField *phoneTf;
+@property (nonatomic,weak)UITextField *codeTf;
+@property (nonatomic,weak)UITextField *pwsTf;
+@property (nonatomic,weak)UITextField *againTf;
 @end
 
 @implementation ForgetViewController
@@ -72,6 +77,9 @@
     phoneTf.placeholder = @"请输入手机号码";
     phoneTf.textAlignment = 0;
     phoneTf.font = [UIFont systemFontOfSize:13];
+    phoneTf.keyboardType = UIKeyboardTypeNumberPad;
+    self.phoneTf = phoneTf;
+    
     
     //<
     UILabel *code = [[UILabel alloc]init];
@@ -95,6 +103,23 @@
     codeTf.placeholder = @"请输入验证码";
     codeTf.textAlignment = 0;
     codeTf.font = [UIFont systemFontOfSize:13];
+    codeTf.keyboardType = UIKeyboardTypeNumberPad;
+    self.codeTf = codeTf;
+    
+    UIButton *getCode = [[UIButton alloc]init];
+    [self.tfView addSubview:getCode];
+    [getCode mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(codeTf);
+        make.right.equalTo(self.tfView).mas_offset(-20);
+        make.height.mas_equalTo(30);
+        make.width.mas_equalTo(80);
+    }];
+    [getCode setTitle:@"获取验证码" forState:0];
+    getCode.titleLabel.font = [UIFont systemFontOfSize:10];
+    getCode.backgroundColor = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1];
+    [getCode setTitleColor:[UIColor whiteColor] forState:0];
+    [getCode addTarget:self action:@selector(getCodeDidClicked) forControlEvents:1<<6];
+    self.getCode = getCode;
     
     //<
     UILabel *pws = [[UILabel alloc]init];
@@ -118,7 +143,8 @@
     pwsTf.placeholder = @"请输入新密码";
     pwsTf.textAlignment = 0;
     pwsTf.font = [UIFont systemFontOfSize:13];
-    
+    pwsTf.keyboardType = UIKeyboardTypeNumberPad;
+    self.pwsTf = pwsTf;
     
     //<
     UILabel *pwsAgain = [[UILabel alloc]init];
@@ -142,6 +168,8 @@
     againTf.placeholder = @"请确认新密码";
     againTf.textAlignment = 0;
     againTf.font = [UIFont systemFontOfSize:13];
+    againTf.keyboardType = UIKeyboardTypeNumberPad;
+    self.againTf = againTf;
     
     //<
     UIButton *btn = [[UIButton alloc]init];
@@ -161,11 +189,53 @@
     self.confirmBtn = btn;
 }
 
+- (void)getCodeDidClicked{
+    DLog(@"%s",__func__);
+    NSString *phone = self.phoneTf.text;
+    if (phone.length == 0 || [phone isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        return;
+    }
+    NSString *url = @"http://www.shopspeed.cn:80/shopspeed_points/SMSDeal/GetIdentCode.do";
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"13106762742" forKey:@"TelNo"];
+    [dic setObject:@"86" forKey:@"AreaCode"];
+    [NetTools POST:url parameters:dic success:^(id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"验证码已发送"];
+        DLog(@"responseObject == %@",responseObject);
+    } failure:^(NSString *errStr) {
+        [SVProgressHUD showErrorWithStatus:errStr];
+    }];
+}
+
 - (void)confirmBtnDidClicked{
     DLog(@"%s",__func__);
-    TabController *tab = [[TabController alloc]init];
-    UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-    key.rootViewController = tab;
+    
+    NSString *phone = self.phoneTf.text;
+    if (phone.length == 0 || [phone isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        return;
+    }
+    
+    NSString *code = self.codeTf.text;
+    if (code.length == 0 || [code isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入验证码"];
+        return;
+    }
+    
+    NSString *pws = self.pwsTf.text;
+    if (pws.length == 0 || [pws isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入新密码"];
+        return;
+    }
+    
+    NSString *pwsAgain = self.againTf.text;
+    if (pwsAgain.length == 0 || [pwsAgain isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请确认新密码"];
+        return;
+    }
+    
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 - (void)didClickKeyboard:(NSNotification *)noti{

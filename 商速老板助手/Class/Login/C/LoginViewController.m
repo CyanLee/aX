@@ -19,6 +19,9 @@
 @property (nonatomic,weak)UIView *pswView;
 @property (nonatomic,weak)UIButton *forgetBtn;
 @property (nonatomic,weak)UIButton *loginBtn;
+
+@property (nonatomic,weak)UITextField *nameTF;
+@property (nonatomic,weak)UITextField *pwsTF;
 @end
 
 @implementation LoginViewController
@@ -125,6 +128,7 @@
     }];
     tf.placeholder = @" 请输入用户名";
     tf.textAlignment = 0;
+    self.nameTF = tf;
 }
 
 - (void)setupPswView{
@@ -158,6 +162,7 @@
     }];
     tf.placeholder = @" 请输入密码";
     tf.textAlignment = 0;
+    self.pwsTF = tf;
 }
 
 - (void)setupForgetBtn{
@@ -204,7 +209,18 @@
 - (void)loginDidClicked{
     DLog(@"%s",__func__);
     
-    //!!!!!
+    NSString *name = self.nameTF.text;
+    if (name.length == 0 || [name isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *pws = self.pwsTF.text;
+    if (pws.length == 0 || [pws isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+        return;
+    }
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
     [dic setObject:@"bkl1321809lmk" forKey:@"userPwd"];
