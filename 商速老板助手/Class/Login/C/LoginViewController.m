@@ -14,7 +14,9 @@
 
 @interface LoginViewController ()
 @property (nonatomic,weak)CoverView *cover;
-@property (nonatomic,weak)UIView *logoView;
+@property (nonatomic,weak)UIImageView *logoView;
+@property (nonatomic,weak)UILabel *duoLabel;
+@property (nonatomic,weak)UILabel *bossLabel;
 @property (nonatomic,weak)UIView *nameView;
 @property (nonatomic,weak)UIView *pswView;
 @property (nonatomic,weak)UIButton *forgetBtn;
@@ -39,6 +41,8 @@
     [self setupCover];
     
     [self setupLogoView];
+    
+    [self setupLabel];
     
     [self setupNameView];
     
@@ -85,16 +89,41 @@
     [self.view layoutIfNeeded];
 }
 - (void)setupLogoView{
-    UIView *logo = [[UIView alloc] init];
+    UIImageView *logo = [[UIImageView alloc] init];
     [self.cover addSubview:logo];
-    logo.backgroundColor = DefineRedColor;
     [logo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.cover);
-        make.width.mas_equalTo(120);
+        make.width.mas_equalTo(80);
         make.top.mas_equalTo(68);
-        make.height.mas_equalTo(160);
+        make.height.mas_equalTo(120);
     }];
+    logo.image = [UIImage imageNamed:@"老板助手"];
     self.logoView = logo;
+}
+
+- (void)setupLabel{
+    UILabel *duo = [[UILabel alloc] init];
+    [self.cover addSubview:duo];
+    [duo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.cover);
+        make.top.mas_equalTo(self.logoView.mas_bottom).offset(15);
+    }];
+    duo.text = @"收多多";
+    duo.font = [UIFont systemFontOfSize:19.0f];
+    duo.textColor = DefineRedColor;
+    self.duoLabel = duo;
+    
+    UILabel *boss = [[UILabel alloc] init];
+    [self.cover addSubview:boss];
+    [boss mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.cover);
+        make.top.mas_equalTo(self.duoLabel.mas_bottom).offset(15);
+    }];
+    boss.text = @"老板助手";
+    boss.font = [UIFont systemFontOfSize:25.0f];
+    boss.textColor = DefineRedColor;
+    self.bossLabel = boss;
+    
 }
 
 - (void)setupNameView{
@@ -103,7 +132,7 @@
     [name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(8);
         make.right.mas_equalTo(-8);
-        make.top.equalTo(self.logoView.mas_bottom).mas_offset(30);
+        make.top.equalTo(self.bossLabel.mas_bottom).mas_offset(30);
         make.height.mas_equalTo(44);
     }];
     self.nameView = name;
@@ -113,10 +142,11 @@
     [tip mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(5);
         make.centerY.equalTo(self.nameView);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(20);
         make.height.mas_equalTo(30);
     }];
-    tip.backgroundColor = DefineRedColor;
+//    tip.backgroundColor = DefineRedColor;
+    tip.image = [UIImage imageNamed:@"20180503老板助手手机"];
     
     UITextField *tf = [[UITextField alloc]init];
     [self.nameView addSubview:tf];
@@ -147,10 +177,11 @@
     [tip mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(5);
         make.centerY.equalTo(self.pswView);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(20);
         make.height.mas_equalTo(30);
     }];
-    tip.backgroundColor = DefineRedColor;
+//    tip.backgroundColor = DefineRedColor;
+    tip.image = [UIImage imageNamed:@"20180503老板助手锁"];
     
     UITextField *tf = [[UITextField alloc]init];
     [self.pswView addSubview:tf];
@@ -209,6 +240,7 @@
 - (void)loginDidClicked{
     DLog(@"%s",__func__);
     
+    /*
     NSString *name = self.nameTF.text;
     if (name.length == 0 || [name isEqualToString:@""]){
         [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
@@ -220,6 +252,7 @@
         [SVProgressHUD showErrorWithStatus:@"请输入密码"];
         return;
     }
+     */
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];

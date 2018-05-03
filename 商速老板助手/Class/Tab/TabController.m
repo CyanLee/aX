@@ -58,7 +58,6 @@
             make.bottom.mas_offset(btnBottom);
             make.left.mas_offset(firstX + (btnW + margin) * i);
         }];
-        btn.backgroundColor = [UIColor redColor];
         btn.tag = i;
         [btn addTarget:self action:@selector(btnDidClicked:) forControlEvents:UIControlEventTouchDown];
         [self.btns addObject:btn];
@@ -72,14 +71,17 @@
 - (void)setupSubViewControllers{
     MineViewController *mine = [[MineViewController alloc] init];
     mine.title = @"我";
+    mine.tabBarItem.image = [UIImage imageNamed:@"home_normal"];
     NavViewController *mineNav = [[NavViewController alloc] initWithRootViewController:mine];
     
     HomeViewController *home = [[HomeViewController alloc] init];
     home.title = @"主页";
+    home.tabBarItem.image = [UIImage imageNamed:@"老板助手首页50X50"];
     NavViewController *homeNav = [[NavViewController alloc] initWithRootViewController:home];
     
     PromoteViewController *promote = [[PromoteViewController alloc] init];
     promote.title = @"推广";
+    promote.tabBarItem.image = [UIImage imageNamed:@"老板助手推广50X50"];
     NavViewController *promoteNav = [[NavViewController alloc] initWithRootViewController:promote];
     
     self.viewControllers = @[homeNav,promoteNav,mineNav];

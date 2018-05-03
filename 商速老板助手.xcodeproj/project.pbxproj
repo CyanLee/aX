@@ -8,6 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		342984922099FB5B00341EAC /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984902099FB5B00341EAC /* TimeView.m */; };
+		342984A7209B501700341EAC /* 20180503老板助手历史数据.png in Resources */ = {isa = PBXBuildFile; fileRef = 34298494209B501700341EAC /* 20180503老板助手历史数据.png */; };
+		342984A8209B501700341EAC /* 20180503老板助手历史数据2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34298495209B501700341EAC /* 20180503老板助手历史数据2.png */; };
+		342984A9209B501700341EAC /* 20180503老板助手开机界面.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 34298496209B501700341EAC /* 20180503老板助手开机界面.PNG */; };
+		342984AA209B501700341EAC /* 20180503老板助手开机界面EN.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 34298497209B501700341EAC /* 20180503老板助手开机界面EN.PNG */; };
+		342984AB209B501700341EAC /* 20180503老板助手手机.png in Resources */ = {isa = PBXBuildFile; fileRef = 34298498209B501700341EAC /* 20180503老板助手手机.png */; };
+		342984AC209B501700341EAC /* 20180503老板助手手机2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34298499209B501700341EAC /* 20180503老板助手手机2.png */; };
+		342984AD209B501700341EAC /* 20180503老板助手语言.png in Resources */ = {isa = PBXBuildFile; fileRef = 3429849A209B501700341EAC /* 20180503老板助手语言.png */; };
+		342984AE209B501700341EAC /* 20180503老板助手语言2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3429849B209B501700341EAC /* 20180503老板助手语言2.png */; };
+		342984AF209B501700341EAC /* 20180503老板助手锁.png in Resources */ = {isa = PBXBuildFile; fileRef = 3429849C209B501700341EAC /* 20180503老板助手锁.png */; };
+		342984B0209B501700341EAC /* 20180503老板助手锁2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3429849D209B501700341EAC /* 20180503老板助手锁2.png */; };
+		342984B1209B501700341EAC /* 老板助手.png in Resources */ = {isa = PBXBuildFile; fileRef = 3429849E209B501700341EAC /* 老板助手.png */; };
+		342984B2209B501700341EAC /* 老板助手50X65@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 3429849F209B501700341EAC /* 老板助手50X65@2x.PNG */; };
+		342984B3209B501700341EAC /* 老板助手三角.png in Resources */ = {isa = PBXBuildFile; fileRef = 342984A0209B501700341EAC /* 老板助手三角.png */; };
+		342984B4209B501700341EAC /* 老板助手三角2.png in Resources */ = {isa = PBXBuildFile; fileRef = 342984A1209B501700341EAC /* 老板助手三角2.png */; };
+		342984B5209B501700341EAC /* 老板助手我75x90.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 342984A2209B501700341EAC /* 老板助手我75x90.PNG */; };
+		342984B6209B501700341EAC /* 老板助手推广50X50@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 342984A3209B501700341EAC /* 老板助手推广50X50@2x.PNG */; };
+		342984B7209B501700341EAC /* 老板助手推广75X75.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 342984A4209B501700341EAC /* 老板助手推广75X75.PNG */; };
+		342984B8209B501700341EAC /* 老板助手首页50X50@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 342984A5209B501700341EAC /* 老板助手首页50X50@2x.PNG */; };
+		342984B9209B501700341EAC /* 老板助手首页75X75.png in Resources */ = {isa = PBXBuildFile; fileRef = 342984A6209B501700341EAC /* 老板助手首页75X75.png */; };
+		342984BB209B588100341EAC /* home_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342984BA209B588100341EAC /* home_normal@2x.png */; };
+		342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984BD209B5FDE00341EAC /* HistoryCell.m */; };
+		342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C0209B667000341EAC /* HistoryPartitionView.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -82,6 +104,30 @@
 /* Begin PBXFileReference section */
 		342984902099FB5B00341EAC /* TimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
 		342984912099FB5B00341EAC /* TimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
+		34298494209B501700341EAC /* 20180503老板助手历史数据.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手历史数据.png"; sourceTree = "<group>"; };
+		34298495209B501700341EAC /* 20180503老板助手历史数据2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手历史数据2.png"; sourceTree = "<group>"; };
+		34298496209B501700341EAC /* 20180503老板助手开机界面.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手开机界面.PNG"; sourceTree = "<group>"; };
+		34298497209B501700341EAC /* 20180503老板助手开机界面EN.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手开机界面EN.PNG"; sourceTree = "<group>"; };
+		34298498209B501700341EAC /* 20180503老板助手手机.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手手机.png"; sourceTree = "<group>"; };
+		34298499209B501700341EAC /* 20180503老板助手手机2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手手机2.png"; sourceTree = "<group>"; };
+		3429849A209B501700341EAC /* 20180503老板助手语言.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手语言.png"; sourceTree = "<group>"; };
+		3429849B209B501700341EAC /* 20180503老板助手语言2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手语言2.png"; sourceTree = "<group>"; };
+		3429849C209B501700341EAC /* 20180503老板助手锁.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手锁.png"; sourceTree = "<group>"; };
+		3429849D209B501700341EAC /* 20180503老板助手锁2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20180503老板助手锁2.png"; sourceTree = "<group>"; };
+		3429849E209B501700341EAC /* 老板助手.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手.png"; sourceTree = "<group>"; };
+		3429849F209B501700341EAC /* 老板助手50X65@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手50X65@2x.PNG"; sourceTree = "<group>"; };
+		342984A0209B501700341EAC /* 老板助手三角.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手三角.png"; sourceTree = "<group>"; };
+		342984A1209B501700341EAC /* 老板助手三角2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手三角2.png"; sourceTree = "<group>"; };
+		342984A2209B501700341EAC /* 老板助手我75x90.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手我75x90.PNG"; sourceTree = "<group>"; };
+		342984A3209B501700341EAC /* 老板助手推广50X50@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手推广50X50@2x.PNG"; sourceTree = "<group>"; };
+		342984A4209B501700341EAC /* 老板助手推广75X75.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手推广75X75.PNG"; sourceTree = "<group>"; };
+		342984A5209B501700341EAC /* 老板助手首页50X50@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手首页50X50@2x.PNG"; sourceTree = "<group>"; };
+		342984A6209B501700341EAC /* 老板助手首页75X75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "老板助手首页75X75.png"; sourceTree = "<group>"; };
+		342984BA209B588100341EAC /* home_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_normal@2x.png"; sourceTree = "<group>"; };
+		342984BC209B5FDE00341EAC /* HistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
+		342984BD209B5FDE00341EAC /* HistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
+		342984BF209B667000341EAC /* HistoryPartitionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPartitionView.h; sourceTree = "<group>"; };
+		342984C0209B667000341EAC /* HistoryPartitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPartitionView.m; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -257,6 +303,33 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		34298493209B501700341EAC /* img */ = {
+			isa = PBXGroup;
+			children = (
+				342984BA209B588100341EAC /* home_normal@2x.png */,
+				34298494209B501700341EAC /* 20180503老板助手历史数据.png */,
+				34298495209B501700341EAC /* 20180503老板助手历史数据2.png */,
+				34298496209B501700341EAC /* 20180503老板助手开机界面.PNG */,
+				34298497209B501700341EAC /* 20180503老板助手开机界面EN.PNG */,
+				34298498209B501700341EAC /* 20180503老板助手手机.png */,
+				34298499209B501700341EAC /* 20180503老板助手手机2.png */,
+				3429849A209B501700341EAC /* 20180503老板助手语言.png */,
+				3429849B209B501700341EAC /* 20180503老板助手语言2.png */,
+				3429849C209B501700341EAC /* 20180503老板助手锁.png */,
+				3429849D209B501700341EAC /* 20180503老板助手锁2.png */,
+				3429849E209B501700341EAC /* 老板助手.png */,
+				3429849F209B501700341EAC /* 老板助手50X65@2x.PNG */,
+				342984A0209B501700341EAC /* 老板助手三角.png */,
+				342984A1209B501700341EAC /* 老板助手三角2.png */,
+				342984A2209B501700341EAC /* 老板助手我75x90.PNG */,
+				342984A3209B501700341EAC /* 老板助手推广50X50@2x.PNG */,
+				342984A4209B501700341EAC /* 老板助手推广75X75.PNG */,
+				342984A5209B501700341EAC /* 老板助手首页50X50@2x.PNG */,
+				342984A6209B501700341EAC /* 老板助手首页75X75.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		4D29B0EE209172AB004C8324 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +396,7 @@
 		4D29B12D20917460004C8324 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				34298493209B501700341EAC /* img */,
 				3429848C2099FB4500341EAC /* Sales */,
 				5D8926542099B05C00C8A792 /* History */,
 				4D803B922092C07300A553DA /* Login */,
@@ -679,6 +753,10 @@
 			children = (
 				5D89265A2099B05C00C8A792 /* HistoryHeaderView.h */,
 				5D89265B2099B05C00C8A792 /* HistoryHeaderView.m */,
+				342984BC209B5FDE00341EAC /* HistoryCell.h */,
+				342984BD209B5FDE00341EAC /* HistoryCell.m */,
+				342984BF209B667000341EAC /* HistoryPartitionView.h */,
+				342984C0209B667000341EAC /* HistoryPartitionView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -789,9 +867,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342984BB209B588100341EAC /* home_normal@2x.png in Resources */,
+				342984B3209B501700341EAC /* 老板助手三角.png in Resources */,
+				342984AC209B501700341EAC /* 20180503老板助手手机2.png in Resources */,
+				342984B7209B501700341EAC /* 老板助手推广75X75.PNG in Resources */,
+				342984B0209B501700341EAC /* 20180503老板助手锁2.png in Resources */,
 				4D29B107209172AC004C8324 /* LaunchScreen.storyboard in Resources */,
 				4D29B104209172AC004C8324 /* Assets.xcassets in Resources */,
+				342984A7209B501700341EAC /* 20180503老板助手历史数据.png in Resources */,
+				342984AA209B501700341EAC /* 20180503老板助手开机界面EN.PNG in Resources */,
+				342984A8209B501700341EAC /* 20180503老板助手历史数据2.png in Resources */,
+				342984AF209B501700341EAC /* 20180503老板助手锁.png in Resources */,
+				342984AB209B501700341EAC /* 20180503老板助手手机.png in Resources */,
+				342984B5209B501700341EAC /* 老板助手我75x90.PNG in Resources */,
+				342984B1209B501700341EAC /* 老板助手.png in Resources */,
 				4D29B158209174DD004C8324 /* Info.plist in Resources */,
+				342984AE209B501700341EAC /* 20180503老板助手语言2.png in Resources */,
+				342984B4209B501700341EAC /* 老板助手三角2.png in Resources */,
+				342984B6209B501700341EAC /* 老板助手推广50X50@2x.PNG in Resources */,
+				342984B2209B501700341EAC /* 老板助手50X65@2x.PNG in Resources */,
+				342984AD209B501700341EAC /* 20180503老板助手语言.png in Resources */,
+				342984B8209B501700341EAC /* 老板助手首页50X50@2x.PNG in Resources */,
+				342984A9209B501700341EAC /* 20180503老板助手开机界面.PNG in Resources */,
+				342984B9209B501700341EAC /* 老板助手首页75X75.png in Resources */,
 				4D970A652099955C00D0BD14 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,6 +917,7 @@
 			files = (
 				4D7B90F7209410DD00322767 /* CoverView.m in Sources */,
 				4D29B15A209174DD004C8324 /* MASConstraint.m in Sources */,
+				342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */,
 				4D970A4D20994B6500D0BD14 /* AFSecurityPolicy.m in Sources */,
 				4D29B15D209174DD004C8324 /* MASViewAttribute.m in Sources */,
 				4D05D7FD2091793400CFD881 /* TabController.m in Sources */,
@@ -859,6 +958,7 @@
 				4D29B0FC209172AC004C8324 /* AppDelegate.m in Sources */,
 				4D970A842099A5E900D0BD14 /* MJPropertyKey.m in Sources */,
 				4D970A862099A5E900D0BD14 /* NSObject+MJClass.m in Sources */,
+				342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */,
 				4D970A672099955C00D0BD14 /* SVRadialGradientLayer.m in Sources */,
 				4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */,
 				4D970A4C20994B6500D0BD14 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1019,9 +1119,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K53NXL2T25;
+				DEVELOPMENT_TEAM = LQ2PU59T8R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1034,9 +1135,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K53NXL2T25;
+				DEVELOPMENT_TEAM = LQ2PU59T8R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
 				PRODUCT_NAME = "$(TARGET_NAME)";

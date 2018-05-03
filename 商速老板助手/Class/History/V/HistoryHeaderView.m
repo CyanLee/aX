@@ -30,7 +30,7 @@
         [self addSubview:_backBtn];
         [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
-            make.left.mas_equalTo(self).offset(25);
+            make.left.mas_equalTo(self).offset(15);
             make.height.mas_equalTo(30);
             make.width.mas_equalTo(30);
         }];
@@ -45,7 +45,7 @@
         [self addSubview:_headerView];
         [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
-            make.left.mas_equalTo(self.backBtn.mas_right).offset(15);
+            make.left.mas_equalTo(self.backBtn.mas_right).offset(8);
             make.height.mas_equalTo(40);
             make.width.mas_equalTo(40);
         }];
@@ -64,7 +64,7 @@
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
-            make.left.mas_equalTo(self.headerView.mas_right).offset(5);
+            make.left.mas_equalTo(self.headerView.mas_right).offset(3);
 //            make.height.mas_equalTo(40);
 //            make.width.mas_equalTo(40);
         }];
@@ -124,7 +124,7 @@
         [self addSubview:_languageBtn];
         [_languageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
-            make.right.mas_equalTo(self).offset(-25);
+            make.right.mas_equalTo(self).offset(-15);
             make.height.mas_equalTo(40);
             make.width.mas_equalTo(40);
         }];
