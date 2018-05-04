@@ -12,6 +12,8 @@
 #import "ReportViewController.h"
 #import "HistoryViewController.h"
 #import "LanguageViewController.h"
+#import "SalesViewController.h"
+
 @interface HomeViewController ()
 
 @property (nonatomic,weak)UIView *headerView;
@@ -158,9 +160,14 @@
 }
 
 - (void)jump2Report{
+    /*
     ReportViewController *report = [[ReportViewController alloc] init];
     report.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:report animated:true];
+     */
+    SalesViewController *sales = [[SalesViewController alloc] init];
+//    sales.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:sales animated:true];
 }
 
 - (void)jump2History{

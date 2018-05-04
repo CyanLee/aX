@@ -31,6 +31,11 @@
 		342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984BD209B5FDE00341EAC /* HistoryCell.m */; };
 		342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C0209B667000341EAC /* HistoryPartitionView.m */; };
 		342984C4209BFBE200341EAC /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C3209BFBE200341EAC /* HistoryModel.m */; };
+		342984C7209C3FCD00341EAC /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C6209C3FCD00341EAC /* SalesViewController.m */; };
+		342984CA209C3FE300341EAC /* SalesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C9209C3FE300341EAC /* SalesHeaderView.m */; };
+		342984D0209C7ADC00341EAC /* SalesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984CF209C7ADC00341EAC /* SalesCell.m */; };
+		342984D3209C986F00341EAC /* SalesDivisionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984D2209C986F00341EAC /* SalesDivisionHeadView.m */; };
+		342984D6209CA0A100341EAC /* SalesDivisionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984D5209CA0A100341EAC /* SalesDivisionFootView.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -133,6 +138,16 @@
 		342984C0209B667000341EAC /* HistoryPartitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPartitionView.m; sourceTree = "<group>"; };
 		342984C2209BFBE200341EAC /* HistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HistoryModel.h; path = "商速老板助手/Class/History/V/HistoryModel.h"; sourceTree = SOURCE_ROOT; };
 		342984C3209BFBE200341EAC /* HistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HistoryModel.m; path = "商速老板助手/Class/History/V/HistoryModel.m"; sourceTree = SOURCE_ROOT; };
+		342984C5209C3FCD00341EAC /* SalesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesViewController.h; sourceTree = "<group>"; };
+		342984C6209C3FCD00341EAC /* SalesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesViewController.m; sourceTree = "<group>"; };
+		342984C8209C3FE300341EAC /* SalesHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesHeaderView.h; sourceTree = "<group>"; };
+		342984C9209C3FE300341EAC /* SalesHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesHeaderView.m; sourceTree = "<group>"; };
+		342984CE209C7ADC00341EAC /* SalesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesCell.h; sourceTree = "<group>"; };
+		342984CF209C7ADC00341EAC /* SalesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesCell.m; sourceTree = "<group>"; };
+		342984D1209C986F00341EAC /* SalesDivisionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesDivisionHeadView.h; sourceTree = "<group>"; };
+		342984D2209C986F00341EAC /* SalesDivisionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesDivisionHeadView.m; sourceTree = "<group>"; };
+		342984D4209CA0A100341EAC /* SalesDivisionFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesDivisionFootView.h; sourceTree = "<group>"; };
+		342984D5209CA0A100341EAC /* SalesDivisionFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesDivisionFootView.m; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -292,6 +307,8 @@
 		3429848D2099FB4500341EAC /* C */ = {
 			isa = PBXGroup;
 			children = (
+				342984C5209C3FCD00341EAC /* SalesViewController.h */,
+				342984C6209C3FCD00341EAC /* SalesViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -308,6 +325,14 @@
 			children = (
 				342984912099FB5B00341EAC /* TimeView.h */,
 				342984902099FB5B00341EAC /* TimeView.m */,
+				342984C8209C3FE300341EAC /* SalesHeaderView.h */,
+				342984C9209C3FE300341EAC /* SalesHeaderView.m */,
+				342984CE209C7ADC00341EAC /* SalesCell.h */,
+				342984CF209C7ADC00341EAC /* SalesCell.m */,
+				342984D1209C986F00341EAC /* SalesDivisionHeadView.h */,
+				342984D2209C986F00341EAC /* SalesDivisionHeadView.m */,
+				342984D4209CA0A100341EAC /* SalesDivisionFootView.h */,
+				342984D5209CA0A100341EAC /* SalesDivisionFootView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1001,9 +1026,12 @@
 				4D970A4D20994B6500D0BD14 /* AFSecurityPolicy.m in Sources */,
 				4D29B15D209174DD004C8324 /* MASViewAttribute.m in Sources */,
 				4D05D7FD2091793400CFD881 /* TabController.m in Sources */,
+				342984D0209C7ADC00341EAC /* SalesCell.m in Sources */,
+				342984C7209C3FCD00341EAC /* SalesViewController.m in Sources */,
 				4D970A642099955C00D0BD14 /* SVProgressAnimatedView.m in Sources */,
 				4D970A57209962E200D0BD14 /* NetTools.m in Sources */,
 				4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */,
+				342984D3209C986F00341EAC /* SalesDivisionHeadView.m in Sources */,
 				4D970A882099A5E900D0BD14 /* NSObject+MJKeyValue.m in Sources */,
 				4D757449209AF15D00D6359A /* InfoView.m in Sources */,
 				4D05D81520917E4500CFD881 /* PromoteViewController.m in Sources */,
@@ -1015,6 +1043,7 @@
 				5D89265C2099B05C00C8A792 /* HistoryViewController.m in Sources */,
 				4D970A5020994B6500D0BD14 /* AFURLSessionManager.m in Sources */,
 				4D29B159209174DD004C8324 /* MASCompositeConstraint.m in Sources */,
+				342984CA209C3FE300341EAC /* SalesHeaderView.m in Sources */,
 				4D970A852099A5E900D0BD14 /* MJPropertyType.m in Sources */,
 				4D970A802099A5E900D0BD14 /* MJDictionaryCache.m in Sources */,
 				4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */,
@@ -1044,6 +1073,7 @@
 				4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */,
 				342984C4209BFBE200341EAC /* HistoryModel.m in Sources */,
 				4D970A4C20994B6500D0BD14 /* AFNetworkReachabilityManager.m in Sources */,
+				342984D6209CA0A100341EAC /* SalesDivisionFootView.m in Sources */,
 				4D29B15E209174DD004C8324 /* MASViewConstraint.m in Sources */,
 				4D970A822099A5E900D0BD14 /* MJFoundation.m in Sources */,
 			);

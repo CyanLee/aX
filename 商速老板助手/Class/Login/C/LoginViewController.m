@@ -11,6 +11,7 @@
 #import "CoverView.h"
 #import "TabController.h"
 #import "HistoryViewController.h"
+#import "SalesViewController.h"
 
 @interface LoginViewController ()
 @property (nonatomic,weak)CoverView *cover;

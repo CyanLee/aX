@@ -34,6 +34,7 @@
             make.height.mas_equalTo(30);
             make.width.mas_equalTo(30);
         }];
+        [_backBtn addTarget:self action:@selector(clickBack:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backBtn;
 }
@@ -60,7 +61,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.text = @"改店标";
-        _titleLabel.font = [UIFont systemFontOfSize:12.f];
+        _titleLabel.font = [UIFont systemFontOfSize:14.f];
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
@@ -83,7 +84,7 @@
         [_historyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
             make.top.mas_equalTo(22);
-            make.height.mas_equalTo(30);
+            make.height.mas_equalTo(35);
             make.width.mas_equalTo(100);
         }];
         _historyBtn.layer.cornerRadius = 13;
@@ -102,8 +103,8 @@
         [self addSubview:_chooseBtn];
         [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
-            make.bottom.mas_equalTo(-10);
-            make.height.mas_equalTo(30);
+            make.bottom.mas_equalTo(-20);
+            make.height.mas_equalTo(35);
             make.width.mas_equalTo(100);
         }];
         _chooseBtn.layer.cornerRadius = 5;
@@ -134,14 +135,10 @@
     return _languageBtn;
 }
 
-//- (void)setupHeaderView{
-//    UIView *headerView = [[UIView alloc]init];
-//    headerView.backgroundColor = DefineRedColor;
-//    [self addSubview:headerView];
-//    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.equalTo(self);
-//        make.height.mas_equalTo(468.0/2937.0*kHeight);
-//    }];
-//}
+-(void)clickBack:(UIButton *)sender{
+    if (self.backBlock) {
+        self.backBlock();
+    }
+}
 
 @end

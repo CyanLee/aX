@@ -23,4 +23,6 @@
 //语言
 @property (nonatomic,strong) UIButton *languageBtn;
 
+@property(nonatomic,copy)void(^backBlock)(void);
+
 @end

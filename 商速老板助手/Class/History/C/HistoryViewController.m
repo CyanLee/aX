@@ -44,8 +44,11 @@
 }
 
 -(void)setHeaderView{
-    HistoryHeaderView *headerView = [[HistoryHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 468.0/2937.0*kHeight)];
+    HistoryHeaderView *headerView = [[HistoryHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 488.0/2937.0*kHeight)];
     [self.view addSubview:headerView];
+    headerView.backBlock = ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    };
 }
 
 -(void)setTableView{
