@@ -9,6 +9,9 @@
 #import "HomeViewController.h"
 #import "TimeView.h"
 #import "InfoView.h"
+#import "ReportViewController.h"
+#import "HistoryViewController.h"
+#import "LanguageViewController.h"
 @interface HomeViewController ()
 
 @property (nonatomic,weak)UIView *headerView;
@@ -125,6 +128,9 @@
 
 - (void)languageBtnDidClicked{
     DLog(@"%s",__func__);
+    LanguageViewController *language = [[LanguageViewController alloc] init];
+    language.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:language animated:true];
 }
 
 - (void)storeBtnDidClicked{
@@ -142,6 +148,25 @@
         make.bottom.equalTo(self.timeView.mas_top);
     }];
     self.infoView = info;
+    __weak typeof(self) ws = self;
+    [self.infoView setReportBtnBlock:^{
+        [ws jump2Report];
+    }];
+    [self.infoView setHistoryBtnBlock:^{
+        [ws jump2History];
+    }];
+}
+
+- (void)jump2Report{
+    ReportViewController *report = [[ReportViewController alloc] init];
+    report.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:report animated:true];
+}
+
+- (void)jump2History{
+    HistoryViewController *history = [[HistoryViewController alloc] init];
+    history.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:history animated:true];
 }
 #pragma mark
 #pragma mark -- bottom

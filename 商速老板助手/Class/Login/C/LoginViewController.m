@@ -250,8 +250,8 @@
     NSString *pws = self.pwsTF.text;
     if (pws.length == 0 || [pws isEqualToString:@""]){
         [SVProgressHUD showErrorWithStatus:@"请输入密码"];
-        return;
-    }
+     return;
+     }
      */
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -261,14 +261,14 @@
     [SVProgressHUD showWithStatus:@"正在登录"];
     [NetTools POST:ip parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];
-//        TabController *tab = [[TabController alloc]init];
+                TabController *tab = [[TabController alloc]init];
+                UIWindow *key = [[UIApplication sharedApplication] keyWindow];
+                key.rootViewController = tab;
+//        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[HistoryViewController new]];
+//        navi.navigationBarHidden = YES;
+//        navi.navigationBar.shadowImage = [UIImage new];
 //        UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-//        key.rootViewController = tab;
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[HistoryViewController new]];
-        navi.navigationBarHidden = YES;
-        navi.navigationBar.shadowImage = [UIImage new];
-        UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-                key.rootViewController = navi;
+//        key.rootViewController = navi;
     } failure:^(NSString *errStr) {
         DLog(@"errStr == %@",errStr);
         [SVProgressHUD showErrorWithStatus:errStr];
