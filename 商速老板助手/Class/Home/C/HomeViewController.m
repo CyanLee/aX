@@ -14,6 +14,8 @@
 #import "LanguageViewController.h"
 #import "SalesViewController.h"
 
+#import "APP_IPS.h"
+#import "UserModel.h"
 @interface HomeViewController ()
 
 @property (nonatomic,weak)UIView *headerView;
@@ -37,6 +39,25 @@
     [self setupTimeView];
     
     [self setupInfoView];
+    
+    if (![UserModel getUserModel]) {
+        [self autoLogin];
+    }
+}
+
+- (void)autoLogin{
+    UserModel *model = [UserModel getUserModel];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"866955030036774" forKey:@"deviceID"];
+    [dic setObject:@"12345678" forKey:@"userPwd"];
+    [dic setObject:model.userId forKey:@"userId"];
+    
+    [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
+        DLog(@"");
+    } failure:^(NSString *errStr) {
+        DLog(@"");
+        [SVProgressHUD showErrorWithStatus:errStr];
+    }];
 }
 
 #pragma mark

@@ -16,8 +16,6 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.requestSerializer.timeoutInterval = 15;
     [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        DLog(@"responseObject == %@",responseObject);
-        //0:成功，1:没有登录，2:参数错误， 3:系统错误
         if ([NetTools serverError:responseObject] == 0) {
             success(responseObject);
         }else{

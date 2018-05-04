@@ -60,6 +60,7 @@
 		4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */; };
 		4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D59C209BF42C00A77475 /* ReportViewController.m */; };
 		4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5A7209BF58600A77475 /* LanguageViewController.m */; };
+		4D73D5AD209C3D6F00A77475 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5AC209C3D6F00A77475 /* UserModel.m */; };
 		4D757449209AF15D00D6359A /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D757448209AF15D00D6359A /* InfoView.m */; };
 		4D7B90F420940C9500322767 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F320940C9500322767 /* ForgetViewController.m */; };
 		4D7B90F7209410DD00322767 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F6209410DD00322767 /* CoverView.m */; };
@@ -203,6 +204,9 @@
 		4D73D59C209BF42C00A77475 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		4D73D5A6209BF58600A77475 /* LanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
 		4D73D5A7209BF58600A77475 /* LanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
+		4D73D5AA209C06AA00A77475 /* APP_IPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APP_IPS.h; sourceTree = "<group>"; };
+		4D73D5AB209C3D6F00A77475 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = "商速老板助手/UserModel.h"; sourceTree = SOURCE_ROOT; };
+		4D73D5AC209C3D6F00A77475 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = "商速老板助手/UserModel.m"; sourceTree = SOURCE_ROOT; };
 		4D757447209AF15D00D6359A /* InfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InfoView.h; path = "商速老板助手/Tools/UIView/InfoView.h"; sourceTree = SOURCE_ROOT; };
 		4D757448209AF15D00D6359A /* InfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoView.m; path = "商速老板助手/Tools/UIView/InfoView.m"; sourceTree = SOURCE_ROOT; };
 		4D7B90F220940C9500322767 /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 				4D29B0FB209172AC004C8324 /* AppDelegate.m */,
 				4D29B16420917659004C8324 /* PrefixHeader.pch */,
 				4D29B16320917557004C8324 /* Define.h */,
+				4D73D5AA209C06AA00A77475 /* APP_IPS.h */,
 				4D29B108209172AC004C8324 /* Info.plist */,
 				4D29B12D20917460004C8324 /* Class */,
 				4D29B13C20917461004C8324 /* Tools */,
@@ -731,6 +736,8 @@
 		4D803B942092C07300A553DA /* M */ = {
 			isa = PBXGroup;
 			children = (
+				4D73D5AB209C3D6F00A77475 /* UserModel.h */,
+				4D73D5AC209C3D6F00A77475 /* UserModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1060,6 +1067,7 @@
 				5D89265D2099B05C00C8A792 /* HistoryHeaderView.m in Sources */,
 				4D970A832099A5E900D0BD14 /* MJProperty.m in Sources */,
 				4D970A632099955C00D0BD14 /* SVIndefiniteAnimatedView.m in Sources */,
+				4D73D5AD209C3D6F00A77475 /* UserModel.m in Sources */,
 				4D05D81220917E2D00CFD881 /* MineViewController.m in Sources */,
 				4D29B15F209174DD004C8324 /* NSArray+MASAdditions.m in Sources */,
 				4D803B982092C08100A553DA /* LoginViewController.m in Sources */,
@@ -1230,14 +1238,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LQ2PU59T8R;
+				DEVELOPMENT_TEAM = P4TG68M466;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appBossStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1246,14 +1256,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LQ2PU59T8R;
+				DEVELOPMENT_TEAM = P4TG68M466;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.------";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appBossStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
