@@ -40,6 +40,9 @@
     [dic setObject:@"abc1234567890" forKey:@"endDate"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
+        NSArray *resultList = [responseObject objectForKey:@"resultList"];
+        self.dataArr = [HistoryModel mj_objectArrayWithKeyValuesArray:responseObject];
+        [self.tableView reloadData];
     } failure:^(NSString *errStr) {
         [SVProgressHUD showErrorWithStatus:errStr];
     }];

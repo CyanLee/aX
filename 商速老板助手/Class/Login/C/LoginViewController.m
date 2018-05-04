@@ -12,6 +12,7 @@
 #import "TabController.h"
 #import "HistoryViewController.h"
 #import "APP_IPS.h"
+#import "UserModel.h"
 @interface LoginViewController ()
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIImageView *logoView;
@@ -243,36 +244,40 @@
     /*
     NSString *name = self.nameTF.text;
     if (name.length == 0 || [name isEqualToString:@""]){
-        [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
-        return;
-    }
-    
-    NSString *pws = self.pwsTF.text;
-    if (pws.length == 0 || [pws isEqualToString:@""]){
-        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+     [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
+     return;
+     }
+     
+     NSString *pws = self.pwsTF.text;
+     if (pws.length == 0 || [pws isEqualToString:@""]){
+     [SVProgressHUD showErrorWithStatus:@"请输入密码"];
      return;
      }
      */
-    
+
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
-    [dic setObject:@"bkl1321809lmk" forKey:@"userPwd"];
+    [dic setObject:@"12345678" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
     [SVProgressHUD showWithStatus:@"正在登录"];
     [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];
-                TabController *tab = [[TabController alloc]init];
-                UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-                key.rootViewController = tab;
-//        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[HistoryViewController new]];
-//        navi.navigationBarHidden = YES;
-//        navi.navigationBar.shadowImage = [UIImage new];
-//        UIWindow *key = [[UIApplication sharedApplication] keyWindow];
-//        key.rootViewController = navi;
+        
+        [UserModel saveTheJson:responseObject];
+        
+        [self jump2Root];
     } failure:^(NSString *errStr) {
         DLog(@"errStr == %@",errStr);
         [SVProgressHUD showErrorWithStatus:errStr];
     }];
+}
+
+
+
+- (void)jump2Root{
+    TabController *tab = [[TabController alloc]init];
+    UIWindow *key = [[UIApplication sharedApplication] keyWindow];
+    key.rootViewController = tab;
 }
 
 - (void)dealloc{
