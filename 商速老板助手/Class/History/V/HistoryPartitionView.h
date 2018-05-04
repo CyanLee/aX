@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HistoryModel;
 
 @interface HistoryPartitionView : UIView
+
+//日期
+@property (nonatomic,strong) UILabel *timeLabel;
+
+-(void)setData:(HistoryModel *)model;
 
 @end

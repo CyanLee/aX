@@ -30,6 +30,7 @@
 		342984BB209B588100341EAC /* home_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342984BA209B588100341EAC /* home_normal@2x.png */; };
 		342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984BD209B5FDE00341EAC /* HistoryCell.m */; };
 		342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C0209B667000341EAC /* HistoryPartitionView.m */; };
+		342984C4209BFBE200341EAC /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984C3209BFBE200341EAC /* HistoryModel.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -128,6 +129,8 @@
 		342984BD209B5FDE00341EAC /* HistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
 		342984BF209B667000341EAC /* HistoryPartitionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryPartitionView.h; sourceTree = "<group>"; };
 		342984C0209B667000341EAC /* HistoryPartitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryPartitionView.m; sourceTree = "<group>"; };
+		342984C2209BFBE200341EAC /* HistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HistoryModel.h; path = "商速老板助手/Class/History/V/HistoryModel.h"; sourceTree = SOURCE_ROOT; };
+		342984C3209BFBE200341EAC /* HistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HistoryModel.m; path = "商速老板助手/Class/History/V/HistoryModel.m"; sourceTree = SOURCE_ROOT; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -744,6 +747,8 @@
 		5D8926582099B05C00C8A792 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				342984C2209BFBE200341EAC /* HistoryModel.h */,
+				342984C3209BFBE200341EAC /* HistoryModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -961,6 +966,7 @@
 				342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */,
 				4D970A672099955C00D0BD14 /* SVRadialGradientLayer.m in Sources */,
 				4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */,
+				342984C4209BFBE200341EAC /* HistoryModel.m in Sources */,
 				4D970A4C20994B6500D0BD14 /* AFNetworkReachabilityManager.m in Sources */,
 				4D29B15E209174DD004C8324 /* MASViewConstraint.m in Sources */,
 				4D970A822099A5E900D0BD14 /* MJFoundation.m in Sources */,

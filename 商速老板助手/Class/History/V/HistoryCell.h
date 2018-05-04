@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HistoryModel;
 
 @interface HistoryCell : UITableViewCell
+
+-(void)setData:(HistoryModel *)model;
 
 //营业额
 @property (nonatomic,strong) UILabel *turnoverLabel;

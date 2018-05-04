@@ -7,6 +7,7 @@
 //
 
 #import "HistoryCell.h"
+#import "HistoryModel.h"
 
 @implementation HistoryCell
 
@@ -74,6 +75,11 @@
         }];
     }
     return _num;
+}
+
+-(void)setData:(HistoryModel *)model{
+    self.turnoverNum.text = model.turnoverNum;
+    self.num.text = model.num;
 }
 
 - (void)awakeFromNib {
