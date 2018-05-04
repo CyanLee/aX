@@ -130,9 +130,13 @@
 }
 
 - (void)reportBtnDidClicked{
-    
+    if (self.reportBtnBlock) {
+        self.reportBtnBlock();
+    }
 }
 - (void)historyBtnDidClicked{
-    
+    if (self.historyBtnBlock) {
+        self.historyBtnBlock();
+    }
 }
 @end

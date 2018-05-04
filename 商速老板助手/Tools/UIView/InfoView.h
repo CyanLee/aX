@@ -10,4 +10,6 @@
 
 @interface InfoView : UIView
 
+@property (nonatomic,copy)void(^reportBtnBlock)(void);
+@property (nonatomic,copy)void(^historyBtnBlock)(void);
 @end

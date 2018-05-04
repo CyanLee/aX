@@ -52,6 +52,8 @@
 		4D29B160209174DD004C8324 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B152209174DD004C8324 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B154209174DD004C8324 /* View+MASAdditions.m */; };
 		4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */; };
+		4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D59C209BF42C00A77475 /* ReportViewController.m */; };
+		4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5A7209BF58600A77475 /* LanguageViewController.m */; };
 		4D757449209AF15D00D6359A /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D757448209AF15D00D6359A /* InfoView.m */; };
 		4D7B90F420940C9500322767 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F320940C9500322767 /* ForgetViewController.m */; };
 		4D7B90F7209410DD00322767 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F6209410DD00322767 /* CoverView.m */; };
@@ -179,6 +181,10 @@
 		4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		4D29B16320917557004C8324 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		4D29B16420917659004C8324 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4D73D59B209BF42C00A77475 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		4D73D59C209BF42C00A77475 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		4D73D5A6209BF58600A77475 /* LanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
+		4D73D5A7209BF58600A77475 /* LanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
 		4D757447209AF15D00D6359A /* InfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InfoView.h; path = "商速老板助手/Tools/UIView/InfoView.h"; sourceTree = SOURCE_ROOT; };
 		4D757448209AF15D00D6359A /* InfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoView.m; path = "商速老板助手/Tools/UIView/InfoView.m"; sourceTree = SOURCE_ROOT; };
 		4D7B90F220940C9500322767 /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
@@ -415,6 +421,8 @@
 				4D29B12F20917460004C8324 /* C */,
 				4D29B13020917460004C8324 /* M */,
 				4D29B13120917460004C8324 /* V */,
+				4D73D597209BF41700A77475 /* Report */,
+				4D73D5A2209BF55600A77475 /* Language */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -571,6 +579,72 @@
 				4D29B157209174DD004C8324 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		4D73D597209BF41700A77475 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				4D73D598209BF41700A77475 /* C */,
+				4D73D599209BF41700A77475 /* M */,
+				4D73D59A209BF41700A77475 /* V */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		4D73D598209BF41700A77475 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				4D73D59B209BF42C00A77475 /* ReportViewController.h */,
+				4D73D59C209BF42C00A77475 /* ReportViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		4D73D599209BF41700A77475 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		4D73D59A209BF41700A77475 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		4D73D5A2209BF55600A77475 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				4D73D5A4209BF57700A77475 /* C */,
+				4D73D5A5209BF57700A77475 /* M */,
+				4D73D5A3209BF57700A77475 /* V */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		4D73D5A3209BF57700A77475 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		4D73D5A4209BF57700A77475 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				4D73D5A6209BF58600A77475 /* LanguageViewController.h */,
+				4D73D5A7209BF58600A77475 /* LanguageViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		4D73D5A5209BF57700A77475 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		4D7B90EE20940C8800322767 /* Forget */ = {
@@ -915,6 +989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */,
 				4D7B90F7209410DD00322767 /* CoverView.m in Sources */,
 				4D29B15A209174DD004C8324 /* MASConstraint.m in Sources */,
 				342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */,
@@ -945,6 +1020,7 @@
 				4D970A4F20994B6500D0BD14 /* AFURLResponseSerialization.m in Sources */,
 				4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */,
 				342984922099FB5B00341EAC /* TimeView.m in Sources */,
+				4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */,
 				4D970A4E20994B6500D0BD14 /* AFURLRequestSerialization.m in Sources */,
 				4D970A812099A5E900D0BD14 /* MJExtensionConst.m in Sources */,
 				5D89265D2099B05C00C8A792 /* HistoryHeaderView.m in Sources */,
