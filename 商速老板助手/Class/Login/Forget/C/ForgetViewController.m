@@ -9,6 +9,7 @@
 #import "ForgetViewController.h"
 #import "CoverView.h"
 #import "TabController.h"
+#import "APP_IPS.h"
 @interface ForgetViewController ()
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIView *tfView;
@@ -196,11 +197,10 @@
         [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
         return;
     }
-    NSString *url = @"http://www.shopspeed.cn:80/shopspeed_points/SMSDeal/GetIdentCode.do";
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"13106762742" forKey:@"TelNo"];
     [dic setObject:@"86" forKey:@"AreaCode"];
-    [NetTools POST:url parameters:dic success:^(id responseObject) {
+    [NetTools POST:APP_CODE_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"验证码已发送"];
         DLog(@"responseObject == %@",responseObject);
     } failure:^(NSString *errStr) {

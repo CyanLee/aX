@@ -11,7 +11,7 @@
 #import "HistoryCell.h"
 #import "HistoryPartitionView.h"
 #import "HistoryModel.h"
-
+#import "APP_IPS.h"
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -27,6 +27,22 @@
     [self setData];
     [self setHeaderView];
     [self setTableView];
+    
+    [self getDatas];
+}
+
+- (void)getDatas{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"1" forKey:@"countType"];
+    [dic setObject:@"abc1234567890" forKey:@"userId"];
+    [dic setObject:@"abc1234567890" forKey:@"merchantCode"];
+    [dic setObject:@"abc1234567890" forKey:@"startDate"];
+    [dic setObject:@"abc1234567890" forKey:@"endDate"];
+    [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
+        DLog(@"responseObject == %@",responseObject);
+    } failure:^(NSString *errStr) {
+        [SVProgressHUD showErrorWithStatus:errStr];
+    }];
 }
 
 -(void)setData{
@@ -45,7 +61,12 @@
 
 -(void)setHeaderView{
     HistoryHeaderView *headerView = [[HistoryHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 468.0/2937.0*kHeight)];
+    [headerView.backBtn addTarget:self action:@selector(back) forControlEvents:1<<6];
     [self.view addSubview:headerView];
+}
+
+- (void)back{
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 -(void)setTableView{

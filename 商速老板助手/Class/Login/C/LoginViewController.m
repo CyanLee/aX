@@ -11,7 +11,7 @@
 #import "CoverView.h"
 #import "TabController.h"
 #import "HistoryViewController.h"
-
+#import "APP_IPS.h"
 @interface LoginViewController ()
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIImageView *logoView;
@@ -259,7 +259,7 @@
     [dic setObject:@"bkl1321809lmk" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
     [SVProgressHUD showWithStatus:@"正在登录"];
-    [NetTools POST:ip parameters:dic success:^(id responseObject) {
+    [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];
                 TabController *tab = [[TabController alloc]init];
                 UIWindow *key = [[UIApplication sharedApplication] keyWindow];
