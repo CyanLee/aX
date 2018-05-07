@@ -178,6 +178,9 @@
     [self.infoView setHistoryBtnBlock:^{
         [ws jump2History];
     }];
+    [self.infoView setSegmentedCBlock:^(NSInteger index) {
+        NSLog(@"index = %ld",(long)index);
+    }];
 }
 
 - (void)jump2Report{

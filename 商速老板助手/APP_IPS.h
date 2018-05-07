@@ -10,7 +10,7 @@
 #define APP_IPS_h
 
 /// app启动页
-static NSString *APP_START_IMG_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/userLogin.do";
+static NSString *APP_START_IMG_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do";
 
 /// 登录
 static NSString *APP_LOGON_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/userLogin.do";

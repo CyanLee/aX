@@ -29,6 +29,8 @@
             make.top.mas_equalTo(60 * 0.5);
             make.left.mas_equalTo(SCREEN_WIDTH * 0.1);
         }];
+        _salesMoneyTotal.font = [UIFont systemFontOfSize:15];
+        _salesMoneyTotal.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
     }
     return _salesMoneyTotal;
 }
@@ -42,6 +44,8 @@
             make.top.mas_equalTo(60 * 0.5);
             make.left.mas_equalTo(SCREEN_WIDTH * 0.27);
         }];
+        _salesMoney.font = [UIFont systemFontOfSize:15];
+        _salesMoney.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
     }
     return _salesMoney;
 }
@@ -55,6 +59,8 @@
             make.top.mas_equalTo(60 * 0.5);
             make.left.mas_equalTo(SCREEN_WIDTH * 0.63);
         }];
+        _salesNumLabelTotal.font = [UIFont systemFontOfSize:15];
+        _salesNumLabelTotal.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
     }
     return _salesNumLabelTotal;
 }
@@ -68,6 +74,8 @@
             make.top.mas_equalTo(60 * 0.5);
             make.left.mas_equalTo(SCREEN_WIDTH * 0.8);
         }];
+        _salesNumLabel.font = [UIFont systemFontOfSize:15];
+        _salesNumLabel.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
     }
     return _salesNumLabel;
 }

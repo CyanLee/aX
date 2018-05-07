@@ -15,6 +15,9 @@
     tmp.payAmt = @"暂无";
     tmp.payTimes = @"暂无";
     tmp.payType = @"暂无";
+    tmp.itemName = @"暂无";
+    tmp.saleNums = @"暂无";
+    tmp.txAmt = @"暂无";
     return tmp;
 }
 @end

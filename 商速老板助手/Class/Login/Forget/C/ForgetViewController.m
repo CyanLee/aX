@@ -10,6 +10,8 @@
 #import "CoverView.h"
 #import "TabController.h"
 #import "APP_IPS.h"
+#import "UserModel.h"
+
 @interface ForgetViewController ()
 @property (nonatomic,weak)CoverView *cover;
 @property (nonatomic,weak)UIView *tfView;
@@ -40,7 +42,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = true;
+    self.navigationController.navigationBarHidden = false;
 }
 
 - (void)setupTFView{
@@ -234,8 +236,30 @@
         [SVProgressHUD showErrorWithStatus:@"请确认新密码"];
         return;
     }
+    
+    if (![pws isEqualToString:pwsAgain]) {
+        [SVProgressHUD showErrorWithStatus:@"请确认密码是否一致"];
+        return;
+    }
+    
+    UserModel *userModel = [UserModel getUserModel];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:userModel.userId forKey:@"userId"];
+    [dic setObject:phone forKey:@"telNo"];
+    [dic setObject:code forKey:@"identCode"];
+    [dic setObject:pws forKey:@"newPwd"];
+    [SVProgressHUD showWithStatus:@"正在操作"];
+//    13922190717
+    [NetTools POST:APP_FORGET_PWS_URLF parameters:dic success:^(id responseObject) {
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        [self.navigationController popViewControllerAnimated:true];
+    } failure:^(NSString *errStr) {
+        DLog(@"errStr == %@",errStr);
+        [SVProgressHUD showErrorWithStatus:errStr];
+    }];
 
-    [self.navigationController popViewControllerAnimated:true];
+    
 }
 
 - (void)didClickKeyboard:(NSNotification *)noti{

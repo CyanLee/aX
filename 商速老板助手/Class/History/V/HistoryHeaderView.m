@@ -84,7 +84,8 @@
         [_historyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
             make.top.mas_equalTo(22);
-            make.height.mas_equalTo(35);
+//            make.height.mas_equalTo(35);
+            make.height.equalTo(self).multipliedBy(0.22);
             make.width.mas_equalTo(100);
         }];
         _historyBtn.layer.cornerRadius = 13;
@@ -104,7 +105,7 @@
         [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
             make.bottom.mas_equalTo(-20);
-            make.height.mas_equalTo(35);
+            make.height.equalTo(self).multipliedBy(0.22);
             make.width.mas_equalTo(100);
         }];
         _chooseBtn.layer.cornerRadius = 5;

@@ -33,11 +33,13 @@
 
 - (void)getDatas{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"1" forKey:@"countType"];
-    [dic setObject:@"abc1234567890" forKey:@"userId"];
-    [dic setObject:@"abc1234567890" forKey:@"merchantCode"];
-    [dic setObject:@"abc1234567890" forKey:@"startDate"];
-    [dic setObject:@"abc1234567890" forKey:@"endDate"];
+    [dic setObject:@"2" forKey:@"countType"];
+    [dic setObject:@"13922190717" forKey:@"userId"];
+    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:@"2018-01-05" forKey:@"startDate"];
+    [dic setObject:@"2018-03-31" forKey:@"endDate"];
+    [dic setObject:@"1" forKey:@"curPageNo"];
+    [dic setObject:@"5" forKey:@"numsPage"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         NSArray *resultList = [responseObject objectForKey:@"resultList"];
