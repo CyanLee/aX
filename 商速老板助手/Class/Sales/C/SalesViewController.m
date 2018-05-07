@@ -14,6 +14,9 @@
 #import "SalesDivisionFootView.h"
 #import "APP_IPS.h"
 #import "SalesModel.h"
+#import "HistoryViewController.h"
+#import "LanguageViewController.h"
+#import "ChooseStoreViewController.h"
 typedef enum : NSUInteger {
     Type_APP_SALE_SORT_10_URL = 0,
     Type_APP_SALE_MONEY_10_URL,
@@ -21,7 +24,6 @@ typedef enum : NSUInteger {
     Type_APP_SALE_BACK_URL
 } GetDataType;
 @interface SalesViewController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic,weak)TimeView *timeView;
 @property (nonatomic,weak) UITableView *tableView;
 @property (nonatomic,weak)SalesDivisionFootView *tabFooter;
@@ -29,6 +31,8 @@ typedef enum : NSUInteger {
 @property (nonatomic,weak)SalesDivisionHeadView *tabHeader;
 /// 目前只有收银情况汇总有数据，所以待定
 @property (nonatomic,strong)NSMutableArray *datas;
+@property (nonatomic,assign)GetDataType type;
+@property (nonatomic,assign)NSInteger timeType;
 @end
 
 @implementation SalesViewController
@@ -37,43 +41,57 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.timeType = -1;
+    
     [self setupHeaderView];
+    
     [self setupTimeView];
+    
     [self setupTableView];
+    
     [self setupDivisionHeaderView];
+    
     [self setupDivisionFootView];
     
-    [self getDatasWithType:Type_APP_SALE_SORT_10_URL];
+    [self getDatasWithType:Type_APP_SALE_SORT_10_URL TimeType:self.timeType];
 }
 
-- (void)getDatasWithType:(GetDataType)type{
+- (void)setType:(GetDataType)type{
+    _type = type;
+    self.tabHeader.type = type;
+    [self getDatasWithType:type TimeType:self.timeType];
+}
+
+- (void)getDatasWithType:(GetDataType)type TimeType:(NSInteger)timeType{
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     NSString *postUrl = @"";
+    // 有问题的接口
+    dic[@"countType"] = timeType == -1 ? @"0":[NSString stringWithFormat:@"%ld",timeType];
     switch (type) {
         /// 商店销量前10
         case Type_APP_SALE_SORT_10_URL:
-            dic[@"countType"] = @"1";
+            dic[@"countType"] = @"3";
             dic[@"userId"] = @"13922190717";
-            dic[@"merchantCode"] = @"10001";
+            dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             postUrl = APP_SALE_SORT_10_URL;
             break;
         /// 销售金额前10
         case Type_APP_SALE_MONEY_10_URL:
-            dic[@"countType"] = @"1";
+            dic[@"countType"] = @"";
             dic[@"userId"] = @"13922190717";
-            dic[@"merchantCode"] = @"10001";
+            dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             postUrl = APP_SALE_MONEY_10_URL;
             break;
         /// 商店类别销售情况
         case Type_APP_SALE_GOODS_URL:
-            dic[@"countType"] = @"1";
+            dic[@"countType"] = @"2";
             dic[@"userId"] = @"13922190717";
-            dic[@"merchantCode"] = @"10001";
+            dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             dic[@"curPageNo"] = @"1";
@@ -82,9 +100,9 @@ typedef enum : NSUInteger {
             break;
         /// 收银情况汇总
         case Type_APP_SALE_BACK_URL:
-            dic[@"countType"] = @"1";
+            dic[@"countType"] = @"4";
             dic[@"userId"] = @"13922190717";
-            dic[@"merchantCode"] = @"10001";
+            dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             dic[@"curPageNo"] = @"1";
@@ -127,12 +145,29 @@ typedef enum : NSUInteger {
     [headerView setClick:^(NSInteger idx) {
         [ws headerViewDidClickIndex:idx];
     }];
+    [headerView.historyBtn addTarget:self action:@selector(headerViewHistoryBtnDidClicked) forControlEvents:1<<6];
+    [headerView.languageBtn addTarget:self action:@selector(headerViewLanguageBtnDidClicked) forControlEvents:1<<6];
+    [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
     self.headerView = headerView;
+}
+- (void)jump2ChooseStore{
+    ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+    [self.navigationController pushViewController:choose animated:true];
 }
 
 - (void)headerViewDidClickIndex:(NSInteger)idx{
     DLog(@"headerViewDidClickIndex  == %ld",idx);
-    [self getDatasWithType:idx];
+    self.type = idx;
+}
+
+- (void)headerViewHistoryBtnDidClicked{
+    HistoryViewController *history = [[HistoryViewController alloc] init];
+    [self.navigationController pushViewController:history animated:true];
+}
+
+- (void)headerViewLanguageBtnDidClicked{
+    LanguageViewController *language = [[LanguageViewController alloc] init];
+    [self.navigationController pushViewController:language animated:true];
 }
 
 -(void)setupDivisionHeaderView{
@@ -194,9 +229,17 @@ typedef enum : NSUInteger {
 #pragma mark - 点击事件
 - (void)timeViewChooseTimeBlock:(UIButton *)btn{
     DLog(@"btn == %@",btn);
+    
 }
 - (void)timeViewBtnDidClickedBlock:(UIButton *)btn{
     DLog(@"btn == %@",btn);
+    //日 countType = 1
+    //周 countType = 2
+    //月 countType = 3
+    //年 countType = 4
+    // dic[@"countType"] = @"4";
+    self.timeType = btn.tag;
+    [self getDatasWithType:self.type TimeType:self.timeType];
 }
 
 - (void)dealloc{
@@ -211,6 +254,8 @@ typedef enum : NSUInteger {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SalesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.type = _type;
+    cell.model = self.datas[indexPath.row];
     return cell;
 }
 

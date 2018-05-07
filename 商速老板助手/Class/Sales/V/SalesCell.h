@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SalesModel.h"
+
 @interface SalesCell : UITableViewCell
 
-@property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *salesMoney;
-@property (nonatomic,strong) UILabel *salesNum;
+@property (nonatomic,strong)SalesModel *model;
+@property (nonatomic,assign)NSInteger type;
 
 @end

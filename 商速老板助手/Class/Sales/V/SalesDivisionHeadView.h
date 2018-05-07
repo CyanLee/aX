@@ -12,5 +12,5 @@
 
 @property (nonatomic,strong) UILabel *salesMoneyLabel;
 @property (nonatomic,strong) UILabel *salesNumLabel;
-
+@property (nonatomic,assign) NSInteger type;
 @end

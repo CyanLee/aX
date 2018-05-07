@@ -10,6 +10,12 @@
 
 @interface SalesModel : NSObject
 
+/// 商店销量前10 && 销售金额前10
+@property (nonatomic,copy)NSString *itemName;
+@property (nonatomic,copy)NSString *saleNums;
+@property (nonatomic,copy)NSString *txAmt;
+
+/// 收银情况汇总
 @property (nonatomic,copy)NSString *payAmt;
 @property (nonatomic,copy)NSString *payTimes;
 @property (nonatomic,copy)NSString *payType;

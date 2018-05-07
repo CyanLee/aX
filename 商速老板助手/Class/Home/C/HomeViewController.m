@@ -16,6 +16,7 @@
 
 #import "APP_IPS.h"
 #import "UserModel.h"
+#import "ChooseStoreViewController.h"
 @interface HomeViewController ()
 
 @property (nonatomic,weak)UIView *headerView;
@@ -100,8 +101,14 @@
     btn.layer.masksToBounds = true;
     btn.layer.borderWidth = 1;
     btn.layer.borderColor = [[UIColor whiteColor] CGColor];
-    [btn addTarget:self action:@selector(languageBtnDidClicked) forControlEvents:1<<6];
+    [btn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
     self.chooseBtn = btn;
+}
+
+- (void)jump2ChooseStore{
+    ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+    choose.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:choose animated:true];
 }
 
 -(void)setupStoreBtn{

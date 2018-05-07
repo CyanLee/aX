@@ -12,6 +12,7 @@
 #import "HistoryPartitionView.h"
 #import "HistoryModel.h"
 #import "APP_IPS.h"
+#import "ChooseStoreViewController.h"
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -27,17 +28,18 @@
     [self setData];
     [self setHeaderView];
     [self setTableView];
-    
     [self getDatas];
 }
 
 - (void)getDatas{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"1" forKey:@"countType"];
-    [dic setObject:@"abc1234567890" forKey:@"userId"];
-    [dic setObject:@"abc1234567890" forKey:@"merchantCode"];
-    [dic setObject:@"abc1234567890" forKey:@"startDate"];
-    [dic setObject:@"abc1234567890" forKey:@"endDate"];
+    [dic setObject:@"2" forKey:@"countType"];
+    [dic setObject:@"13922190717" forKey:@"userId"];
+    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:@"2018-01-05" forKey:@"startDate"];
+    [dic setObject:@"2018-03-31" forKey:@"endDate"];
+    [dic setObject:@"1" forKey:@"curPageNo"];
+    [dic setObject:@"5" forKey:@"numsPage"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         NSArray *resultList = [responseObject objectForKey:@"resultList"];
@@ -69,8 +71,12 @@
     headerView.backBlock = ^{
         [self.navigationController popViewControllerAnimated:YES];
     };
+    [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
 }
-
+- (void)jump2ChooseStore{
+    ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+    [self.navigationController pushViewController:choose animated:true];
+}
 - (void)back{
     [self.navigationController popViewControllerAnimated:true];
 }
