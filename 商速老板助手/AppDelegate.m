@@ -44,8 +44,10 @@
 
 
 - (UIViewController *)setupRootViewController{
-    return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
-                                           : [[LoginViewController alloc]init]] :[[TabController alloc] init];
+//    return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
+//                                           : [[LoginViewController alloc]init]] :[[TabController alloc] init];
+    return [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+
 }
 
 

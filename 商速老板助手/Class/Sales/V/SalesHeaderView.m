@@ -91,7 +91,7 @@
         [_reportBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
             make.top.mas_equalTo(20);
-            make.height.mas_equalTo(30);
+            make.height.equalTo(self).multipliedBy(0.2);
             make.width.mas_equalTo(100);
         }];
         _reportBtn.layer.cornerRadius = 5;
@@ -113,7 +113,7 @@
         [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(0);
             make.top.mas_equalTo(self.reportBtn.mas_bottom).offset(3);
-            make.height.mas_equalTo(30);
+            make.height.equalTo(self).multipliedBy(0.2);
             make.width.mas_equalTo(100);
         }];
         _chooseBtn.layer.cornerRadius = 5;
@@ -133,7 +133,7 @@
         [_historyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.titleLabel).offset(-10);
             make.right.mas_equalTo(self.languageBtn.mas_left).offset(-25);
-            make.height.mas_equalTo(30);
+            make.height.equalTo(self).multipliedBy(0.22);
             make.width.mas_equalTo(30);
         }];
     }
@@ -176,16 +176,18 @@
 }
 
 -(void)setClickBtn{
-    CGFloat x = (SCREEN_WIDTH-4*100) / 5;
+    CGFloat tx = (SCREEN_WIDTH / 4.1);
+    CGFloat x = (SCREEN_WIDTH-4*tx) / 5;
     UIButton *last = nil;   //上一个按钮
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:btn];
         btn.tag = i;
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.chooseBtn.mas_bottom).offset(4);
+            make.top.mas_equalTo(self.chooseBtn.mas_bottom).offset(12);
             make.height.mas_equalTo(30);
-            make.width.mas_equalTo(100);
+            make.width.mas_equalTo(tx);
+//            make.width.equalTo(self).multipliedBy(0.22);
             if (last == nil) {
                 make.left.mas_equalTo(x);
             }else{

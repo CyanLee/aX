@@ -12,4 +12,5 @@
 
 @property (nonatomic,copy)void(^reportBtnBlock)(void);
 @property (nonatomic,copy)void(^historyBtnBlock)(void);
+@property (nonatomic,copy)void(^segmentedCBlock)(NSInteger);
 @end
