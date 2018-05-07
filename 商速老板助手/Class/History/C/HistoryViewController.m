@@ -12,6 +12,7 @@
 #import "HistoryPartitionView.h"
 #import "HistoryModel.h"
 #import "APP_IPS.h"
+#import "ChooseStoreViewController.h"
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -27,7 +28,6 @@
     [self setData];
     [self setHeaderView];
     [self setTableView];
-    
     [self getDatas];
 }
 
@@ -71,8 +71,12 @@
     headerView.backBlock = ^{
         [self.navigationController popViewControllerAnimated:YES];
     };
+    [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
 }
-
+- (void)jump2ChooseStore{
+    ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+    [self.navigationController pushViewController:choose animated:true];
+}
 - (void)back{
     [self.navigationController popViewControllerAnimated:true];
 }

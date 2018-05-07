@@ -90,6 +90,7 @@
 		4D970A892099A5E900D0BD14 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A7D2099A5E900D0BD14 /* NSObject+MJProperty.m */; };
 		4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A7F2099A5E900D0BD14 /* NSString+MJExtension.m */; };
 		4D970A912099A6F500D0BD14 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D970A902099A6F500D0BD14 /* UIView+Frame.m */; };
+		4DEB11CF209FF5C50039C473 /* ChooseStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEB11CE209FF5C50039C473 /* ChooseStoreViewController.m */; };
 		5D89265C2099B05C00C8A792 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8926572099B05C00C8A792 /* HistoryViewController.m */; };
 		5D89265D2099B05C00C8A792 /* HistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D89265B2099B05C00C8A792 /* HistoryHeaderView.m */; };
 /* End PBXBuildFile section */
@@ -269,6 +270,8 @@
 		4D970A7F2099A5E900D0BD14 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		4D970A8F2099A6F500D0BD14 /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		4D970A902099A6F500D0BD14 /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		4DEB11CD209FF5C50039C473 /* ChooseStoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseStoreViewController.h; sourceTree = "<group>"; };
+		4DEB11CE209FF5C50039C473 /* ChooseStoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseStoreViewController.m; sourceTree = "<group>"; };
 		5D8926492099520A00C8A792 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		5D8926562099B05C00C8A792 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		5D8926572099B05C00C8A792 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
@@ -431,6 +434,7 @@
 		4D29B12D20917460004C8324 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4DEB11C9209FF5B30039C473 /* ChooseStore */,
 				34298493209B501700341EAC /* img */,
 				3429848C2099FB4500341EAC /* Sales */,
 				5D8926542099B05C00C8A792 /* History */,
@@ -836,6 +840,39 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		4DEB11C9209FF5B30039C473 /* ChooseStore */ = {
+			isa = PBXGroup;
+			children = (
+				4DEB11CA209FF5B30039C473 /* C */,
+				4DEB11CB209FF5B30039C473 /* M */,
+				4DEB11CC209FF5B30039C473 /* V */,
+			);
+			path = ChooseStore;
+			sourceTree = "<group>";
+		};
+		4DEB11CA209FF5B30039C473 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				4DEB11CD209FF5C50039C473 /* ChooseStoreViewController.h */,
+				4DEB11CE209FF5C50039C473 /* ChooseStoreViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		4DEB11CB209FF5B30039C473 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		4DEB11CC209FF5B30039C473 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		5D8926542099B05C00C8A792 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1111,7 @@
 				4D970A832099A5E900D0BD14 /* MJProperty.m in Sources */,
 				4D970A632099955C00D0BD14 /* SVIndefiniteAnimatedView.m in Sources */,
 				4D73D5AD209C3D6F00A77475 /* UserModel.m in Sources */,
+				4DEB11CF209FF5C50039C473 /* ChooseStoreViewController.m in Sources */,
 				4D05D81220917E2D00CFD881 /* MineViewController.m in Sources */,
 				4D29B15F209174DD004C8324 /* NSArray+MASAdditions.m in Sources */,
 				4D803B982092C08100A553DA /* LoginViewController.m in Sources */,

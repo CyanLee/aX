@@ -16,6 +16,7 @@
 #import "SalesModel.h"
 #import "HistoryViewController.h"
 #import "LanguageViewController.h"
+#import "ChooseStoreViewController.h"
 typedef enum : NSUInteger {
     Type_APP_SALE_SORT_10_URL = 0,
     Type_APP_SALE_MONEY_10_URL,
@@ -146,7 +147,12 @@ typedef enum : NSUInteger {
     }];
     [headerView.historyBtn addTarget:self action:@selector(headerViewHistoryBtnDidClicked) forControlEvents:1<<6];
     [headerView.languageBtn addTarget:self action:@selector(headerViewLanguageBtnDidClicked) forControlEvents:1<<6];
+    [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
     self.headerView = headerView;
+}
+- (void)jump2ChooseStore{
+    ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+    [self.navigationController pushViewController:choose animated:true];
 }
 
 - (void)headerViewDidClickIndex:(NSInteger)idx{
