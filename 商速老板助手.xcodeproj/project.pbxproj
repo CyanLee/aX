@@ -36,6 +36,9 @@
 		342984D0209C7ADC00341EAC /* SalesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984CF209C7ADC00341EAC /* SalesCell.m */; };
 		342984D3209C986F00341EAC /* SalesDivisionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984D2209C986F00341EAC /* SalesDivisionHeadView.m */; };
 		342984D6209CA0A100341EAC /* SalesDivisionFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984D5209CA0A100341EAC /* SalesDivisionFootView.m */; };
+		342984DE209FFFBA00341EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 342984E0209FFFBA00341EAC /* InfoPlist.strings */; };
+		342984E620A0021100341EAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 342984E820A0021100341EAC /* Localizable.strings */; };
+		342984FA20A1308400341EAC /* LanguageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984F920A1308400341EAC /* LanguageCell.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -151,6 +154,19 @@
 		342984D2209C986F00341EAC /* SalesDivisionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesDivisionHeadView.m; sourceTree = "<group>"; };
 		342984D4209CA0A100341EAC /* SalesDivisionFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesDivisionFootView.h; sourceTree = "<group>"; };
 		342984D5209CA0A100341EAC /* SalesDivisionFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesDivisionFootView.m; sourceTree = "<group>"; };
+		342984D9209FFF1400341EAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		342984DA209FFF1E00341EAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		342984DB209FFF2700341EAC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		342984DF209FFFBA00341EAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		342984E1209FFFC400341EAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		342984E2209FFFC800341EAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		342984E3209FFFC900341EAC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		342984E720A0021100341EAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		342984E920A0021200341EAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		342984EA20A0021300341EAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		342984EB20A0021400341EAC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		342984F820A1308400341EAC /* LanguageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageCell.h; sourceTree = "<group>"; };
+		342984F920A1308400341EAC /* LanguageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageCell.m; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -367,6 +383,22 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		342984F620A1307100341EAC /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		342984F720A1307200341EAC /* V */ = {
+			isa = PBXGroup;
+			children = (
+				342984F820A1308400341EAC /* LanguageCell.h */,
+				342984F920A1308400341EAC /* LanguageCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		4D29B0EE209172AB004C8324 = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +428,8 @@
 				4D29B16320917557004C8324 /* Define.h */,
 				4D73D5AA209C06AA00A77475 /* APP_IPS.h */,
 				4D29B108209172AC004C8324 /* Info.plist */,
+				342984E820A0021100341EAC /* Localizable.strings */,
+				342984E0209FFFBA00341EAC /* InfoPlist.strings */,
 				4D29B12D20917460004C8324 /* Class */,
 				4D29B13C20917461004C8324 /* Tools */,
 				4D29B12C20917443004C8324 /* Other */,
@@ -650,18 +684,11 @@
 		4D73D5A2209BF55600A77475 /* Language */ = {
 			isa = PBXGroup;
 			children = (
+				342984F620A1307100341EAC /* M */,
+				342984F720A1307200341EAC /* V */,
 				4D73D5A4209BF57700A77475 /* C */,
-				4D73D5A5209BF57700A77475 /* M */,
-				4D73D5A3209BF57700A77475 /* V */,
 			);
 			path = Language;
-			sourceTree = "<group>";
-		};
-		4D73D5A3209BF57700A77475 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
 			sourceTree = "<group>";
 		};
 		4D73D5A4209BF57700A77475 /* C */ = {
@@ -671,13 +698,6 @@
 				4D73D5A7209BF58600A77475 /* LanguageViewController.m */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		4D73D5A5209BF57700A77475 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		4D7A3688209D472600A62B8A /* M */ = {
@@ -1002,6 +1022,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
 			);
 			mainGroup = 4D29B0EE209172AB004C8324;
 			productRefGroup = 4D29B0F8209172AC004C8324 /* Products */;
@@ -1029,6 +1052,7 @@
 				4D29B104209172AC004C8324 /* Assets.xcassets in Resources */,
 				342984A7209B501700341EAC /* 20180503老板助手历史数据.png in Resources */,
 				342984AA209B501700341EAC /* 20180503老板助手开机界面EN.PNG in Resources */,
+				342984E620A0021100341EAC /* Localizable.strings in Resources */,
 				342984A8209B501700341EAC /* 20180503老板助手历史数据2.png in Resources */,
 				342984AF209B501700341EAC /* 20180503老板助手锁.png in Resources */,
 				342984AB209B501700341EAC /* 20180503老板助手手机.png in Resources */,
@@ -1039,6 +1063,7 @@
 				342984B4209B501700341EAC /* 老板助手三角2.png in Resources */,
 				342984B6209B501700341EAC /* 老板助手推广50X50@2x.PNG in Resources */,
 				342984B2209B501700341EAC /* 老板助手50X65@2x.PNG in Resources */,
+				342984DE209FFFBA00341EAC /* InfoPlist.strings in Resources */,
 				342984AD209B501700341EAC /* 20180503老板助手语言.png in Resources */,
 				342984B8209B501700341EAC /* 老板助手首页50X50@2x.PNG in Resources */,
 				342984A9209B501700341EAC /* 20180503老板助手开机界面.PNG in Resources */,
@@ -1102,6 +1127,7 @@
 				4D970A662099955C00D0BD14 /* SVProgressHUD.m in Sources */,
 				4D970A872099A5E900D0BD14 /* NSObject+MJCoding.m in Sources */,
 				4D970A4F20994B6500D0BD14 /* AFURLResponseSerialization.m in Sources */,
+				342984FA20A1308400341EAC /* LanguageCell.m in Sources */,
 				4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */,
 				342984922099FB5B00341EAC /* TimeView.m in Sources */,
 				4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */,
@@ -1163,10 +1189,35 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		342984E0209FFFBA00341EAC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				342984DF209FFFBA00341EAC /* en */,
+				342984E1209FFFC400341EAC /* zh-Hans */,
+				342984E2209FFFC800341EAC /* zh-Hant */,
+				342984E3209FFFC900341EAC /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		342984E820A0021100341EAC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				342984E720A0021100341EAC /* en */,
+				342984E920A0021200341EAC /* zh-Hans */,
+				342984EA20A0021300341EAC /* zh-Hant */,
+				342984EB20A0021400341EAC /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4D29B105209172AC004C8324 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4D29B106209172AC004C8324 /* Base */,
+				342984D9209FFF1400341EAC /* zh-Hans */,
+				342984DA209FFF1E00341EAC /* zh-Hant */,
+				342984DB209FFF2700341EAC /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1178,6 +1229,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1233,6 +1285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1284,7 +1337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4TG68M466;
+				DEVELOPMENT_TEAM = LQ2PU59T8R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1302,7 +1355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4TG68M466;
+				DEVELOPMENT_TEAM = LQ2PU59T8R;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

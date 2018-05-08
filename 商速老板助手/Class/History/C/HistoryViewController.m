@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setData];
+//    [self setData];
     [self setHeaderView];
     [self setTableView];
     [self getDatas];
@@ -43,7 +43,7 @@
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         NSArray *resultList = [responseObject objectForKey:@"resultList"];
-        self.dataArr = [HistoryModel mj_objectArrayWithKeyValuesArray:responseObject];
+        self.dataArr = [HistoryModel mj_objectArrayWithKeyValuesArray:resultList];
         [self.tableView reloadData];
     } failure:^(NSString *errStr) {
         [SVProgressHUD showErrorWithStatus:errStr];

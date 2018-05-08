@@ -60,4 +60,8 @@
 #   define DLog(...)
 #endif
 
+
+// NSlocalizeString 第一个参数是内容,根据第一个参数去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@""。
+#define NSLocalized(key, comment) [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
 #endif /* Define_h */

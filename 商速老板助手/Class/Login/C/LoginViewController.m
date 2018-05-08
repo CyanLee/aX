@@ -109,7 +109,8 @@
         make.centerX.equalTo(self.cover);
         make.top.mas_equalTo(self.logoView.mas_bottom).offset(15);
     }];
-    duo.text = @"收多多";
+//    duo.text = @"收多多";
+    duo.text = NSLocalized(@"collect",nil);
     duo.font = [UIFont systemFontOfSize:19.0f];
     duo.textColor = DefineRedColor;
     self.duoLabel = duo;
