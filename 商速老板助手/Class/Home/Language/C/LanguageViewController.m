@@ -13,7 +13,7 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArr;
-
+@property (nonatomic,assign) NSInteger stateNum;
 
 @end
 
@@ -32,6 +32,7 @@
 
 -(void)setupData{
     self.dataArr = [[NSMutableArray alloc] initWithObjects:@"跟随系统",@"中文简体",@"中文繁体",@"英语",@"日语", nil];
+    self.stateNum = 0;
 }
 
 -(void)setupTableView{
@@ -57,7 +58,19 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LanguageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.titleLabel.text = [self.dataArr objectAtIndex:indexPath.section];
+    
+    if (indexPath.section == self.stateNum) {
+        cell.clickBtn.hidden = NO;
+    }else{
+        cell.clickBtn.hidden = YES;
+    }
+    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.stateNum = indexPath.section;
+    [tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

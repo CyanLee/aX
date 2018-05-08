@@ -14,6 +14,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self titleLabel];
         [self clickBtn];
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     return self;
 }
@@ -34,6 +35,7 @@
     if (_clickBtn == nil) {
         _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:_clickBtn];
+        _clickBtn.hidden = YES;
         _clickBtn.backgroundColor = [UIColor redColor];
         [_clickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
