@@ -126,6 +126,10 @@ typedef enum : NSUInteger {
         }
         [self.tableView reloadData];
     } failure:^(NSString *errStr) {
+        [self.datas removeAllObjects];
+        [self.tableView reloadData];
+        self.tabFooter.salesNumLabel.text = @"0";
+        self.tabFooter.salesMoney.text = @"0";
         [SVProgressHUD showErrorWithStatus:errStr];
     }];
 }

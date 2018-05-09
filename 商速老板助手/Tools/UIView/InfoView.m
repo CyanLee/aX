@@ -7,10 +7,10 @@
 //
 
 #import "InfoView.h"
-
+#import "GraphView.h"
 @interface InfoView ()
 
-@property (nonatomic,weak)UIView *graphView;
+@property (nonatomic,weak)GraphView *graphView;
 @end
 
 @implementation InfoView
@@ -118,45 +118,17 @@
             make.top.mas_equalTo(65+100);
         }];
         
-//        UIButton *repBtn = [[UIButton alloc]init];
-//        [self addSubview:repBtn];
-//        [repBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(receiptTip);
-//            make.right.equalTo(self.mas_centerX).mas_offset(-12);
-//            make.height.mas_equalTo(40);
-//            make.top.mas_equalTo(65+40+60);
-//        }];
-//        repBtn.backgroundColor = [UIColor whiteColor];
-//        repBtn.layer.cornerRadius = 15;
-//        repBtn.layer.masksToBounds = true;
-//        [repBtn setTitle:@"营业额" forState:0];
-//        [repBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-//        repBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-//        [repBtn addTarget:self action:@selector(reportBtnDidClicked) forControlEvents:1<<6];
-//
-//        UIButton *singleBtn = [[UIButton alloc]init];
-//        [self addSubview:singleBtn];
-//        [singleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.mas_centerX).mas_offset(18);
-//            make.height.width.centerY.equalTo(repBtn);
-//        }];
-//        singleBtn.backgroundColor = [UIColor whiteColor];
-//        singleBtn.layer.cornerRadius = 15;
-//        singleBtn.layer.masksToBounds = true;
-//        [singleBtn setTitle:@"收单数" forState:0];
-//        [singleBtn setTitleColor:DefineRedColor forState:0];
-//        singleBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-//        [singleBtn addTarget:self action:@selector(historyBtnDidClicked) forControlEvents:1<<6];
-        
         /// 曲线图
-        UIView *graph = [[UIView alloc]init];
+        GraphView *graph = [[GraphView alloc]init];
         [self addSubview:graph];
-        graph.backgroundColor = [UIColor whiteColor];
-       // graph.backgroundColor = self.backgroundColor;
+        graph.backgroundColor = self.backgroundColor;
         [graph mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.left.right.equalTo(self);
-            make.height.equalTo(self).multipliedBy(0.4);
+            make.height.equalTo(self).multipliedBy(0.42);
         }];
+        
+        
+        
     }
     return self;
 }

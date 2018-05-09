@@ -65,6 +65,7 @@
 		4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5A7209BF58600A77475 /* LanguageViewController.m */; };
 		4D73D5AD209C3D6F00A77475 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5AC209C3D6F00A77475 /* UserModel.m */; };
 		4D757449209AF15D00D6359A /* InfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D757448209AF15D00D6359A /* InfoView.m */; };
+		4D766EA520A29CB400AB16BD /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D766EA420A29CB400AB16BD /* GraphView.m */; };
 		4D7A368B209D473100A62B8A /* SalesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7A368A209D473100A62B8A /* SalesModel.m */; };
 		4D7B90F420940C9500322767 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F320940C9500322767 /* ForgetViewController.m */; };
 		4D7B90F7209410DD00322767 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B90F6209410DD00322767 /* CoverView.m */; };
@@ -227,6 +228,8 @@
 		4D73D5AC209C3D6F00A77475 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = "商速老板助手/UserModel.m"; sourceTree = SOURCE_ROOT; };
 		4D757447209AF15D00D6359A /* InfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InfoView.h; path = "商速老板助手/Tools/UIView/InfoView.h"; sourceTree = SOURCE_ROOT; };
 		4D757448209AF15D00D6359A /* InfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoView.m; path = "商速老板助手/Tools/UIView/InfoView.m"; sourceTree = SOURCE_ROOT; };
+		4D766EA320A29CB400AB16BD /* GraphView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = "商速老板助手/Class/ChooseStore/C/GraphView.h"; sourceTree = SOURCE_ROOT; };
+		4D766EA420A29CB400AB16BD /* GraphView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = "商速老板助手/Class/ChooseStore/C/GraphView.m"; sourceTree = SOURCE_ROOT; };
 		4D7A3689209D473100A62B8A /* SalesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalesModel.h; sourceTree = "<group>"; };
 		4D7A368A209D473100A62B8A /* SalesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SalesModel.m; sourceTree = "<group>"; };
 		4D7B90F220940C9500322767 /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 			children = (
 				4D757447209AF15D00D6359A /* InfoView.h */,
 				4D757448209AF15D00D6359A /* InfoView.m */,
+				4D766EA320A29CB400AB16BD /* GraphView.h */,
+				4D766EA420A29CB400AB16BD /* GraphView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1094,6 +1099,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */,
+				4D766EA520A29CB400AB16BD /* GraphView.m in Sources */,
 				4D7B90F7209410DD00322767 /* CoverView.m in Sources */,
 				4D29B15A209174DD004C8324 /* MASConstraint.m in Sources */,
 				342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */,
