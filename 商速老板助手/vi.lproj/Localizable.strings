@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "Vui lòng nhập tên người dùng";
+"enter your password" = "Vui lòng nhập mật khẩu của bạn";
+"Retrieve password" = "Quên mật khẩu của bạn";
+"sign in" = "Đăng nhập";
+"Mobile phone number" = "Số điện thoại";
+"Verification Code" = "Mã xác minh";
+"new password" = "Mật khẩu mới";
+"confirm password" = "Xác nhận mật khẩu";
+"get Identify code" = "Nhận mã xác minh";
+"confirm" = "OK";
+"change logo" = "Thay đổi nhãn hiệu cửa hàng";
+"choose Merchant" = "Chọn một cửa hàng";
+"language" = "Ngôn ngữ";
+"Today's turnover" = "Doanh thu ngày nay";
+"Today's receipt" = "Số đơn đặt hàng ngày hôm nay";
+"Merchant report" = "Lưu trữ báo cáo";
+"History report" = "Dữ liệu lịch sử";
+"Turnover" = "Doanh thu";
+"Order number" = "Số lượng đơn đặt hàng";
+"day" = "Ngày";
+"week" = "Tuần";
+"month" = "Tháng";
+"year" = "Năm";
+"home" = "Trang chủ";
+"Extension" = "Khuyến mãi";
+"My" = "Tôi";
+"Top number 10 sales" = "Top 10 nhân viên bán hàng";
+"Top Amount 10 sales" = "Top 10 số tiền bán hàng";
+"categories sales" = "Bán sản phẩm danh mục sản phẩm";
+"Cashier report" = "Thống kê tóm tắt tiền mặt đăng ký";
+"total" = "Tổng số";

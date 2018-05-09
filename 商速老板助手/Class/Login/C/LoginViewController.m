@@ -158,7 +158,8 @@
         make.right.equalTo(self.nameView).mas_offset(-8);
         make.height.mas_equalTo(30);
     }];
-    tf.placeholder = @" 请输入用户名";
+//    tf.placeholder = @" 请输入用户名";
+    tf.placeholder = NSLocalized(@"enter your ID",nil);
     tf.textAlignment = 0;
     self.nameTF = tf;
 }
@@ -193,7 +194,8 @@
         make.right.equalTo(self.pswView).mas_offset(-8);
         make.height.mas_equalTo(30);
     }];
-    tf.placeholder = @" 请输入密码";
+//    tf.placeholder = @" 请输入密码";
+    tf.placeholder = NSLocalized(@"enter your password",nil);
     tf.textAlignment = 0;
     self.pwsTF = tf;
 }
@@ -207,7 +209,8 @@
         make.height.mas_offset(24);
         make.width.mas_equalTo(80);
     }];
-    [btn setTitle:@"忘记密码?" forState:0];
+    NSString *str = [NSString stringWithFormat:@"%@%@",NSLocalized(@"Retrieve password",nil),@"?"];
+    [btn setTitle:str forState:0];
     [btn setTitleColor:[UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:155.0/255.0] forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:15];
     [btn addTarget:self action:@selector(forgetDidClicked) forControlEvents:1<<6];
@@ -229,7 +232,7 @@
         make.right.mas_offset(-8);
         make.height.mas_equalTo(40);
     }];
-    [btn setTitle:@"登 录" forState:0];
+    [btn setTitle:NSLocalized(@"sign in",nil) forState:0];
     btn.layer.cornerRadius = 12;
     btn.layer.masksToBounds = true;
     btn.backgroundColor = DefineRedColor;

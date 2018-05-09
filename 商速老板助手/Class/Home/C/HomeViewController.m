@@ -94,7 +94,7 @@
         make.width.mas_equalTo(100);
         make.centerY.equalTo(self.storeBtn).mas_offset(-4);
     }];
-    [btn setTitle:@"选择店铺" forState:0];
+    [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
     [btn setTitleColor:[UIColor whiteColor] forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:10];
     btn.layer.cornerRadius = 4;
@@ -128,8 +128,7 @@
     
     UILabel *label = [[UILabel alloc]init];
     [self.headerView addSubview:label];
-//    label.text = @"改店标";
-    label.text = NSLocalized(@"collect",nil);
+    label.text = NSLocalized(@"change logo",nil);
     label.textAlignment = 0;
     label.textColor = [UIColor whiteColor];
     label.font = [UIFont systemFontOfSize:12];
@@ -147,7 +146,7 @@
         make.centerY.height.width.equalTo(self.storeBtn);
         make.right.equalTo(self.headerView).mas_offset(-13);
     }];
-    [btn setTitle:@"语言" forState:0];
+    [btn setTitle:NSLocalized(@"language",nil) forState:0];
     [btn setTitleColor:DefineRedColor forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:10];
     btn.layer.cornerRadius = 20;

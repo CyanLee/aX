@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "사용자 이름을 입력하십시오.";
+"enter your password" = "비밀번호를 입력하십시오.";
+"Retrieve password" = "비밀 번호를 잊어 버렸습니다.";
+"sign in" = "로그인";
+"Mobile phone number" = "전화 번호";
+"Verification Code" = "인증 코드";
+"new password" = "새 암호";
+"confirm password" = "암호 확인";
+"get Identify code" = "인증 코드 받기";
+"confirm" = "확인";
+"change logo" = "상점 표시 변경";
+"choose Merchant" = "가게 선택";
+"language" = "언어";
+"Today's turnover" = "오늘의 매출액";
+"Today's receipt" = "오늘 주문 건수";
+"Merchant report" = "보고서 저장";
+"History report" = "과거 데이터";
+"Turnover" = "회전율";
+"Order number" = "주문 수";
+"day" = "주간";
+"week" = "주";
+"month" = "달";
+"year" = "몇 년";
+"home" = "홈";
+"Extension" = "프로모션";
+"My" = "나는";
+"Top number 10 sales" = "상위 10 대 판매량";
+"Top Amount 10 sales" = "판매량 상위 10 위";
+"categories sales" = "제품 카테고리 판매";
+"Cashier report" = "금전 등록기 요약 통계";
+"total" = "합계";

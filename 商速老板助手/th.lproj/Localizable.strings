@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "กรุณาใส่ชื่อผู้ใช้";
+"enter your password" = "กรุณาป้อนรหัสผ่าน";
+"Retrieve password" = "ลืมรหัสผ่าน";
+"sign in" = "เข้าสู่ระบบ";
+"Mobile phone number" = "หมายเลขโทรศัพท์มือถือ";
+"Verification Code" = "รหัสยืนยัน";
+"new password" = "รหัสผ่านใหม่";
+"confirm password" = "ยืนยันรหัสผ่าน";
+"get Identify code" = "รับรหัสยืนยัน";
+"confirm" = "แน่ใจว่า";
+"change logo" = "เปลี่ยนโลโก้";
+"choose Merchant" = "เลือกร้าน";
+"language" = "ภาษา";
+"Today's turnover" = "มูลค่าการซื้อขายในวันนี้";
+"Today's receipt" = "วันนี้ได้รับของ .";
+"Merchant report" = "ร้านรายงาน";
+"History report" = "ข้อมูลทางประวัติศาสตร์";
+"Turnover" = "การหมุนเวียน";
+"Order number" = "รับเอกพจน์";
+"day" = "เมื่อวันที่";
+"week" = "สัปดาห์";
+"month" = "เดือน";
+"year" = "ปี";
+"home" = "ที่หน้าแรก";
+"Extension" = "ส่งเสริมการขาย";
+"My" = "ฉัน";
+"Top number 10 sales" = "ปริมาณการขาย 10 คนก่อน";
+"Top Amount 10 sales" = "ปริมาณการขาย 10 คนก่อน";
+"categories sales" = "หมวดหมู่สินค้าในการขาย";
+"Cashier report" = "วิธีการได้รับเงินรวมสถิติ";
+"total" = "รวม";

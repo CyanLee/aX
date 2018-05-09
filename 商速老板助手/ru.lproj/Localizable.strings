@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "Введите имя пользователя";
+"enter your password" = "Введите пароль";
+"Retrieve password" = "Забыли пароль";
+"sign in" = "Вход";
+"Mobile phone number" = "Номер телефона";
+"Verification Code" = "Код подтверждения";
+"new password" = "Новый пароль";
+"confirm password" = "Подтвердить пароль";
+"get Identify code" = "Получить код подтверждения";
+"confirm" = "определить";
+"change logo" = "Изменение метки магазина";
+"choose Merchant" = "Выберите магазин";
+"language" = "язык";
+"Today's turnover" = "Сегодняшний оборот";
+"Today's receipt" = "Сегодняшнее количество заказов";
+"Merchant report" = "Отчет о магазине";
+"History report" = "Исторические данные";
+"Turnover" = "оборачиваемость";
+"Order number" = "Количество заказов";
+"day" = "день";
+"week" = "Чжоу";
+"month" = "месяц";
+"year" = "год";
+"home" = "дома";
+"Extension" = "распространение";
+"My" = "Я";
+"Top number 10 sales" = "Топ-10 показателей продаж";
+"Top Amount 10 sales" = "Топ-10 продаж";
+"categories sales" = "Продажа продукции категории";
+"Cashier report" = "Сводная статистика кассового аппарата";
+"total" = "общий";

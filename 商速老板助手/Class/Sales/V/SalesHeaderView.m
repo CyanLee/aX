@@ -69,7 +69,7 @@
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.text = @"改店标";
+        _titleLabel.text = NSLocalized(@"change logo", nil);
         _titleLabel.font = [UIFont systemFontOfSize:12.f];
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,7 +84,7 @@
     if (_reportBtn == nil) {
         _reportBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _reportBtn.backgroundColor = DefineRedColor;
-        [_reportBtn setTitle:@"店铺报告" forState:UIControlStateNormal];
+        [_reportBtn setTitle:NSLocalized(@"Merchant report", nil) forState:UIControlStateNormal];
         _reportBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_reportBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self addSubview:_reportBtn];
@@ -106,7 +106,7 @@
     if (_chooseBtn == nil) {
         _chooseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _chooseBtn.backgroundColor = DefineRedColor;
-        [_chooseBtn setTitle:@"选择店铺" forState:UIControlStateNormal];
+        [_chooseBtn setTitle:NSLocalized(@"choose Merchant", nil) forState:UIControlStateNormal];
         _chooseBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_chooseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self addSubview:_chooseBtn];
@@ -144,7 +144,7 @@
     if (_historyLabel == nil) {
         _historyLabel = [[UILabel alloc] init];
         _historyLabel.textColor = [UIColor whiteColor];
-        _historyLabel.text = @"历史数据";
+        _historyLabel.text = NSLocalized(@"History report", nil);
         _historyLabel.font = [UIFont systemFontOfSize:12.f];
         [self addSubview:_historyLabel];
         [_historyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -159,7 +159,7 @@
     if (_languageBtn == nil) {
         _languageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _languageBtn.backgroundColor = [UIColor whiteColor];
-        [_languageBtn setTitle:@"语言" forState:UIControlStateNormal];
+        [_languageBtn setTitle:NSLocalized(@"language", nil) forState:UIControlStateNormal];
         _languageBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_languageBtn setTitleColor:DefineRedColor forState:UIControlStateNormal];
         [self addSubview:_languageBtn];
@@ -203,19 +203,19 @@
         last = btn;
         
         if (i == 0) {
-            [btn setTitle:@"销售数量前10名" forState:UIControlStateNormal];
+            [btn setTitle:NSLocalized(@"Top number 10 sales", nil) forState:UIControlStateNormal];
             btn.backgroundColor = [UIColor whiteColor];
             [btn setTitleColor:DefineRedColor forState:UIControlStateNormal];
             self.numRankingBtn = btn;
             self.lastBtn = btn;
         } else if (i == 1) {
-            [btn setTitle:@"销售金额前十名" forState:UIControlStateNormal];
+            [btn setTitle:NSLocalized(@"Top Amount 10 sales", nil) forState:UIControlStateNormal];
             self.moneyRankingBtn = btn;
         }else if (i == 2) {
-            [btn setTitle:@"商品类别销售情况" forState:UIControlStateNormal];
+            [btn setTitle:NSLocalized(@"categories sales", nil) forState:UIControlStateNormal];
             self.salesRankingBtn = btn;
         }else{
-            [btn setTitle:@"收银情况汇总" forState:UIControlStateNormal];
+            [btn setTitle:NSLocalized(@"Cashier report", nil) forState:UIControlStateNormal];
             self.summaryBtn = btn;
         }
         [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];

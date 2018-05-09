@@ -22,7 +22,7 @@
         /// 今日营业额
         UILabel *turnoverTip = [[UILabel alloc]init];
         [self addSubview:turnoverTip];
-        turnoverTip.text = @"今日营业额 :";
+        turnoverTip.text = [NSString stringWithFormat:@"%@ :",NSLocalized(@"Today's turnover", nil)];
         turnoverTip.font = [UIFont systemFontOfSize:10];
         turnoverTip.textAlignment = 0;
         turnoverTip.textColor = [UIColor whiteColor];
@@ -46,7 +46,7 @@
         /// 今日收单数
         UILabel *receiptTip = [[UILabel alloc]init];
         [self addSubview:receiptTip];
-        receiptTip.text = @"今日收单数 :";
+        turnoverTip.text = [NSString stringWithFormat:@"%@ :",NSLocalized(@"Today's receipt", nil)];
         receiptTip.font = [UIFont systemFontOfSize:10];
         receiptTip.textAlignment = 0;
         receiptTip.textColor = [UIColor whiteColor];
@@ -78,7 +78,7 @@
         reportBtn.backgroundColor = [UIColor whiteColor];
         reportBtn.layer.cornerRadius = 15;
         reportBtn.layer.masksToBounds = true;
-        [reportBtn setTitle:@"店铺报告" forState:0];
+        [reportBtn setTitle:NSLocalized(@"Merchant report", nil) forState:0];
         [reportBtn setTitleColor:DefineRedColor forState:0];
         reportBtn.titleLabel.font = [UIFont systemFontOfSize:11];
         [reportBtn addTarget:self action:@selector(reportBtnDidClicked) forControlEvents:1<<6];
@@ -93,14 +93,14 @@
         historyBtn.backgroundColor = [UIColor whiteColor];
         historyBtn.layer.cornerRadius = 15;
         historyBtn.layer.masksToBounds = true;
-        [historyBtn setTitle:@"历史数据" forState:0];
+        [historyBtn setTitle:NSLocalized(@"History report", nil) forState:0];
         [historyBtn setTitleColor:DefineRedColor forState:0];
         historyBtn.titleLabel.font = [UIFont systemFontOfSize:11];
         [historyBtn addTarget:self action:@selector(historyBtnDidClicked) forControlEvents:1<<6];
         
         
         /// 营业额 && 收单数
-        UISegmentedControl *segmentedC = [[UISegmentedControl alloc] initWithItems:@[@"营业额", @"收单数"]];
+        UISegmentedControl *segmentedC = [[UISegmentedControl alloc] initWithItems:@[NSLocalized(@"Turnover", nil), NSLocalized(@"Order number", nil)]];
         [self addSubview:segmentedC];
         [segmentedC addTarget:self action:@selector(selectItem:) forControlEvents:UIControlEventValueChanged];
         segmentedC.tintColor = [UIColor whiteColor];

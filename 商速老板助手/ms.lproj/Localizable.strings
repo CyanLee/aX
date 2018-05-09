@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "Sila masukkan nama pengguna";
+"enter your password" = "Sila masukkan kata laluan anda";
+"Retrieve password" = "Lupa kata laluan anda";
+"sign in" = "Log masuk";
+"Mobile phone number" = "Nombor telefon";
+"Verification Code" = "Kod pengesahan";
+"new password" = "Kata laluan baru";
+"confirm password" = "Sahkan kata laluan";
+"get Identify code" = "Dapatkan kod pengesahan";
+"confirm" = "OK";
+"change logo" = "Tukar tanda kedai";
+"choose Merchant" = "Pilih kedai";
+"language" = "Bahasa";
+"Today's turnover" = "Perolehan hari ini";
+"Today's receipt" = "Bilangan pesanan hari ini";
+"Merchant report" = "Simpan laporan";
+"History report" = "Data sejarah";
+"Turnover" = "Perolehan";
+"Order number" = "Bilangan pesanan";
+"day" = "Hari";
+"week" = "Minggu";
+"month" = "Bulan";
+"year" = "Tahun";
+"home" = "Rumah";
+"Extension" = "Promosi";
+"My" = "Saya";
+"Top number 10 sales" = "10 angka jualan teratas";
+"Top Amount 10 sales" = "Jumlah jualan 10 teratas";
+"categories sales" = "Jualan kategori produk";
+"Cashier report" = "Statistik ringkasan daftar tunai";
+"total" = "Jumlah";
+

@@ -58,7 +58,7 @@
         self.switchTime = switchTime;
         
         CGFloat btnW = kWidth == 320 ? 70 : 80;
-        NSArray *arr = @[@"日",@"周",@"月",@"年"];
+        NSArray *arr = @[NSLocalized(@"day", nil),NSLocalized(@"week", nil),NSLocalized(@"month", nil),NSLocalized(@"year", nil)];
         CGFloat firstX = (kWidth-arr.count*btnW)/arr.count;
         for (int i = 0; i < arr.count; i++) {
             UIButton *btn = [[UIButton alloc]init];

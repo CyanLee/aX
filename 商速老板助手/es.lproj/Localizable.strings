@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+"enter your ID" = "Por favor ingrese el nombre de usuario";
+"enter your password" = "Por favor ingrese su contraseña";
+"Retrieve password" = "Olvidó su contraseña";
+"sign in" = "Iniciar sesión";
+"Mobile phone number" = "Número de teléfono";
+"Verification Code" = "Código de verificación";
+"new password" = "Nueva contraseña";
+"confirm password" = "Confirmar contraseña";
+"get Identify code" = "Obtener el código de verificación";
+"confirm" = "OK";
+"change logo" = "Cambiar la marca de la tienda";
+"choose Merchant" = "Elige una tienda";
+"language" = "Idioma";
+"Today's turnover" = "Volumen actual";
+"Today's receipt" = "El número de pedidos actual";
+"Merchant report" = "Informe de la tienda";
+"History report" = "Datos históricos";
+"Turnover" = "Facturación";
+"Order number" = "El número de órdenes";
+"day" = "Día";
+"week" = "Semanas";
+"month" = "Mes";
+"year" = "Años";
+"home" = "Inicio";
+"Extension" = "Promoción";
+"My" = "Yo";
+"Top number 10 sales" = "Las 10 principales cifras de ventas";
+"Top Amount 10 sales" = "Las 10 principales cantidades de ventas";
+"categories sales" = "Ventas de categoría de producto";
+"Cashier report" = "Estadísticas de resumen de la caja registradora";
+"total" = "Total";

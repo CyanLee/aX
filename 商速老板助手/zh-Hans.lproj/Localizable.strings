@@ -6,4 +6,34 @@
   Copyright © 2018年 luyonghao. All rights reserved.
 */
 
-"collect" = "收多多";
+"enter your ID" = "请输入用户名";
+"enter your password" = "请输入密码";
+"Retrieve password" = "忘记密码";
+"sign in" = "登录";
+"Mobile phone number" = "手机号码";
+"Verification Code" = "验证码";
+"new password" = "新密码";
+"confirm password" = "确认密码";
+"get Identify code" = "获取验证码";
+"confirm" = "确定";
+"change logo" = "改店标";
+"choose Merchant" = "选择店铺";
+"language" = "语言";
+"Today's turnover" = "今天营业额";
+"Today's receipt" = "今天收单数";
+"Merchant report" = "店铺报告";
+"History report" = "历史数据";
+"Turnover" = "营业额";
+"Order number" = "收单数";
+"day" = "日";
+"week" = "周";
+"month" = "月";
+"year" = "年";
+"home" = "首页";
+"Extension" = "推广";
+"My" = "我";
+"Top number 10 sales" = "销售数量前10名";
+"Top Amount 10 sales" = "销售金额前10名";
+"categories sales" = "商品类别销售情况";
+"Cashier report" = "收银方式汇总统计";
+"total" = "合计";

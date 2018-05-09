@@ -60,7 +60,7 @@
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.text = @"改店标";
+        _titleLabel.text = NSLocalized(@"change logo", nil);
         _titleLabel.font = [UIFont systemFontOfSize:14.f];
         [self addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,7 +77,7 @@
     if (_historyBtn == nil) {
         _historyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _historyBtn.backgroundColor = [UIColor whiteColor];
-        [_historyBtn setTitle:@"历史数据" forState:UIControlStateNormal];
+        [_historyBtn setTitle:NSLocalized(@"History report", nil) forState:UIControlStateNormal];
         _historyBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_historyBtn setTitleColor:DefineRedColor forState:UIControlStateNormal];
         [self addSubview:_historyBtn];
@@ -98,7 +98,7 @@
     if (_chooseBtn == nil) {
         _chooseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _chooseBtn.backgroundColor = DefineRedColor;
-        [_chooseBtn setTitle:@"选择店铺" forState:UIControlStateNormal];
+        [_chooseBtn setTitle:NSLocalized(@"choose Merchant", nil) forState:UIControlStateNormal];
         _chooseBtn.titleLabel.font = [UIFont systemFontOfSize:10.0f];
         [_chooseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self addSubview:_chooseBtn];
@@ -120,7 +120,7 @@
     if (_languageBtn == nil) {
         _languageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _languageBtn.backgroundColor = [UIColor whiteColor];
-        [_languageBtn setTitle:@"语言" forState:UIControlStateNormal];
+        [_languageBtn setTitle:NSLocalized(@"language", nil) forState:UIControlStateNormal];
          _languageBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_languageBtn setTitleColor:DefineRedColor forState:UIControlStateNormal];
         [self addSubview:_languageBtn];

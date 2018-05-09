@@ -6,4 +6,37 @@
   Copyright © 2018年 luyonghao. All rights reserved.
 */
 
-"collect" = "Collect a lot of";
+//"collect" = "Collect a lot of";
+
+"enter your ID" = "enter your ID";
+"enter your password" = "enter your password";
+"Retrieve password" = "Retrieve password";
+"sign in" = "sign in";
+"Mobile phone number" = "Mobile phone number";
+"Verification Code" = "Verification Code";
+"new password" = "new password";
+"confirm password" = "confirm password";
+"get Identify code" = "get Identify code";
+"confirm" = "confirm";
+"change logo" = "change logo";
+"choose Merchant" = "choose Merchant";
+"language" = "language";
+"Today's turnover" = "Today's turnover";
+"Today's receipt" = "Today's receipt";
+"Merchant report" = "Merchant report";
+"History report" = "History report";
+"Turnover" = "Turnover";
+"Order number" = "Order number";
+"day" = "day";
+"week" = "week";
+"month" = "month";
+"year" = "year";
+"home" = "home";
+"Extension" = "Extension";
+"My" = "My";
+"Top number 10 sales" = "Top number 10 sales";
+"Top Amount 10 sales" = "Top Amount 10 sales";
+"categories sales" = "categories sales";
+"Cashier report" = "Cashier report";
+"total" = "total";
+

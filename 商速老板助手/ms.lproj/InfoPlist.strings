@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  商速老板助手
+
+  Created by 今日 on 2018/5/7.
+  Copyright © 2018年 luyonghao. All rights reserved.
+*/
+
+CFBundleDisplayName = "Localizable App Name";

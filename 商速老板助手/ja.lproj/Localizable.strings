@@ -6,4 +6,34 @@
   Copyright © 2018年 luyonghao. All rights reserved.
 */
 
-"collect" = "受け取ってい";
+"enter your ID" = "ユーザー名を入力してください";
+"enter your password" = "パスワードを入力してください";
+"Retrieve password" = "パスワードを忘れた";
+"sign in" = "ログイン";
+"Mobile phone number" = "電話番号";
+"Verification Code" = "確認コード";
+"new password" = "新しいパスワード";
+"confirm password" = "パスワードを確認する";
+"get Identify code" = "確認コードを取得する";
+"confirm" = "OK";
+"change logo" = "店舗マークを変更する";
+"choose Merchant" = "店を選ぶ";
+"language" = "言語";
+"Today's turnover" = "今日の売上高";
+"Today's receipt" = "今日の注文数";
+"Merchant report" = "レポートを保存する";
+"History report" = "過去のデータ";
+"Turnover" = "売上高";
+"Order number" = "注文数";
+"day" = "日";
+"week" = "週";
+"month" = "月";
+"year" = "年";
+"home" = "ホーム";
+"Extension" = "プロモーション";
+"My" = "私";
+"Top number 10 sales" = "上位10の売上高";
+"Top Amount 10 sales" = "売上高上位10位";
+"categories sales" = "商品カテゴリの販売";
+"Cashier report" = "キャッシュ・レジスターの要約統計";
+"total" = "合計";
