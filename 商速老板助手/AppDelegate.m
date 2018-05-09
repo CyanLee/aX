@@ -12,6 +12,8 @@
 #import "NetTools.h"
 #import "APP_IPS.h"
 #import "UserModel.h"
+#import "NSBundle+Language.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,11 +23,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSString *languageStr = UD_GET_OBJ(@"LanguageKey");
+    if (languageStr != nil) {
+        if ([languageStr isEqualToString:@"base"]) {
+            [NSBundle setLanguage:nil];
+        }else{
+            [NSBundle setLanguage:languageStr];
+        }
+    }else{
+        [NSBundle setLanguage:nil];
+    }
+    
     UIWindow *key = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     key.rootViewController = [self setupRootViewController];
     key.backgroundColor = [UIColor whiteColor];
     [key makeKeyAndVisible];
     self.window = key;
+
+//    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    [_window makeKeyAndVisible];
+//    _window.rootViewController = [self setupRootViewController];
     
     [self getStartImg];
     return YES;
@@ -44,9 +61,9 @@
 
 
 - (UIViewController *)setupRootViewController{
-//    return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
-//                                           : [[LoginViewController alloc]init]] :[[TabController alloc] init];
-    return [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+    return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
+                                           : [[LoginViewController alloc]init]] :[[TabController alloc] init];
+//    return [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
 
 }
 

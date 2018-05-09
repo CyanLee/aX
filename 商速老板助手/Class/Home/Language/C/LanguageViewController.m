@@ -8,12 +8,17 @@
 
 #import "LanguageViewController.h"
 #import "LanguageCell.h"
+#import "NSBundle+Language.h"
+#import "AppDelegate.h"
+#import "TabController.h"
 
 @interface LanguageViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) NSMutableArray *languageArr;
 @property (nonatomic,assign) NSInteger stateNum;
+@property (nonatomic,copy) NSString *chooseStr;
 
 @end
 
@@ -24,15 +29,28 @@
     
     self.title = @"语言";
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    [self addRightNavItemWithTitle:@"保存" withSel:@selector(sett:)];
     [self setupData];
     [self setupTableView];
-    
 }
 
 -(void)setupData{
     self.dataArr = [[NSMutableArray alloc] initWithObjects:@"跟随系统",@"中文简体",@"中文繁体",@"英语",@"日语", nil];
-    self.stateNum = 0;
+    self.languageArr = [[NSMutableArray alloc] initWithObjects:@"base",@"zh-Hans",@"zh-Hant",@"en",@"ja", nil];
+    
+    if (UD_GET_OBJ(@"LanguageKey") == nil) {
+        self.stateNum = 0;
+        self.chooseStr = @"base";
+    }else{
+        self.chooseStr = UD_GET_OBJ(@"LanguageKey");
+        for (int i = 0; i < self.languageArr.count; i++) {
+            if ([self.chooseStr isEqualToString:self.languageArr[i]]) {
+                self.chooseStr = self.languageArr[i];
+                self.stateNum = i;
+            }
+        }
+    }
+    
 }
 
 -(void)setupTableView{
@@ -70,7 +88,43 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.stateNum = indexPath.section;
+    self.chooseStr = [self.languageArr objectAtIndex:indexPath.section];
     [tableView reloadData];
+}
+
+
+
+//添加导航右按键 与 点击事件 文字
+-(UIButton *)addRightNavItemWithTitle:(NSString *)title withSel:(SEL)selectorAction{
+    UIButton * rightBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 50, 20);
+    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    rightBtn.titleLabel.font =[UIFont systemFontOfSize:20];
+    [rightBtn setTitle:title forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:selectorAction forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    //配置返回按钮距离屏幕边缘的距离
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceItem.width = 0;
+    self.navigationItem.rightBarButtonItems = @[spaceItem, backItem];
+    return rightBtn;
+}
+
+-(void)sett:(UIButton *)sender{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.chooseStr forKey:@"LanguageKey"];
+    [defaults synchronize];
+    NSLog(@"保存保存保存保存保存---%d------%@",[defaults synchronize],self.chooseStr);
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0/*延迟执行时间*/ * NSEC_PER_SEC));
+    [SVProgressHUD showWithStatus:@"正在保存"];
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [NSBundle setLanguage:self.chooseStr];
+        AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        app.window.rootViewController = [TabController new];
+        [SVProgressHUD dismiss];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated{
