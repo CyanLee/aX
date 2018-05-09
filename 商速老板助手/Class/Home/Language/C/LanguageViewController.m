@@ -35,8 +35,8 @@
 }
 
 -(void)setupData{
-    self.dataArr = [[NSMutableArray alloc] initWithObjects:@"跟随系统",@"中文简体",@"中文繁体",@"英语",@"日语", nil];
-    self.languageArr = [[NSMutableArray alloc] initWithObjects:@"base",@"zh-Hans",@"zh-Hant",@"en",@"ja", nil];
+    self.dataArr = [[NSMutableArray alloc] initWithObjects:@"跟随系统",@"中文简体",@"中文繁体",@"英语",@"阿拉伯语",@"葡萄牙语",@"法语",@"泰语",@"越南语",@"韩语",@"西班牙语",@"德语",@"俄语",@"马来西亚语",@"日语", nil];
+    self.languageArr = [[NSMutableArray alloc] initWithObjects:@"base",@"zh-Hans",@"zh-Hant",@"en",@"ar",@"pt",@"fr",@"th",@"vi",@"ko",@"es",@"de",@"ru",@"ms",@"ja", nil];
     
     if (UD_GET_OBJ(@"LanguageKey") == nil) {
         self.stateNum = 0;

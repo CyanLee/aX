@@ -46,7 +46,7 @@
         /// 今日收单数
         UILabel *receiptTip = [[UILabel alloc]init];
         [self addSubview:receiptTip];
-        turnoverTip.text = [NSString stringWithFormat:@"%@ :",NSLocalized(@"Today's receipt", nil)];
+        receiptTip.text = [NSString stringWithFormat:@"%@ :",NSLocalized(@"Today's receipt", nil)];
         receiptTip.font = [UIFont systemFontOfSize:10];
         receiptTip.textAlignment = 0;
         receiptTip.textColor = [UIColor whiteColor];
