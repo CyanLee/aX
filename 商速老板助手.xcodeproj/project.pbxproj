@@ -39,6 +39,7 @@
 		342984DE209FFFBA00341EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 342984E0209FFFBA00341EAC /* InfoPlist.strings */; };
 		342984E620A0021100341EAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 342984E820A0021100341EAC /* Localizable.strings */; };
 		342984FA20A1308400341EAC /* LanguageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984F920A1308400341EAC /* LanguageCell.m */; };
+		342984FE20A2008900341EAC /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 342984FD20A2008800341EAC /* NSBundle+Language.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -168,6 +169,8 @@
 		342984EB20A0021400341EAC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		342984F820A1308400341EAC /* LanguageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageCell.h; sourceTree = "<group>"; };
 		342984F920A1308400341EAC /* LanguageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageCell.m; sourceTree = "<group>"; };
+		342984FC20A2008800341EAC /* NSBundle+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		342984FD20A2008800341EAC /* NSBundle+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -402,6 +405,15 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		342984FB20A2008800341EAC /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				342984FC20A2008800341EAC /* NSBundle+Language.h */,
+				342984FD20A2008800341EAC /* NSBundle+Language.m */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
 		4D29B0EE209172AB004C8324 = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +623,7 @@
 		4D29B13C20917461004C8324 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				342984FB20A2008800341EAC /* Language */,
 				4D970A8B2099A62000D0BD14 /* UIView */,
 				4D970A682099A5E900D0BD14 /* MJExtension */,
 				4D970A582099955C00D0BD14 /* SVProgressHUD */,
@@ -1129,6 +1142,7 @@
 				4D970A802099A5E900D0BD14 /* MJDictionaryCache.m in Sources */,
 				4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */,
 				4D970A4B20994B6500D0BD14 /* AFHTTPSessionManager.m in Sources */,
+				342984FE20A2008900341EAC /* NSBundle+Language.m in Sources */,
 				4D970A892099A5E900D0BD14 /* NSObject+MJProperty.m in Sources */,
 				4D970A662099955C00D0BD14 /* SVProgressHUD.m in Sources */,
 				4D970A872099A5E900D0BD14 /* NSObject+MJCoding.m in Sources */,

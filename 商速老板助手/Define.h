@@ -64,4 +64,8 @@
 // NSlocalizeString 第一个参数是内容,根据第一个参数去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@""。
 #define NSLocalized(key, comment) [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
 
+#pragma mark- 保存键值对到应用
+#define UD_GET_OBJ(KEY) [[NSUserDefaults standardUserDefaults] objectForKey:(KEY)]
+#define UD_SET_OBJ(OBJ,KEY)  [[NSUserDefaults standardUserDefaults] setObject:(OBJ) forKey:(KEY)]; [[NSUserDefaults standardUserDefaults] synchronize]
+
 #endif /* Define_h */

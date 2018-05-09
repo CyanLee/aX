@@ -128,7 +128,8 @@
     
     UILabel *label = [[UILabel alloc]init];
     [self.headerView addSubview:label];
-    label.text = @"改店标";
+//    label.text = @"改店标";
+    label.text = NSLocalized(@"collect",nil);
     label.textAlignment = 0;
     label.textColor = [UIColor whiteColor];
     label.font = [UIFont systemFontOfSize:12];
