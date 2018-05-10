@@ -50,8 +50,9 @@
 #import "NetTools.h"
 #import "SVProgressHUD.h"
 #import "MJExtension.h"
-
-
+#import "MJRefresh.h"
+#define MaxPage 20 /// 加载数据默认
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 //打印日志
 #define LOG_OPEN
 #ifdef LOG_OPEN
