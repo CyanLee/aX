@@ -37,3 +37,15 @@
 "categories sales" = "Ventas de categoría de producto";
 "Cashier report" = "Estadísticas de resumen de la caja registradora";
 "total" = "Total";
+"Logging in" = "Iniciando sesión";
+"Sale" = "Venta";
+"Sales volume" = "Volumen de ventas";
+"Receipt amount" = "Cantidad de recibo";
+"Receipt time" = "Tiempo de recepción";
+"Failed to connect to network" = "Error al conectarse a la red";
+"save" = "Guardar";
+"Boss Assistant" = "Asistente de Jefe";
+"Today" = "Hoy.";
+"Saving" = "Guardando ahora";
+"Setting up" = "Configuración";
+"Follow system" = "Sigue el sistema";

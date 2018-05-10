@@ -37,3 +37,15 @@
 "categories sales" = "หมวดหมู่สินค้าในการขาย";
 "Cashier report" = "วิธีการได้รับเงินรวมสถิติ";
 "total" = "รวม";
+"Logging in" = "เข้าสู่ระบบ";
+"Sale" = "ขาย";
+"Sales volume" = "ปริมาณการขาย";
+"Receipt amount" = "จำนวนใบเสร็จ";
+"Receipt time" = "เวลารับใบเสร็จ";
+"Failed to connect to network" = "ไม่สามารถเชื่อมต่อกับเครือข่าย";
+"save" = "บันทึก";
+"Boss Assistant" = "ผู้ช่วยของเจ้านาย";
+"Today" = "วันนี้";
+"Saving" = "กำลังบันทึกเดี๋ยวนี้";
+"Setting up" = "การตั้งค่า";
+"Follow system" = "ปฏิบัติตามระบบ";

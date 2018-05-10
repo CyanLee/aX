@@ -27,15 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"语言";
+    self.title = NSLocalized(@"language", nil);
     self.view.backgroundColor = [UIColor whiteColor];
-    [self addRightNavItemWithTitle:@"保存" withSel:@selector(sett:)];
+    [self addRightNavItemWithTitle:NSLocalized(@"save", nil) withSel:@selector(sett:)];
     [self setupData];
     [self setupTableView];
 }
 
 -(void)setupData{
-    self.dataArr = [[NSMutableArray alloc] initWithObjects:@"跟随系统",@"中文简体",@"中文繁体",@"英语",@"阿拉伯语",@"葡萄牙语",@"法语",@"泰语",@"越南语",@"韩语",@"西班牙语",@"德语",@"俄语",@"马来西亚语",@"日语", nil];
+    self.dataArr = [[NSMutableArray alloc] initWithObjects:NSLocalized(@"Follow system", nil),@"中文简体",@"中文繁体",@"English",@" عربي",@"Portugal",@"Français",@"ภาษาไทย",@"Tiếng Việt",@"한국어.",@"España",@"Deutsch",@"русский",@"Melayu",@"日本語", nil];
     self.languageArr = [[NSMutableArray alloc] initWithObjects:@"base",@"zh-Hans",@"zh-Hant",@"en",@"ar",@"pt",@"fr",@"th",@"vi",@"ko",@"es",@"de",@"ru",@"ms",@"ja", nil];
     
     if (UD_GET_OBJ(@"LanguageKey") == nil) {
@@ -54,7 +54,7 @@
 }
 
 -(void)setupTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-49) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

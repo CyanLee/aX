@@ -37,3 +37,15 @@
 "categories sales" = "제품 카테고리 판매";
 "Cashier report" = "금전 등록기 요약 통계";
 "total" = "합계";
+"Logging in" = "로그인 중";
+"Sale" = "판매";
+"Sales volume" = "판매량";
+"Receipt amount" = "수령액";
+"Receipt time" = "접수 시간";
+"Failed to connect to network" = "네트워크에 연결하지 못했습니다.";
+"save" = "저장";
+"Boss Assistant" = "조수";
+"Today" = "오늘";
+"Saving" = "지금 저장 중";
+"Setting up" = "설정";
+"Follow system" = "시스템 따르기";

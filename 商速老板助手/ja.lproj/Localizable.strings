@@ -37,3 +37,15 @@
 "categories sales" = "商品カテゴリの販売";
 "Cashier report" = "キャッシュ・レジスターの要約統計";
 "total" = "合計";
+"Logging in" = "ログイン";
+"Sale" = "販売";
+"Sales volume" = "販売量";
+"Receipt amount" = "受取額";
+"Receipt time" = "受信時間";
+"Failed to connect to network" = "ネットワークに接続できませんでした";
+"save" = "保存する";
+"Boss Assistant" = "ボスの助手";
+"Today" = "今日";
+"Saving" = "今保存する";
+"Setting up" = "セットアップ";
+"Follow system" = "システムに従う";

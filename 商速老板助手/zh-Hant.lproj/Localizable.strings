@@ -37,3 +37,15 @@
 "categories sales" = "商品類別銷售情況";
 "Cashier report" = "收銀方式匯總統計";
 "total" = "合計";
+"Logging in" = "正在登陸";
+"Sale" = "銷售額";
+"Sales volume" = "銷售數量";
+"Receipt amount" = "收款金額";
+"Receipt time" = "收款時間";
+"Failed to connect to network" = "連接網絡失敗";
+"save" = "保存";
+"Boss Assistant" = "老闆助手";
+"Today" = "今天";
+"Saving" = "正在保存";
+"Setting up" = "正在設置";
+"Follow system" = "跟隨系統";

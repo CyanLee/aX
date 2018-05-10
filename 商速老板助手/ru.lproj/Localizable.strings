@@ -37,3 +37,15 @@
 "categories sales" = "Продажа продукции категории";
 "Cashier report" = "Сводная статистика кассового аппарата";
 "total" = "общий";
+"Logging in" = "Вход в систему";
+"Sale" = "продаж";
+"Sales volume" = "Объем продаж";
+"Receipt amount" = "Сумма квитанции";
+"Receipt time" = "Время получения";
+"Failed to connect to network" = "Не удалось подключиться к сети";
+"save" = "Сохранить";
+"Boss Assistant" = "Босс,  помощник ";
+"Today" = "сегодня ";
+"Saving" = "Сохранение сейчас";
+"Setting up" = "Настройка";
+"Follow system" = "Следите за системой";

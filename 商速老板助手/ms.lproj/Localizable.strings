@@ -37,4 +37,15 @@
 "categories sales" = "Jualan kategori produk";
 "Cashier report" = "Statistik ringkasan daftar tunai";
 "total" = "Jumlah";
-
+"Logging in" = "Log masuk";
+"Sale" = "Jualan";
+"Sales volume" = "Jumlah jualan";
+"Receipt amount" = "Jumlah penerimaan";
+"Receipt time" = "Masa penerimaan";
+"Failed to connect to network" = "Gagal menyambung ke rangkaian";
+"save" = "Simpan";
+"Boss Assistant" = "Pembantu Boss";
+"Today" = "Hari ini";
+"Saving" = "Simpan sekarang";
+"Setting up" = "Menyediakan";
+"Follow system" = "Ikut sistem";

@@ -121,7 +121,7 @@
         make.centerX.equalTo(self.cover);
         make.top.mas_equalTo(self.duoLabel.mas_bottom).offset(15);
     }];
-    boss.text = @"老板助手";
+    boss.text = NSLocalized(@"Boss Assistant", nil);
     boss.font = [UIFont systemFontOfSize:25.0f];
     boss.textColor = DefineRedColor;
     self.bossLabel = boss;
@@ -263,7 +263,7 @@
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
     [dic setObject:@"12345678" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
-    [SVProgressHUD showWithStatus:@"正在登录"];
+    [SVProgressHUD showWithStatus:NSLocalized(@"Logging in", nil)];
     [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];
         

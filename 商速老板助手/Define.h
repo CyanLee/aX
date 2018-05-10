@@ -46,7 +46,8 @@
 
 
 
-#define notNet @"连接网络失败"
+//#define notNet @"连接网络失败"
+#define notNet NSLocalized(@"Failed to connect to network",nil)
 #import "NetTools.h"
 #import "SVProgressHUD.h"
 #import "MJExtension.h"

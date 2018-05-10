@@ -11,6 +11,7 @@
 #import "PromoteViewController.h"
 #import "MineViewController.h"
 #import "HomeViewController.h"
+#import "NSBundle+Language.h"
 
 #define btnW 40
 #define btnTop 8
@@ -70,17 +71,17 @@
 
 - (void)setupSubViewControllers{
     MineViewController *mine = [[MineViewController alloc] init];
-    mine.title = @"我";
+    mine.title = NSLocalized(@"My", nil);
     mine.tabBarItem.image = [UIImage imageNamed:@"home_normal"];
     NavViewController *mineNav = [[NavViewController alloc] initWithRootViewController:mine];
     
     HomeViewController *home = [[HomeViewController alloc] init];
-    home.title = @"主页";
+    home.title = NSLocalized(@"home", nil);
     home.tabBarItem.image = [UIImage imageNamed:@"老板助手首页50X50"];
     NavViewController *homeNav = [[NavViewController alloc] initWithRootViewController:home];
     
     PromoteViewController *promote = [[PromoteViewController alloc] init];
-    promote.title = @"推广";
+    promote.title = NSLocalized(@"Extension", nil);
     promote.tabBarItem.image = [UIImage imageNamed:@"老板助手推广50X50"];
     NavViewController *promoteNav = [[NavViewController alloc] initWithRootViewController:promote];
     

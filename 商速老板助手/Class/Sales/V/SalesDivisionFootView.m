@@ -7,6 +7,7 @@
 //
 
 #import "SalesDivisionFootView.h"
+#import "NSBundle+Language.h"
 
 @implementation SalesDivisionFootView
 
@@ -23,7 +24,7 @@
 -(UILabel *)salesMoneyTotal{
     if (_salesMoneyTotal == nil) {
         _salesMoneyTotal = [[UILabel alloc] init];
-        _salesMoneyTotal.text = @"合计:";
+        _salesMoneyTotal.text = [NSString stringWithFormat:@"%@:",NSLocalized(@"total", nil)];
         [self addSubview:_salesMoneyTotal];
         [_salesMoneyTotal mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(60 * 0.5);
@@ -53,7 +54,7 @@
 -(UILabel *)salesNumLabelTotal{
     if (_salesNumLabelTotal == nil) {
         _salesNumLabelTotal = [[UILabel alloc] init];
-        _salesNumLabelTotal.text = @"合计:";
+        _salesNumLabelTotal.text = [NSString stringWithFormat:@"%@:",NSLocalized(@"total", nil)];
         [self addSubview:_salesNumLabelTotal];
         [_salesNumLabelTotal mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(60 * 0.5);
