@@ -118,7 +118,7 @@
     [defaults synchronize];
     NSLog(@"保存保存保存保存保存---%d------%@",[defaults synchronize],self.chooseStr);
     dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0/*延迟执行时间*/ * NSEC_PER_SEC));
-    [SVProgressHUD showWithStatus:@"正在保存"];
+    [SVProgressHUD showWithStatus:NSLocalized(@"Saving", nil)];
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         [NSBundle setLanguage:self.chooseStr];
         AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;

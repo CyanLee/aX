@@ -31,7 +31,7 @@
         self.time = time;
         
         
-        NSArray *times = @[@"08/07",@"08/08",@"08/09",@"今日"];
+        NSArray *times = @[@"08/07",@"08/08",@"08/09",NSLocalized(@"Today", nil)];
         for (int i = 0; i < 7; i++) {
             UIButton *btn = [[UIButton alloc]init];
             [self.time addSubview:btn];
