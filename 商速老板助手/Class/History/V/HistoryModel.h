@@ -11,10 +11,10 @@
 @interface HistoryModel : NSObject
 
 //时间
-@property (nonatomic,weak) NSString *time;
+@property (nonatomic,copy) NSString *dealDate;
 //营业额
-@property (nonatomic,weak) NSString *turnoverNum;
+@property (nonatomic,copy) NSString *txAmt;
 //笔数
-@property (nonatomic,weak) NSString *num;
+@property (nonatomic,copy) NSString *saleNums;
 
 @end

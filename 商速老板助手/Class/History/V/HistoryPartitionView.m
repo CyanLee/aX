@@ -9,31 +9,39 @@
 #import "HistoryPartitionView.h"
 #import "HistoryModel.h"
 
+
+@interface HistoryPartitionView ()
+//日期
+@property (nonatomic,weak) UILabel *timeLabel;
+
+
+@end
 @implementation HistoryPartitionView
 
--(instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor colorWithRed:243/255.0 green:239/255.0 blue:236/255.0 alpha:1];  
-        [self timeLabel];
+-(instancetype)init{
+    if (self = [super init]) {
+        self.backgroundColor = [UIColor colorWithRed:243/255.0 green:239/255.0 blue:236/255.0 alpha:1];
+        [self setupTimeLabel];
     }
     return self;
 }
 
--(UILabel *)timeLabel{
-    if (_timeLabel == nil) {
-        _timeLabel = [[UILabel alloc] init];
-        [self addSubview:_timeLabel];
-        _timeLabel.text = @"2018/08/07";
-        [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(0);
-            make.left.mas_equalTo(10);
-        }];
-    }
-    return _timeLabel;
+-(void)setupTimeLabel{
+    UILabel *label= [[UILabel alloc] init];
+    [self addSubview:label];
+    label.text = @"2018/08/07";
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(0);
+        make.left.mas_equalTo(10);
+    }];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
+    self.timeLabel = label;
 }
-
--(void)setData:(HistoryModel *)model{
-    self.timeLabel.text = model.time;
+- (void)setModel:(HistoryModel *)model{
+    _model = model;
+    
+    self.timeLabel.text = model.dealDate;
 }
 
 @end

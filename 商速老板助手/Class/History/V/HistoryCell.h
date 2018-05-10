@@ -11,15 +11,7 @@
 
 @interface HistoryCell : UITableViewCell
 
--(void)setData:(HistoryModel *)model;
+@property (nonatomic,strong)HistoryModel *model;
 
-//营业额
-@property (nonatomic,strong) UILabel *turnoverLabel;
-//营业额数量
-@property (nonatomic,strong) UILabel *turnoverNum;
-//笔数
-@property (nonatomic,strong) UILabel *numLabel;
-//笔数数量
-@property (nonatomic,strong) UILabel *num;
 
 @end

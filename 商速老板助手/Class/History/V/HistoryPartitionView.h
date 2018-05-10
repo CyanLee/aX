@@ -11,9 +11,6 @@
 
 @interface HistoryPartitionView : UIView
 
-//日期
-@property (nonatomic,strong) UILabel *timeLabel;
 
--(void)setData:(HistoryModel *)model;
-
+@property (nonatomic,strong) HistoryModel *model;
 @end

@@ -15,7 +15,8 @@
 #import "ChooseStoreViewController.h"
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,weak) UITableView *tableView;
+@property (nonatomic,weak)HistoryHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *dataArr;
 
 @end
@@ -25,21 +26,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-//    [self setData];
-    [self setHeaderView];
-    [self setTableView];
+    [self setupHeaderView];
+    [self setupTableView];
     [self getDatas];
 }
 
 - (void)getDatas{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"2" forKey:@"countType"];
+    [dic setObject:@"4" forKey:@"countType"];
     [dic setObject:@"13922190717" forKey:@"userId"];
     [dic setObject:@"139221907171001" forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
     [dic setObject:@"2018-03-31" forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];
-    [dic setObject:@"5" forKey:@"numsPage"];
+    [dic setObject:@"100" forKey:@"numsPage"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         NSArray *resultList = [responseObject objectForKey:@"resultList"];
@@ -50,26 +50,18 @@
     }];
 }
 
--(void)setData{
-    NSDictionary *dic = @{@"time":@"2018/07/08",@"turnoverNum":@"8888",@"num":@"876"};
-    NSDictionary *dic1 = @{@"time":@"2017/07/08",@"turnoverNum":@"7777",@"num":@"876"};
-    NSDictionary *dic2 = @{@"time":@"2016/07/08",@"turnoverNum":@"6666",@"num":@"876"};
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:dic,dic1,dic2, nil];
-    self.dataArr = [NSMutableArray array];
-    NSMutableArray *tempArr = [NSMutableArray array];
-    for (NSDictionary *d in arr) {
-        HistoryModel *model = [HistoryModel mj_objectWithKeyValues:d];
-        [tempArr addObject:model];
-    }
-    [self.dataArr addObjectsFromArray:tempArr];
-}
 
--(void)setHeaderView{
-    HistoryHeaderView *headerView = [[HistoryHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 488.0/2937.0*kHeight)];
-
+-(void)setupHeaderView{
+    HistoryHeaderView *headerView = [[HistoryHeaderView alloc] init];
+    __weak typeof(self) ws = self;
     [self.view addSubview:headerView];
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(488.0/2937.0*kHeight);
+    }];
+    self.headerView = headerView;
     headerView.backBlock = ^{
-        [self.navigationController popViewControllerAnimated:YES];
+        [ws.navigationController popViewControllerAnimated:YES];
     };
     [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
 }
@@ -81,57 +73,40 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
--(void)setTableView{
+-(void)setupTableView{
     CGFloat h = 468.0/2937.0*kHeight;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 468.0/2937.0*kHeight, SCREEN_WIDTH, SCREEN_HEIGHT - h) style:UITableViewStyleGrouped];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[HistoryCell class] forCellReuseIdentifier:@"cell"];
-    [self.view addSubview:self.tableView];
+    UITableView *tab = [[UITableView alloc] init];
+    tab.delegate = self;
+    tab.dataSource = self;
+    [self.view addSubview:tab];
+    [tab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.headerView.mas_bottom);
+    }];
+    self.tableView = tab;
 }
 
 #pragma mark ------ tableView代理方法
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArr.count;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    HistoryModel *model = [self.dataArr objectAtIndex:indexPath.section];
-    [cell setData:model];
+    HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[HistoryCell alloc] initWithStyle:0 reuseIdentifier:@"cell"];
+    }
+    cell.model = self.dataArr[indexPath.row];
+    cell.selectionStyle = 0;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 90;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HistoryPartitionView *sectionView = [[HistoryPartitionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
-    HistoryModel *model = [self.dataArr objectAtIndex:section];
-    [sectionView setData:model];
-    return sectionView;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return nil;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0;
 }
 
 @end

@@ -9,85 +9,104 @@
 #import "HistoryCell.h"
 #import "HistoryModel.h"
 
+#import "HistoryPartitionView.h"
+@interface HistoryCell ()
+
+////营业额
+@property (nonatomic,strong) UILabel *turnoverLabel;
+////营业额数量
+@property (nonatomic,strong) UILabel *turnoverNum;
+////笔数
+@property (nonatomic,strong) UILabel *numLabel;
+////笔数数量
+@property (nonatomic,strong) UILabel *num;
+
+@property (nonatomic,weak)HistoryPartitionView *sectionView;
+@end
+
+
 @implementation HistoryCell
+
+- (void)setModel:(HistoryModel *)model{
+    _model = model;
+    self.num.text = model.saleNums;
+    self.turnoverNum.text = model.txAmt;
+    self.sectionView.model = model;
+}
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self turnoverLabel];
-        [self turnoverNum];
-        [self numLabel];
-        [self num];
+        
+        HistoryPartitionView *sectionView = [[HistoryPartitionView alloc] init];
+        [self addSubview:sectionView];
+        [sectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self);
+            make.height.mas_equalTo(30);
+        }];
+        self.sectionView = sectionView;
+        
+        [self setupTurnoverLabel];
+        [self setupTurnoverNum];
+        [self setupNumLabel];
+        [self setupNum];
     }
     return self;
 }
 
--(UILabel *)turnoverLabel{
-    if (_turnoverLabel == nil) {
-        _turnoverLabel = [[UILabel alloc] init];
-        [self.contentView addSubview:_turnoverLabel];
-        _turnoverLabel.text = @"营业额";
-        _turnoverLabel.font = [UIFont systemFontOfSize:15];
-        [_turnoverLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(SCREEN_WIDTH * 0.25);
-            make.top.mas_equalTo(10);
-        }];
-    }
-    return _turnoverLabel;
+-(void)setupTurnoverLabel{
+    UILabel *label = [[UILabel alloc] init];
+    [self addSubview:label];
+    label.text = @"营业额";
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(SCREEN_WIDTH * 0.25);
+        //make.top.mas_equalTo(10);
+        make.top.equalTo(self.sectionView.mas_bottom);
+    }];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:106.0/255.0 alpha:1];
+    self.turnoverLabel = label;
 }
 
--(UILabel *)turnoverNum{
-    if (_turnoverNum == nil) {
-        _turnoverNum = [[UILabel alloc] init];
-        [self.contentView addSubview:_turnoverNum];
-        _turnoverNum.text = @"8888";
-        _turnoverNum.font = [UIFont systemFontOfSize:19];
-        [_turnoverNum mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(SCREEN_WIDTH * 0.25);
-            make.top.mas_equalTo(self.turnoverLabel.mas_bottom).offset(5);
-        }];
-    }
-    return _turnoverNum;
+-(void)setupTurnoverNum{
+    UILabel *label = [[UILabel alloc] init];
+    [self addSubview:label];
+    label.text = @"8888";
+    label.font = [UIFont systemFontOfSize:19];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(SCREEN_WIDTH * 0.25);
+        make.top.mas_equalTo(self.turnoverLabel.mas_bottom).offset(5);
+    }];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:106.0/255.0 alpha:1];
+    self.turnoverNum = label;
 }
 
--(UILabel *)numLabel{
-    if (_numLabel == nil) {
-        _numLabel = [[UILabel alloc] init];
-        [self.contentView addSubview:_numLabel];
-        _numLabel.text = @"笔数";
-        _numLabel.font = [UIFont systemFontOfSize:15];
-        [_numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(SCREEN_WIDTH * 0.65);
-            make.top.mas_equalTo(10);
-        }];
-    }
-    return _numLabel;
+-(void)setupNumLabel{
+    UILabel *label = [[UILabel alloc] init];
+    [self addSubview:label];
+    label.text = @"笔数";
+    label.font = [UIFont systemFontOfSize:15];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(SCREEN_WIDTH * 0.65);
+        make.top.mas_equalTo(self.turnoverLabel);
+    }];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:106.0/255.0 alpha:1];
+    self.numLabel = label;
 }
 
--(UILabel *)num{
-    if (_num == nil) {
-        _num = [[UILabel alloc] init];
-        [self.contentView addSubview:_num];
-        _num.text = @"8888";
-        _num.font = [UIFont systemFontOfSize:19];
-        [_num mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(SCREEN_WIDTH * 0.65);
-            make.top.mas_equalTo(self.numLabel.mas_bottom).offset(5);
-        }];
-    }
-    return _num;
+-(void)setupNum{
+    UILabel *num = [[UILabel alloc] init];
+    [self addSubview:num];
+    num.text = @"8888";
+    [num mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(SCREEN_WIDTH * 0.65);
+        make.top.mas_equalTo(self.numLabel.mas_bottom).offset(5);
+    }];
+    num.font = [UIFont systemFontOfSize:12];
+    num.textColor = [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:106.0/255.0 alpha:1];
+    self.num = num;
 }
 
--(void)setData:(HistoryModel *)model{
-    self.turnoverNum.text = model.turnoverNum;
-    self.num.text = model.num;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
 
 @end
