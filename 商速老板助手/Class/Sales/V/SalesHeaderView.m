@@ -35,13 +35,14 @@
 -(UIButton *)backBtn{
     if (_backBtn == nil) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backBtn.backgroundColor = [UIColor whiteColor];
+        [_backBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+//        _backBtn.backgroundColor = [UIColor whiteColor];
         [self addSubview:_backBtn];
         [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.left.mas_equalTo(self).offset(15);
-            make.height.mas_equalTo(30);
-            make.width.mas_equalTo(30);
+            make.height.mas_equalTo(25);
+            make.width.mas_equalTo(15);
         }];
         [_backBtn addTarget:self action:@selector(clickBack:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -52,14 +53,15 @@
     if (_headerView == nil) {
         _headerView = [[UIImageView alloc] init];
         _headerView.backgroundColor = [UIColor whiteColor];
+        _headerView.image = [UIImage imageNamed:@"老板助手"];
         [self addSubview:_headerView];
         [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.left.mas_equalTo(self.backBtn.mas_right).offset(8);
-            make.height.mas_equalTo(40);
-            make.width.mas_equalTo(40);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(35);
         }];
-        _headerView.layer.cornerRadius = 40 / 2.0f;
+        _headerView.layer.cornerRadius = 35 / 2.0f;
         _headerView.layer.masksToBounds = true;
     }
     return _headerView;
@@ -127,14 +129,15 @@
 -(UIButton *)historyBtn{
     if (_historyBtn == nil) {
         _historyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _historyBtn.backgroundColor = [UIColor whiteColor];
+//        _historyBtn.backgroundColor = [UIColor whiteColor];
         [_historyBtn setTitleColor:DefineRedColor forState:UIControlStateNormal];
+        [_historyBtn setImage:[UIImage imageNamed:@"20180503老板助手历史数据"] forState:UIControlStateNormal];
         [self addSubview:_historyBtn];
         [_historyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.titleLabel).offset(-10);
             make.right.mas_equalTo(self.languageBtn.mas_left).offset(-25);
             make.height.equalTo(self).multipliedBy(0.22);
-            make.width.mas_equalTo(30);
+            make.width.mas_equalTo(25);
         }];
     }
     return _historyBtn;
@@ -166,10 +169,10 @@
         [_languageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.right.mas_equalTo(self).offset(-15);
-            make.height.mas_equalTo(40);
-            make.width.mas_equalTo(40);
+            make.height.mas_equalTo(35);
+            make.width.mas_equalTo(35);
         }];
-        _languageBtn.layer.cornerRadius = 40 / 2.0f;
+        _languageBtn.layer.cornerRadius = 35 / 2.0f;
         _languageBtn.layer.masksToBounds = true;
     }
     return _languageBtn;

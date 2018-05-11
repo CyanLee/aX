@@ -114,14 +114,15 @@
 -(void)setupStoreBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor whiteColor];
+    [btn setImage:[UIImage imageNamed:@"老板助手"] forState:UIControlStateNormal];
     [self.headerView addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
         make.left.mas_equalTo(self.headerView).offset(13);
-        make.height.mas_equalTo(40);
-        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(35);
+        make.width.mas_equalTo(35);
     }];
-    btn.layer.cornerRadius = 20;
+    btn.layer.cornerRadius = 17.5;
     btn.layer.masksToBounds = true;
     [btn addTarget:self action:@selector(storeBtnDidClicked) forControlEvents:1<<6];
     self.storeBtn = btn;

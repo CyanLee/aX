@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;/Class/Login/Forget/C/ForgetViewController.m"
+            timestampString = "547719437.8639719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "-confirmBtnDidClicked"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ForgetViewController confirmBtnDidClicked]"
+                  moduleName = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jinri/Desktop/ax/aX/%E5%95%86%E9%80%9F%E8%80%81%E6%9D%BF%E5%8A%A9%E6%89%8B/Class/Login/Forget/C/ForgetViewController.m"
+                  timestampString = "547719437.950951"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "254"
+                  endingLineNumber = "254"
+                  offsetFromSymbolStart = "1446">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[ForgetViewController confirmBtnDidClicked]_block_invoke"
+                  moduleName = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jinri/Desktop/ax/aX/%E5%95%86%E9%80%9F%E8%80%81%E6%9D%BF%E5%8A%A9%E6%89%8B/Class/Login/Forget/C/ForgetViewController.m"
+                  timestampString = "547719437.954072"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "254"
+                  endingLineNumber = "254"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

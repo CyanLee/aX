@@ -11,6 +11,7 @@
 #import "TabController.h"
 #import "APP_IPS.h"
 #import "UserModel.h"
+#import "NSBundle+Language.h"
 
 @interface ForgetViewController ()
 @property (nonatomic,weak)CoverView *cover;
@@ -65,7 +66,7 @@
         make.left.mas_equalTo(5);
         make.top.mas_equalTo(8);
     }];
-    phone.text = @"手机号码";
+    phone.text = NSLocalized(@"Mobile phone number", nil);
     phone.textAlignment = 0;
     phone.font = [UIFont systemFontOfSize:13];
     phone.textColor = [UIColor colorWithRed:76.0/255 green:76.0/255 blue:76.0/255 alpha:1];
@@ -77,7 +78,7 @@
         make.bottom.centerY.equalTo(phone);
         make.right.equalTo(self.tfView).mas_offset(-5);
     }];
-    phoneTf.placeholder = @"请输入手机号码";
+    phoneTf.placeholder = NSLocalized(@"enter your ID", nil);
     phoneTf.textAlignment = 0;
     phoneTf.font = [UIFont systemFontOfSize:13];
     phoneTf.keyboardType = UIKeyboardTypeNumberPad;
@@ -91,7 +92,7 @@
         make.left.mas_equalTo(5);
         make.top.equalTo(phoneTf.mas_bottom).mas_equalTo(15);
     }];
-    code.text = @"验证码";
+    code.text = NSLocalized(@"Verification Code", nil);
     code.textAlignment = 0;
     code.font = [UIFont systemFontOfSize:13];
     code.textColor = [UIColor colorWithRed:76.0/255 green:76.0/255 blue:76.0/255 alpha:1];
@@ -117,7 +118,7 @@
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(80);
     }];
-    [getCode setTitle:@"获取验证码" forState:0];
+    [getCode setTitle:NSLocalized(@"get Identify code", nil) forState:0];
     getCode.titleLabel.font = [UIFont systemFontOfSize:10];
     getCode.backgroundColor = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1];
     [getCode setTitleColor:[UIColor whiteColor] forState:0];
@@ -131,7 +132,7 @@
         make.left.mas_equalTo(5);
         make.top.equalTo(codeTf.mas_bottom).mas_equalTo(15);
     }];
-    pws.text = @"新密码";
+    pws.text = NSLocalized(@"new password", nil);
     pws.textAlignment = 0;
     pws.font = [UIFont systemFontOfSize:13];
     pws.textColor = [UIColor colorWithRed:76.0/255 green:76.0/255 blue:76.0/255 alpha:1];
@@ -156,7 +157,7 @@
         make.left.mas_equalTo(5);
         make.top.equalTo(pwsTf.mas_bottom).mas_equalTo(15);
     }];
-    pwsAgain.text = @"确认密码";
+    pwsAgain.text = NSLocalized(@"confirm password", nil);
     pwsAgain.textAlignment = 0;
     pwsAgain.font = [UIFont systemFontOfSize:13];
     pwsAgain.textColor = [UIColor colorWithRed:76.0/255 green:76.0/255 blue:76.0/255 alpha:1];
@@ -182,7 +183,7 @@
         make.bottom.equalTo(self.tfView);
         make.height.mas_equalTo(40);
     }];
-    [btn setTitle:@"确 定" forState:0];
+    [btn setTitle:NSLocalized(@"confirm", nil) forState:0];
     btn.layer.cornerRadius = 12;
     btn.layer.masksToBounds = true;
     btn.backgroundColor = DefineRedColor;
@@ -196,7 +197,7 @@
     DLog(@"%s",__func__);
     NSString *phone = self.phoneTf.text;
     if (phone.length == 0 || [phone isEqualToString:@""]){
-        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        [SVProgressHUD showErrorWithStatus:NSLocalized(@"enter your ID", nil)];
         return;
     }
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -215,7 +216,7 @@
     
     NSString *phone = self.phoneTf.text;
     if (phone.length == 0 || [phone isEqualToString:@""]){
-        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        [SVProgressHUD showErrorWithStatus:NSLocalized(@"enter your ID", nil)];
         return;
     }
     
@@ -244,13 +245,14 @@
     
     UserModel *userModel = [UserModel getUserModel];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:userModel.userId forKey:@"userId"];
+    [dic setObject:phone forKey:@"userId"];
     [dic setObject:phone forKey:@"telNo"];
     [dic setObject:code forKey:@"identCode"];
     [dic setObject:pws forKey:@"newPwd"];
-    [SVProgressHUD showWithStatus:@"正在操作"];
+    [SVProgressHUD showWithStatus:NSLocalized(@"", nil)];
 //    13922190717
     [NetTools POST:APP_FORGET_PWS_URLF parameters:dic success:^(id responseObject) {
+        NSLog(@"responseObject====%@",responseObject);
         [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"修改成功"];
         [self.navigationController popViewControllerAnimated:true];

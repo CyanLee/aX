@@ -123,7 +123,7 @@
         [NSBundle setLanguage:self.chooseStr];
         AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
         app.window.rootViewController = [TabController new];
-        [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss]; 
     });
 }
 

@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tabBar.tintColor = [UIColor whiteColor];
+    
     [self setupTabView];
     
     [self setupSubViewControllers];
@@ -72,17 +74,23 @@
 - (void)setupSubViewControllers{
     MineViewController *mine = [[MineViewController alloc] init];
     mine.title = NSLocalized(@"My", nil);
-    mine.tabBarItem.image = [UIImage imageNamed:@"home_normal"];
+    UIImage *image = [UIImage imageNamed:@"老板助手50X65"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mine.tabBarItem.image = image ;
     NavViewController *mineNav = [[NavViewController alloc] initWithRootViewController:mine];
     
     HomeViewController *home = [[HomeViewController alloc] init];
     home.title = NSLocalized(@"home", nil);
-    home.tabBarItem.image = [UIImage imageNamed:@"老板助手首页50X50"];
+    UIImage *image1 = [UIImage imageNamed:@"老板助手首页50X50"];
+    image1 = [image1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    home.tabBarItem.image = image1 ;
     NavViewController *homeNav = [[NavViewController alloc] initWithRootViewController:home];
     
     PromoteViewController *promote = [[PromoteViewController alloc] init];
     promote.title = NSLocalized(@"Extension", nil);
-    promote.tabBarItem.image = [UIImage imageNamed:@"老板助手推广50X50"];
+    UIImage *image2 = [UIImage imageNamed:@"老板助手推广50X50"];
+    image2 = [image2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    promote.tabBarItem.image = image2 ;
     NavViewController *promoteNav = [[NavViewController alloc] initWithRootViewController:promote];
     
     self.viewControllers = @[homeNav,promoteNav,mineNav];
