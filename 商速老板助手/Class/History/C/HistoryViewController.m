@@ -49,12 +49,9 @@
         NSArray *resultList = [responseObject objectForKey:@"resultList"];
         [self.dataArr removeAllObjects];
         self.dataArr = [HistoryModel mj_objectArrayWithKeyValuesArray:resultList];
-        if (self.tableView.mj_header.refreshing) {
-            [self.tableView.mj_header endRefreshing];
-        }
-        if (self.tableView.mj_footer.refreshing) {
-            [self.tableView.mj_footer endRefreshing];
-        }
+        if (self.tableView.mj_header.refreshing) [self.tableView.mj_header endRefreshing];
+        if (self.tableView.mj_footer.refreshing) [self.tableView.mj_footer endRefreshing];
+        if (self.dataArr.count < MaxPage)          [self.tableView.mj_footer endRefreshingWithNoMoreData];
         [self.tableView reloadData];
     } failure:^(NSString *errStr) {
         if (self.tableView.mj_header.refreshing) {

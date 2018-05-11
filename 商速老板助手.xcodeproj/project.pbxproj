@@ -87,6 +87,7 @@
 		4D61378620A429780031AF1D /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61377020A429780031AF1D /* UIScrollView+MJExtension.m */; };
 		4D61378720A429780031AF1D /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61377220A429780031AF1D /* UIScrollView+MJRefresh.m */; };
 		4D61378820A429780031AF1D /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D61377420A429780031AF1D /* UIView+MJExtension.m */; };
+		4D6D52DA20A5334000D41E48 /* ChooseStoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D52D920A5334000D41E48 /* ChooseStoreModel.m */; };
 		4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D59C209BF42C00A77475 /* ReportViewController.m */; };
 		4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5A7209BF58600A77475 /* LanguageViewController.m */; };
 		4D73D5AD209C3D6F00A77475 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73D5AC209C3D6F00A77475 /* UserModel.m */; };
@@ -325,6 +326,8 @@
 		4D61377220A429780031AF1D /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		4D61377320A429780031AF1D /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		4D61377420A429780031AF1D /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		4D6D52D820A5334000D41E48 /* ChooseStoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseStoreModel.h; sourceTree = "<group>"; };
+		4D6D52D920A5334000D41E48 /* ChooseStoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseStoreModel.m; sourceTree = "<group>"; };
 		4D73D59B209BF42C00A77475 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		4D73D59C209BF42C00A77475 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		4D73D5A6209BF58600A77475 /* LanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
@@ -1104,6 +1107,8 @@
 		4DEB11CB209FF5B30039C473 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				4D6D52D820A5334000D41E48 /* ChooseStoreModel.h */,
+				4D6D52D920A5334000D41E48 /* ChooseStoreModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1403,6 +1408,7 @@
 				4D29B0FC209172AC004C8324 /* AppDelegate.m in Sources */,
 				4D61377A20A429780031AF1D /* MJRefreshAutoGifFooter.m in Sources */,
 				4D970A842099A5E900D0BD14 /* MJPropertyKey.m in Sources */,
+				4D6D52DA20A5334000D41E48 /* ChooseStoreModel.m in Sources */,
 				4D970A862099A5E900D0BD14 /* NSObject+MJClass.m in Sources */,
 				4D61377B20A429780031AF1D /* MJRefreshAutoNormalFooter.m in Sources */,
 				342984BE209B5FDE00341EAC /* HistoryCell.m in Sources */,

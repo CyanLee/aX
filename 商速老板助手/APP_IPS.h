@@ -36,5 +36,6 @@ static NSString *APP_SALE_GOODS_URL = @"http://www.shopspeed.cn:80/shopspeed_poi
 /// 收银情况汇总
 static NSString *APP_SALE_BACK_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getPayments.do";
 
-
+/// 9:店铺信息查询
+static NSString *APP_STORE_INFO_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getMerchantsForApp.do";
 #endif /* APP_IPS_h */
