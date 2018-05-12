@@ -13,6 +13,7 @@
 #import "APP_IPS.h"
 #import "UserModel.h"
 #import "NSBundle+Language.h"
+#import "WelcomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,19 @@
 
 @implementation AppDelegate
 
+- (UIWindow *)welcomeWindow{
+    if (!_welcomeWindow) {
+        //显示欢迎页的窗口. 后初始化的窗口显示在最上方. 被用户可见.
+        //注意此写法对于storyboard不好用, 因为生命周期的问题.
+        _welcomeWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        //window初始化之后, 默认是隐藏的
+        _welcomeWindow.hidden = NO;
+        _welcomeWindow.rootViewController = [WelcomeViewController new];
+        //窗口的层级关系, 数值越大, 则显示在上层 默认是0
+        _welcomeWindow.windowLevel = 1;
+    }
+    return _welcomeWindow;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -34,6 +48,7 @@
         [NSBundle setLanguage:nil];
     }
     
+    [self welcomeWindow];
     UIWindow *key = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     key.rootViewController = [self setupRootViewController];
     key.backgroundColor = [UIColor whiteColor];
@@ -54,6 +69,7 @@
     [dic setObject:@"999999999" forKey:@"deviceID"];
     [NetTools POST:APP_START_IMG_URL parameters:dic success:^(id responseObject) {
         DLog(@"启动页 responseObject == %@",responseObject);
+        NSString *url = [NSString stringWithFormat:@"http://www.shopspeed.cn:80/shopspeed_points/%@",responseObject[@"logoImgUrl"]];
     } failure:^(NSString *errStr) {
         DLog(@"启动页 errStr == %@",errStr);
     }];

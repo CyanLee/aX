@@ -150,7 +150,7 @@
     [btn setTitle:NSLocalized(@"language",nil) forState:0];
     [btn setTitleColor:DefineRedColor forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:10];
-    btn.layer.cornerRadius = 20;
+    btn.layer.cornerRadius = 17.5;
     btn.layer.masksToBounds = true;
     [btn addTarget:self action:@selector(languageBtnDidClicked) forControlEvents:1<<6];
     self.languageBtn = btn;

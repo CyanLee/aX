@@ -36,11 +36,11 @@
         _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:_clickBtn];
         _clickBtn.hidden = YES;
-        _clickBtn.backgroundColor = [UIColor redColor];
+        [_clickBtn setImage:[UIImage imageNamed:@"勾选"] forState:UIControlStateNormal];
         [_clickBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.right.mas_equalTo(-15);
-            make.height.width.mas_equalTo(30);
+            make.height.width.mas_equalTo(20);
         }];
     }
     return _clickBtn;

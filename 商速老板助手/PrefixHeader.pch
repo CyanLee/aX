@@ -13,5 +13,8 @@
 #import "Masonry.h"
 #import "Define.h"
 #import "UIView+Frame.h"
+#import "NSBundle+Language.h"
+#import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
 
 #endif /* PrefixHeader_pch */

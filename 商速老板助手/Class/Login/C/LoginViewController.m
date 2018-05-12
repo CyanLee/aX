@@ -43,7 +43,7 @@
     
     [self setupLogoView];
     
-    [self setupLabel];
+//    [self setupLabel];
     
     [self setupNameView];
     
@@ -134,7 +134,7 @@
     [name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(8);
         make.right.mas_equalTo(-8);
-        make.top.equalTo(self.bossLabel.mas_bottom).mas_offset(30);
+        make.top.equalTo(self.logoView.mas_bottom).mas_offset(30);
         make.height.mas_equalTo(44);
     }];
     self.nameView = name;
@@ -261,7 +261,7 @@
 
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
-    [dic setObject:@"12345678" forKey:@"userPwd"];
+    [dic setObject:@"111111" forKey:@"userPwd"];
     [dic setObject:@"13922190717" forKey:@"userId"];
     [SVProgressHUD showWithStatus:NSLocalized(@"Logging in", nil)];
     [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {

@@ -19,7 +19,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
     
-    self.title = @"店铺报告";
+    self.title = NSLocalized(@"choose Merchant", nil);
     
 }
 - (void)viewWillAppear:(BOOL)animated{
