@@ -16,5 +16,6 @@
 #import "NSBundle+Language.h"
 #import "UIImageView+WebCache.h"
 #import "AppDelegate.h"
+#import "SelectPhotoManager.h"
 
 #endif /* PrefixHeader_pch */

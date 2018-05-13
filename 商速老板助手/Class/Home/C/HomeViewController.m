@@ -25,6 +25,8 @@
 @property (nonatomic,weak)UIButton *chooseBtn;
 @property (nonatomic,weak)TimeView *timeView;
 @property (nonatomic,weak)InfoView *infoView;
+@property (nonatomic, strong)SelectPhotoManager *photoManager;
+
 @end
 
 @implementation HomeViewController
@@ -77,6 +79,7 @@
     }];
     self.headerView = headerView;
     
+    
     [self setupStoreBtn];
     
     [self setupLanguageBtn];
@@ -114,7 +117,11 @@
 -(void)setupStoreBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor whiteColor];
-    [btn setImage:[UIImage imageNamed:@"老板助手"] forState:UIControlStateNormal];
+    if (UD_GET_OBJ(@"headerImage") == nil) {
+        [btn setImage:[UIImage imageNamed:@"老板助手"] forState:UIControlStateNormal];
+    }else{
+        [btn setImage:[UIImage imageWithData:UD_GET_OBJ(@"headerImage")] forState:UIControlStateNormal];
+    }
     [self.headerView addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
@@ -165,7 +172,18 @@
 }
 
 - (void)storeBtnDidClicked{
-    DLog(@"%s",__func__);
+    if (!_photoManager) {
+        _photoManager =[[SelectPhotoManager alloc]init];
+    }
+    [_photoManager startSelectPhotoWithImageName:@"选择头像"];
+    __weak typeof(self)mySelf=self;
+    //选取照片成功
+    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage *image){
+        [mySelf.storeBtn setImage:image forState:UIControlStateNormal];
+        //保存到本地
+        NSData *data = UIImagePNGRepresentation(image);
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+    };
 }
 
 #pragma mark

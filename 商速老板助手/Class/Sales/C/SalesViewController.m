@@ -33,6 +33,8 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong)NSMutableArray *datas;
 @property (nonatomic,assign)GetDataType type;
 @property (nonatomic,assign)NSInteger timeType;
+@property (nonatomic, strong)SelectPhotoManager *photoManager;
+
 @end
 
 @implementation SalesViewController
@@ -152,6 +154,7 @@ typedef enum : NSUInteger {
     [headerView.historyBtn addTarget:self action:@selector(headerViewHistoryBtnDidClicked) forControlEvents:1<<6];
     [headerView.languageBtn addTarget:self action:@selector(headerViewLanguageBtnDidClicked) forControlEvents:1<<6];
     [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
+    [headerView.headerView addTarget:self action:@selector(actionClick) forControlEvents:UIControlEventTouchUpInside];
     self.headerView = headerView;
 }
 - (void)jump2ChooseStore{
@@ -272,6 +275,21 @@ typedef enum : NSUInteger {
         _datas = [NSMutableArray array];
     }
     return _datas;
+}
+
+- (void)actionClick{
+    if (!_photoManager) {
+        _photoManager =[[SelectPhotoManager alloc]init];
+    }
+    [_photoManager startSelectPhotoWithImageName:@"选择头像"];
+    __weak typeof(self)mySelf=self;
+    //选取照片成功
+    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage *image){
+        [mySelf.headerView.headerView setImage:image forState:UIControlStateNormal];
+        //保存到本地
+        NSData *data = UIImagePNGRepresentation(image);
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+    };
 }
 
 - (void)didReceiveMemoryWarning {

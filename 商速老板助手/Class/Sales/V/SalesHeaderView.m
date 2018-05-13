@@ -49,11 +49,15 @@
     return _backBtn;
 }
 
--(UIImageView *)headerView{
+-(UIButton *)headerView{
     if (_headerView == nil) {
-        _headerView = [[UIImageView alloc] init];
+        _headerView = [UIButton buttonWithType:UIButtonTypeCustom];
         _headerView.backgroundColor = [UIColor whiteColor];
-        _headerView.image = [UIImage imageNamed:@"老板助手"];
+        if (UD_GET_OBJ(@"headerImage") == nil) {
+            [_headerView setImage:[UIImage imageNamed:@"老板助手"] forState:UIControlStateNormal];
+        }else{
+            [_headerView setImage:[UIImage imageWithData:UD_GET_OBJ(@"headerImage")] forState:UIControlStateNormal];
+        }
         [self addSubview:_headerView];
         [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);

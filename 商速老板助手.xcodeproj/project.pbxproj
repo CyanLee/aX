@@ -69,6 +69,7 @@
 		342985D520A6880100341EAC /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985BC20A6880100341EAC /* UIImageView+WebCache.m */; };
 		342985D620A6880100341EAC /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985BE20A6880100341EAC /* UIView+WebCache.m */; };
 		342985D720A6880100341EAC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985C020A6880100341EAC /* UIView+WebCacheOperation.m */; };
+		342985DB20A7DA1A00341EAC /* SelectPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985DA20A7DA1A00341EAC /* SelectPhotoManager.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -308,6 +309,8 @@
 		342985BE20A6880100341EAC /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		342985BF20A6880100341EAC /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		342985C020A6880100341EAC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		342985D920A7DA1A00341EAC /* SelectPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoManager.h; sourceTree = "<group>"; };
+		342985DA20A7DA1A00341EAC /* SelectPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoManager.m; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -685,6 +688,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		342985D820A7DA1A00341EAC /* SelectPhotoManager */ = {
+			isa = PBXGroup;
+			children = (
+				342985D920A7DA1A00341EAC /* SelectPhotoManager.h */,
+				342985DA20A7DA1A00341EAC /* SelectPhotoManager.m */,
+			);
+			path = SelectPhotoManager;
+			sourceTree = "<group>";
+		};
 		4D29B0EE209172AB004C8324 = {
 			isa = PBXGroup;
 			children = (
@@ -895,6 +907,7 @@
 		4D29B13C20917461004C8324 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				342985D820A7DA1A00341EAC /* SelectPhotoManager */,
 				3429859120A6880100341EAC /* SDWebImage */,
 				4D61374620A429780031AF1D /* MJRefresh */,
 				342984FB20A2008800341EAC /* Language */,
@@ -1563,6 +1576,7 @@
 				4D29B161209174DD004C8324 /* View+MASAdditions.m in Sources */,
 				342985CA20A6880100341EAC /* SDWebImageDownloaderOperation.m in Sources */,
 				4D61377820A429780031AF1D /* MJRefreshFooter.m in Sources */,
+				342985DB20A7DA1A00341EAC /* SelectPhotoManager.m in Sources */,
 				342985D120A6880100341EAC /* UIImage+ForceDecode.m in Sources */,
 				342984922099FB5B00341EAC /* TimeView.m in Sources */,
 				4D73D5A8209BF58600A77475 /* LanguageViewController.m in Sources */,

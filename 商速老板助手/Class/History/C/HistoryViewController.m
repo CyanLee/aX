@@ -20,6 +20,8 @@
 @property (nonatomic,weak)HistoryHeaderView *headerView;
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,assign)NSInteger maxPage;
+@property (nonatomic, strong)SelectPhotoManager *photoManager;
+
 @end
 
 @implementation HistoryViewController
@@ -78,6 +80,7 @@
         [ws.navigationController popViewControllerAnimated:YES];
     };
     [headerView.chooseBtn addTarget:self action:@selector(jump2ChooseStore) forControlEvents:1<<6];
+    [headerView.headerView addTarget:self action:@selector(actionClick) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)jump2ChooseStore{
     ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
@@ -146,6 +149,21 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)actionClick{
+    if (!_photoManager) {
+        _photoManager =[[SelectPhotoManager alloc]init];
+    }
+    [_photoManager startSelectPhotoWithImageName:@"选择头像"];
+    __weak typeof(self)mySelf=self;
+    //选取照片成功
+    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage *image){
+        [mySelf.headerView.headerView setImage:image forState:UIControlStateNormal];
+        //保存到本地
+        NSData *data = UIImagePNGRepresentation(image);
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+    };
 }
 
 @end

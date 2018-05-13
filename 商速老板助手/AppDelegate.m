@@ -48,18 +48,30 @@
         [NSBundle setLanguage:nil];
     }
     
-    [self welcomeWindow];
-    UIWindow *key = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    key.rootViewController = [self setupRootViewController];
-    key.backgroundColor = [UIColor whiteColor];
-    [key makeKeyAndVisible];
-    self.window = key;
-
+    
+    if (UD_GET_OBJ(@"logoKey")) {
+        [self welcomeWindow];
+        UIWindow *key = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        key.rootViewController = [self setupRootViewController];
+        key.backgroundColor = [UIColor whiteColor];
+        [key makeKeyAndVisible];
+        self.window = key;
+    }else{
+        UIWindow *key = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        key.rootViewController = [self setupRootViewController];
+        key.backgroundColor = [UIColor whiteColor];
+        [key makeKeyAndVisible];
+        self.window = key;
+    }
+    
+    [self getStartImg];
+    
 //    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    [_window makeKeyAndVisible];
 //    _window.rootViewController = [self setupRootViewController];
     
-    [self getStartImg];
+//    [self getStartImg];
+    
     return YES;
 }
 
@@ -70,6 +82,9 @@
     [NetTools POST:APP_START_IMG_URL parameters:dic success:^(id responseObject) {
         DLog(@"启动页 responseObject == %@",responseObject);
         NSString *url = [NSString stringWithFormat:@"http://www.shopspeed.cn:80/shopspeed_points/%@",responseObject[@"logoImgUrl"]];
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL  URLWithString:url]];
+        UD_SET_OBJ(data, @"logoKey");
+        UD_SET_OBJ(responseObject[@"skipTime"], @"countKey");
     } failure:^(NSString *errStr) {
         DLog(@"启动页 errStr == %@",errStr);
     }];
