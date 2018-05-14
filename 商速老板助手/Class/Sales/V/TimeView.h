@@ -15,5 +15,5 @@
 
 - (instancetype)initWithTimeH:(CGFloat)timeH WithSwicthTimeH:(CGFloat)swicthTimeH;
 
-
+@property (nonatomic,strong)NSMutableArray *models;
 @end

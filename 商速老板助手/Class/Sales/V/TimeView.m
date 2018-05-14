@@ -7,13 +7,14 @@
 //
 
 #import "TimeView.h"
-
+#import "HistoryModel.h"
 @interface TimeView ()
 
 @property (nonatomic,weak)UIView *time;
 
 @property (nonatomic,weak)UIView *switchTime;
 
+@property (nonatomic,strong)NSMutableArray *times;
 @end
 
 @implementation TimeView
@@ -31,7 +32,7 @@
         self.time = time;
         
         
-        NSArray *times = @[@"08/07",@"08/08",@"08/09",NSLocalized(@"Today", nil)];
+        NSArray *times = @[@"",@"",@"",@"",@"",@"",@""/*NSLocalized(@"Today", nil)*/];
         for (int i = 0; i < 7; i++) {
             UIButton *btn = [[UIButton alloc]init];
             [self.time addSubview:btn];
@@ -45,6 +46,7 @@
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setTitleColor:[UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1] forState:0];
             btn.tag = i;
+            [self.times addObject:btn];
             [btn addTarget:self action:@selector(chooseTime:) forControlEvents:1<<6];
         }
         
@@ -57,7 +59,7 @@
         }];
         self.switchTime = switchTime;
         
-        CGFloat btnW = kWidth == 320 ? 70 : 80;
+        CGFloat btnW = kWidth == 320 ? 55 : 65;
         NSArray *arr = @[NSLocalized(@"day", nil),NSLocalized(@"week", nil),NSLocalized(@"month", nil),NSLocalized(@"year", nil)];
         CGFloat firstX = (kWidth-arr.count*btnW)/arr.count;
         for (int i = 0; i < arr.count; i++) {
@@ -80,6 +82,29 @@
     }
     return self;
 }
+
+- (void)setModels:(NSMutableArray *)models{
+    _models = models;
+    NSInteger count = models.count;
+    if (count == 0) {
+        for (UIButton *btn in self.times) {
+             [btn setTitle:@"" forState:0];
+        }
+    }
+    for (int i = 0; i < count; i ++) {
+        UIButton *time = self.times[i];
+        HistoryModel *model = models[i];
+        NSString *dealDate = [model.dealDate substringFromIndex:5];//截取掉下标3之后的字符串
+        [time setTitle:dealDate forState:0];
+    }
+    if (count < self.times.count) {
+        for (NSInteger i = count; i < self.times.count; i++) {
+            UIButton *time = self.times[i];
+            [time setTitle:@"" forState:0];
+        }
+    }
+    
+}
 - (void)chooseTime:(UIButton *)btn{
     if (self.chooseTimeBlock) {
         self.chooseTimeBlock(btn);
@@ -91,4 +116,11 @@
     }
 }
 
+
+- (NSMutableArray *)times{
+    if (!_times) {
+        _times = [NSMutableArray array];
+    }
+    return _times;
+}
 @end

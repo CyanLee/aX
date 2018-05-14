@@ -17,8 +17,9 @@
 #import "APP_IPS.h"
 #import "UserModel.h"
 #import "ChooseStoreViewController.h"
-@interface HomeViewController ()
 
+#import "HistoryModel.h"
+@interface HomeViewController ()
 @property (nonatomic,weak)UIView *headerView;
 @property (nonatomic,weak)UIButton *storeBtn;
 @property (nonatomic,weak)UIButton *languageBtn;
@@ -27,6 +28,7 @@
 @property (nonatomic,weak)InfoView *infoView;
 @property (nonatomic, strong)SelectPhotoManager *photoManager;
 
+@property (nonatomic,assign)BOOL gettingGraphViewDatas;
 @end
 
 @implementation HomeViewController
@@ -46,7 +48,49 @@
     if (![UserModel getUserModel]) {
         [self autoLogin];
     }
+    /// 获得曲线图数据
+    self.gettingGraphViewDatas = true;
+    [self getGraphViewDatas:4];
 }
+/*
+ byType
+ 日 = 1
+ 周 = 1
+ 月 = 1
+ 年 = 1
+ */
+/// 获得曲线图数据
+- (void)getGraphViewDatas:(NSInteger)byType{
+    UserModel *user = [UserModel getUserModel];
+   // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
+    [dic setObject:user.userId forKey:@"userId"];
+    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:@"2018-01-05" forKey:@"startDate"];
+    [dic setObject:@"2018-03-31" forKey:@"endDate"];
+    [dic setObject:@"1" forKey:@"curPageNo"];
+    [dic setObject:@"1000000000" forKey:@"numsPage"];
+    [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
+        /// 取最新的7个
+        self.gettingGraphViewDatas = false;
+        NSArray *resultList = [responseObject objectForKey:@"resultList"];
+        NSMutableArray *models = [HistoryModel mj_objectArrayWithKeyValuesArray:resultList];
+        NSInteger len = 7;
+        NSInteger form = models.count - 7;
+        if (models.count < 7) {
+            len = models.count;
+            form = 0;
+        }
+        NSArray *smallArray = [models subarrayWithRange:NSMakeRange(form, len)];
+        self.infoView.graphViewModels = [NSMutableArray arrayWithArray:smallArray];
+        self.timeView.models = [NSMutableArray arrayWithArray:smallArray];
+    } failure:^(NSString *errStr) {
+        self.gettingGraphViewDatas = false;
+        [SVProgressHUD showErrorWithStatus:errStr];
+    }];
+}
+
 
 - (void)autoLogin{
     UserModel *model = [UserModel getUserModel];
@@ -252,6 +296,8 @@
 }
 - (void)timeViewBtnDidClickedBlock:(UIButton *)btn{
     DLog(@"btn == %@",btn);
+    if (self.gettingGraphViewDatas)return;
+    [self getGraphViewDatas:btn.tag+1];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
