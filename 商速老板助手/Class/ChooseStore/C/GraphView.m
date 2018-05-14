@@ -120,6 +120,37 @@
 
 - (void)setModels:(NSMutableArray *)models{
     _models = models;
+    
+    [self showUI:models]; // 显示与隐藏数字，点
+    
+    [self contrastModel:models];// 找出最高点
+    
+    [self setNeedsDisplay];
+}
+
+- (void)contrastModel:(NSMutableArray *)models{
+    if (models.count == 0) return;
+    CGFloat maxNum = 0;
+    CGFloat minNum = 9999999.0;
+    for (HistoryModel *model in models) {
+        if (model.txAmt.floatValue > maxNum) {
+            maxNum = model.txAmt.floatValue ;
+        }
+        if (model.txAmt.floatValue < minNum) {
+            minNum = model.txAmt.floatValue;
+        }
+    }
+    DLog(@"maxNum == %f  minNum == %f",maxNum,minNum);
+    /// update masory
+    // 等分 
+    NSInteger count = models.count;
+    if (count > 7) count = 7;
+    for (int i = 0; i < count; i++) {
+        HistoryModel *model = models[i];
+    }
+}
+
+- (void)showUI:(NSMutableArray *)models{
     NSInteger count = models.count;
     if (count == 0) {
         for ( UILabel *l in self.pionts) {
@@ -131,7 +162,6 @@
     }else{
         if (count > 7) count = 7;
         for (int i = 0; i < count;i++) {/// 显示label
-            /// update masory
             UILabel *num = self.piontNums[i];
             num.hidden = false;
             
@@ -149,8 +179,6 @@
             piont.hidden = true;
         }
     }
-    
-    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {
