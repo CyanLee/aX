@@ -8,9 +8,12 @@
 
 #import "InfoView.h"
 #import "GraphView.h"
+#import "HistoryModel.h"
 @interface InfoView ()
 
 @property (nonatomic,weak)GraphView *graphView;
+@property (nonatomic,weak)UILabel *turnover;
+@property (nonatomic,weak)UILabel *receipt;
 @end
 
 @implementation InfoView
@@ -18,7 +21,6 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = DefineRedColor;
-        
         /// 今日营业额
         UILabel *turnoverTip = [[UILabel alloc]init];
         [self addSubview:turnoverTip];
@@ -41,7 +43,7 @@
             make.left.equalTo(turnoverTip.mas_right).mas_offset(3);
             make.centerY.equalTo(turnoverTip);
         }];
-        
+        self.turnover = turnover;
         
         /// 今日收单数
         UILabel *receiptTip = [[UILabel alloc]init];
@@ -65,6 +67,7 @@
             make.left.equalTo(receiptTip.mas_right).mas_offset(3);
             make.centerY.equalTo(receiptTip);
         }];
+        self.receipt = receipt;
         
         /// 店铺报告 && 历史数据
         UIButton *reportBtn = [[UIButton alloc]init];
@@ -126,9 +129,7 @@
             make.bottom.left.right.equalTo(self);
             make.height.equalTo(self).multipliedBy(0.42);
         }];
-        
-        
-        
+        self.graphView = graph;
     }
     return self;
 }
@@ -148,11 +149,36 @@
     if (self.segmentedCBlock) {
         self.segmentedCBlock(sender.selectedSegmentIndex);
     }
-//    if (sender.selectedSegmentIndex == 0) {
-//        NSLog(@"营业额");
-//    } else {
-//        NSLog(@"收单量");
-//    }
+    self.graphView.showType = sender.selectedSegmentIndex;
+}
+
+- (void)setGraphViewModels:(NSMutableArray *)graphViewModels{
+    _graphViewModels = graphViewModels;
+    self.graphView.models = graphViewModels;
+    HistoryModel *today = [graphViewModels lastObject];
+    if (!today) {
+        self.turnover.text = @"暂无";
+        self.receipt.text = @"暂无";
+    }else{ // 判断日期是否今天
+        NSDate *date = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        //设置格式：zzz表示时区
+        [dateFormatter setDateFormat:@"yyyy/MM/dd"];
+        //NSDate转NSString
+        NSString *currentDateString = [dateFormatter stringFromDate:date];
+        if ([currentDateString isEqualToString:today.dealDate]) {
+            CGFloat money = today.txAmt.floatValue;
+            self.turnover.text = [NSString stringWithFormat:@"%.2f",money];
+            self.receipt.text = today.saleNums;
+        }else{
+            self.turnover.text = @"暂无";
+            self.receipt.text = @"暂无";
+        }
+    }
+    if ([self.turnover.text isEqualToString:@"暂无"]) self.turnover.font = [UIFont systemFontOfSize:20];
+    else self.turnover.font = [UIFont systemFontOfSize:40];
+    if ([self.receipt.text isEqualToString:@"暂无"]) self.receipt.font = [UIFont systemFontOfSize:20];
+    else self.receipt.font = [UIFont systemFontOfSize:40];
 }
 
 @end

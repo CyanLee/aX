@@ -11,5 +11,7 @@
 @interface GraphView : UIView
 
 /// update masorny & datas
-@property (nonatomic,strong)NSObject *model;
+@property (nonatomic,strong)NSMutableArray *models;
+
+@property (nonatomic,assign)NSInteger showType;
 @end

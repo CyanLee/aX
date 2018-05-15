@@ -7,7 +7,7 @@
 //
 
 #import "GraphView.h"
-
+#import "HistoryModel.h"
 @interface GraphView ()
 
 /// label pionts
@@ -21,7 +21,17 @@
 
 @implementation GraphView
 
-
+- (void)setShowType:(NSInteger)showType{
+    _showType = showType;
+    NSInteger count = self.models.count;
+    if (count > 7) count = 7;
+    for (int i = 0 ; i < count; i ++) {
+        UILabel *num = self.piontNums[i];
+        HistoryModel *model = self.models[i];
+        CGFloat money = model.txAmt.floatValue;
+        num.text = showType == 0 ? [NSString stringWithFormat:@"%.2f",money] : model.saleNums;
+    }
+}
 - (instancetype)init{
     if (self = [super init]) {
         //243119110
@@ -69,23 +79,30 @@
                 make.height.mas_equalTo(20);
             }];
             point.tag = i;
+            point.hidden = true;
             [self.pionts addObject:point];
         }
         
         for (int i = 0; i < 7; i ++) {
             UILabel *num = [[UILabel alloc] init];
             num.text = @"33322";
-            num.font = [UIFont systemFontOfSize:12];
+            num.font = [UIFont systemFontOfSize:9];
             num.textAlignment = 1;
             num.textColor = [UIColor whiteColor];
             [self addSubview:num];
             num.backgroundColor = [UIColor clearColor];
             UILabel *piont = self.pionts[i];
             [num mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.equalTo(piont);
+                make.left.equalTo(piont).mas_offset(3);
+                make.right.equalTo(piont).mas_offset(-3);
                 make.bottom.equalTo(piont.mas_top);
             }];
             num.tag = i;
+            num.hidden = true;
+            num.layer.borderColor = [[UIColor whiteColor] CGColor];
+            num.layer.borderWidth = 0.5;
+            num.layer.cornerRadius = 3;
+            num.layer.masksToBounds = true;
             [self.piontNums addObject:num];
         }
         
@@ -101,32 +118,87 @@
     return self;
 }
 
+- (void)setModels:(NSMutableArray *)models{
+    _models = models;
+    
+    [self showUI:models]; // 显示与隐藏数字，点
+    
+    [self contrastModel:models];// 找出最高点
+    
+    [self setNeedsDisplay];
+}
 
-- (void)setModel:(NSObject *)model{
-    _model = model;
-    
-    for (UILabel *label in self.pionts) {
-        /// update masory
+- (void)contrastModel:(NSMutableArray *)models{
+    if (models.count == 0) return;
+    CGFloat maxNum = 0;
+    CGFloat minNum = 9999999.0;
+    for (HistoryModel *model in models) {
+        if (model.txAmt.floatValue > maxNum) {
+            maxNum = model.txAmt.floatValue ;
+        }
+        if (model.txAmt.floatValue < minNum) {
+            minNum = model.txAmt.floatValue;
+        }
     }
-    
-    for (UILabel *label in self.piontNums) {
-        /// update masory
+    DLog(@"maxNum == %f  minNum == %f",maxNum,minNum);
+    /// update masory
+    // 等分 
+    NSInteger count = models.count;
+    if (count > 7) count = 7;
+    for (int i = 0; i < count; i++) {
+        HistoryModel *model = models[i];
     }
 }
+
+- (void)showUI:(NSMutableArray *)models{
+    NSInteger count = models.count;
+    if (count == 0) {
+        for ( UILabel *l in self.pionts) {
+            l.hidden = true;
+        }
+        for ( UILabel *l in self.piontNums) {
+            l.hidden = true;
+        }
+    }else{
+        if (count > 7) count = 7;
+        for (int i = 0; i < count;i++) {/// 显示label
+            UILabel *num = self.piontNums[i];
+            num.hidden = false;
+            
+            UILabel *piont = self.pionts[i];
+            piont.hidden = false;
+            
+            HistoryModel *model = models[i];
+            CGFloat money = model.txAmt.floatValue;
+            num.text = [NSString stringWithFormat:@"%.2f",money];
+        }
+        for (NSInteger i = count; i < self.piontNums.count; i++) {
+            UILabel *num = self.piontNums[i];
+            UILabel *piont = self.pionts[i];
+            num.hidden = true;
+            piont.hidden = true;
+        }
+    }
+}
+
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-
+    if (self.models.count == 0 || !self.models) return;
+    CGFloat count = self.models.count;
     //定义画图的path
     UIBezierPath *path = [[UIBezierPath alloc] init];
-
     CGFloat sidelength = 12;
+    CGFloat x = kWidth/7.0*(7.0-1)-sidelength/2.0+kWidth/7.0/2.0;/// 这是最右边的x。
+    x = x - (7.0-count)*kWidth/7.0; /// 这是对应的x
     //path移动到开始画图的位置
-    [path moveToPoint:CGPointMake(rect.size.width / 2.0 - sidelength/2.0, rect.size.height)];
+    //[path moveToPoint:CGPointMake(rect.size.width / 2.0 - sidelength/2.0, rect.size.height)];
     //从开始位置画一条直线到（rect.origin.x + rect.size.width， rect.origin.y）
-    [path addLineToPoint:CGPointMake(rect.size.width / 2.0, rect.size.height - sidelength)];
+    //[path addLineToPoint:CGPointMake(rect.size.width / 2.0, rect.size.height - sidelength)];
     //再从rect.origin.x + rect.size.width， rect.origin.y））画一条线到(rect.origin.x + rect.size.width/2, rect.origin.y + rect.size.height)
-    [path addLineToPoint:CGPointMake(rect.size.width / 2.0 + sidelength/2.0, rect.size.height)];
-
+    //[path addLineToPoint:CGPointMake(rect.size.width / 2.0 + sidelength/2.0, rect.size.height)];
+    [path moveToPoint:CGPointMake(x, rect.size.height)];
+    [path addLineToPoint:CGPointMake(x+sidelength/2.0, rect.size.height - sidelength)];
+    [path addLineToPoint:CGPointMake(x+sidelength, rect.size.height)];
     //关闭path
     [path closePath];
 

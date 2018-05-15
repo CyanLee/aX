@@ -69,11 +69,11 @@ typedef enum : NSUInteger {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     NSString *postUrl = @"";
     // 有问题的接口
-    dic[@"countType"] = timeType == -1 ? @"0":[NSString stringWithFormat:@"%ld",timeType];
+    dic[@"countType"] = timeType == -1 ? @"4":[NSString stringWithFormat:@"%ld",timeType];
     switch (type) {
         /// 商店销量前10
         case Type_APP_SALE_SORT_10_URL:
-            dic[@"countType"] = @"3";
+            //dic[@"countType"] = @"3";
             dic[@"userId"] = @"13922190717";
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
@@ -82,7 +82,7 @@ typedef enum : NSUInteger {
             break;
         /// 销售金额前10
         case Type_APP_SALE_MONEY_10_URL:
-            dic[@"countType"] = @"";
+            //dic[@"countType"] = @"";
             dic[@"userId"] = @"13922190717";
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
@@ -91,7 +91,7 @@ typedef enum : NSUInteger {
             break;
         /// 商店类别销售情况
         case Type_APP_SALE_GOODS_URL:
-            dic[@"countType"] = @"2";
+            //dic[@"countType"] = @"2";
             dic[@"userId"] = @"13922190717";
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
@@ -102,7 +102,7 @@ typedef enum : NSUInteger {
             break;
         /// 收银情况汇总
         case Type_APP_SALE_BACK_URL:
-            dic[@"countType"] = @"4";
+            //dic[@"countType"] = @"4";
             dic[@"userId"] = @"13922190717";
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
@@ -118,7 +118,8 @@ typedef enum : NSUInteger {
     [NetTools POST:postUrl parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         if ([responseObject objectForKey:@"totalAmount"]) {
-            self.tabFooter.salesMoney.text = [NSString stringWithFormat:@"%@",responseObject[@"totalAmount"]];
+            CGFloat money = [[NSString stringWithFormat:@"%@",responseObject[@"totalAmount"]] floatValue];
+            self.tabFooter.salesMoney.text = [NSString stringWithFormat:@"%.2f",money];
         }
         if ([responseObject objectForKey:@"totalTxNums"]) {
             self.tabFooter.salesNumLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"totalTxNums"]];
@@ -195,7 +196,7 @@ typedef enum : NSUInteger {
 }
 
 - (void)setupTimeView{
-    CGFloat timeH = kWidth == 320 ? 20 : 30;
+    CGFloat timeH = 0;
     CGFloat switchTimeH = kWidth == 320 ? 90 : 120;
     TimeView *timeView = [[TimeView alloc] initWithTimeH:timeH WithSwicthTimeH:switchTimeH];
     [self.view addSubview:timeView];
