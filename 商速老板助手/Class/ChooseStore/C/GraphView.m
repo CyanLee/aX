@@ -8,6 +8,8 @@
 
 #import "GraphView.h"
 #import "HistoryModel.h"
+
+#define uniformSpace 12
 @interface GraphView ()
 
 /// label pionts
@@ -16,6 +18,8 @@
 /// label num
 @property (nonatomic,strong)NSMutableArray *piontNums;
 
+@property (nonatomic,strong)NSMutableArray *piontYs;
+@property (nonatomic,weak)CAShapeLayer *shapeLayer;
 @end
 
 
@@ -56,7 +60,7 @@
         for (int i = 0; i < 200; i ++) {
             UIView *line = [[UIView alloc]init];
             [self addSubview:line];
-            line.backgroundColor = [UIColor whiteColor];
+            line.backgroundColor = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1];
             [line mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(line1.mas_bottom).mas_offset(30);
                 make.height.width.mas_equalTo(1);
@@ -66,7 +70,7 @@
         
         for (int i = 0; i < 7; i ++) {
             UILabel *point = [[UILabel alloc] init];
-            point.text = @"o";
+            point.text = @"😝";
             point.font = [UIFont systemFontOfSize:14];
             point.textAlignment = 1;
             point.textColor = [UIColor whiteColor];
@@ -99,10 +103,6 @@
             }];
             num.tag = i;
             num.hidden = true;
-            num.layer.borderColor = [[UIColor whiteColor] CGColor];
-            num.layer.borderWidth = 0.5;
-            num.layer.cornerRadius = 3;
-            num.layer.masksToBounds = true;
             [self.piontNums addObject:num];
         }
         
@@ -121,11 +121,22 @@
 - (void)setModels:(NSMutableArray *)models{
     _models = models;
     
+    [self clearArrayAndUI]; // 清空记载数据
+    
     [self showUI:models]; // 显示与隐藏数字，点
     
     [self contrastModel:models];// 找出最高点
     
     [self setNeedsDisplay];
+}
+
+- (void)clearArrayAndUI{
+    [self.piontYs removeAllObjects];
+    
+    if (self.shapeLayer) {
+        [self.shapeLayer removeFromSuperlayer];
+        self.shapeLayer = nil;
+    }
 }
 
 - (void)contrastModel:(NSMutableArray *)models{
@@ -140,13 +151,62 @@
             minNum = model.txAmt.floatValue;
         }
     }
-    DLog(@"maxNum == %f  minNum == %f",maxNum,minNum);
     /// update masory
-    // 等分 
+    // 等分
+    int uniform = maxNum / minNum;
+    // 一个阶级 12 个像素
     NSInteger count = models.count;
     if (count > 7) count = 7;
     for (int i = 0; i < count; i++) {
         HistoryModel *model = models[i];
+        float txAmt = [model.txAmt floatValue];
+        UILabel *num = self.piontNums[i];
+        UILabel *piont = self.pionts[i];
+        if (txAmt == minNum) {// 取反
+            [piont mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(kWidth/7.0*i);
+                make.centerY.equalTo(self).mas_offset(7+uniform/2.0*uniformSpace);
+                make.width.mas_equalTo(kWidth/7.0);
+                make.height.mas_equalTo(20);
+            }];
+            [num mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(piont).mas_offset(3);
+                make.right.equalTo(piont).mas_offset(-3);
+                make.bottom.equalTo(piont.mas_top);
+            }];
+            id dic = @{@"model":model,@"toCenterYSpace":[NSString stringWithFormat:@"%f",7+uniform/2.0*uniformSpace]};
+            [self.piontYs addObject:dic];
+        }else if (txAmt == maxNum){
+            [piont mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(kWidth/7.0*i);
+                make.centerY.equalTo(self).mas_offset(7-uniform/2.0*uniformSpace);
+                make.width.mas_equalTo(kWidth/7.0);
+                make.height.mas_equalTo(20);
+            }];
+            [num mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(piont).mas_offset(3);
+                make.right.equalTo(piont).mas_offset(-3);
+                make.bottom.equalTo(piont.mas_top);
+            }];
+            id dic = @{@"model":model,@"toCenterYSpace":[NSString stringWithFormat:@"%f",7-uniform/2.0*uniformSpace]};
+            [self.piontYs addObject:dic];
+        }else{
+            CGFloat minY = 7+uniform/2.0*uniformSpace;// 销量金额最小的Y值
+            CGFloat space = txAmt/minNum*uniformSpace;// 间距
+            [piont mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(kWidth/7.0*i);
+                make.centerY.equalTo(self).mas_offset(minY-space);
+                make.width.mas_equalTo(kWidth/7.0);
+                make.height.mas_equalTo(20);
+            }];
+            [num mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(piont).mas_offset(3);
+                make.right.equalTo(piont).mas_offset(-3);
+                make.bottom.equalTo(piont.mas_top);
+            }];
+            id dic = @{@"model":model,@"toCenterYSpace":[NSString stringWithFormat:@"%f",minY-space]};
+            [self.piontYs addObject:dic];
+        }
     }
 }
 
@@ -182,35 +242,128 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    
     if (self.models.count == 0 || !self.models) return;
+    
+    [self drawTriangle:rect];
+    //
+    [self drawGraph:rect];
+    
+}
+
+- (void)drawTriangle:(CGRect)rect{
     CGFloat count = self.models.count;
     //定义画图的path
     UIBezierPath *path = [[UIBezierPath alloc] init];
     CGFloat sidelength = 12;
     CGFloat x = kWidth/7.0*(7.0-1)-sidelength/2.0+kWidth/7.0/2.0;/// 这是最右边的x。
     x = x - (7.0-count)*kWidth/7.0; /// 这是对应的x
-    //path移动到开始画图的位置
-    //[path moveToPoint:CGPointMake(rect.size.width / 2.0 - sidelength/2.0, rect.size.height)];
-    //从开始位置画一条直线到（rect.origin.x + rect.size.width， rect.origin.y）
-    //[path addLineToPoint:CGPointMake(rect.size.width / 2.0, rect.size.height - sidelength)];
-    //再从rect.origin.x + rect.size.width， rect.origin.y））画一条线到(rect.origin.x + rect.size.width/2, rect.origin.y + rect.size.height)
-    //[path addLineToPoint:CGPointMake(rect.size.width / 2.0 + sidelength/2.0, rect.size.height)];
     [path moveToPoint:CGPointMake(x, rect.size.height)];
     [path addLineToPoint:CGPointMake(x+sidelength/2.0, rect.size.height - sidelength)];
     [path addLineToPoint:CGPointMake(x+sidelength, rect.size.height)];
     //关闭path
     [path closePath];
-
+    
     //三角形内填充颜色
     [[UIColor whiteColor] setFill];
-
+    
     [path fill];
-    //    //三角形的边框为红色
-    //    [[UIColor clearColor] setStroke];
-    //    [path stroke];
 }
 
+- (void)drawGraph:(CGRect)rect{
+    UIBezierPath *path0 = [UIBezierPath bezierPath];
+    NSMutableArray *pathArr = [NSMutableArray array];
+    CGFloat centerY = rect.size.height/2;
+    CGPoint first = CGPointMake(0.0, centerY);
+    CGPoint last= CGPointMake(kWidth,centerY);
+    for (int i = 0; i < self.piontYs.count; i ++) {
+        if (i == 0) {
+            id dic = self.piontYs[i];
+            for (HistoryModel *model in self.models) {
+                if ([model isEqual:dic[@"model"]]) {
+                    NSString *toCenterYSpace = dic[@"toCenterYSpace"];
+                    CGPoint p = CGPointMake(kWidth/7.0/2, centerY+toCenterYSpace.floatValue);
+                    first = p;
+                    NSValue *v = [NSValue valueWithCGPoint:p];
+                    [pathArr addObject:v];
+                }
+            }
+        }else if (i == 6){
+            id dic = self.piontYs[i];
+            for (HistoryModel *model in self.models) {
+                if ([model isEqual:dic[@"model"]]) {
+                    NSString *toCenterYSpace = dic[@"toCenterYSpace"];
+                    CGPoint p = CGPointMake(kWidth-(kWidth/7.0/2), centerY+toCenterYSpace.floatValue);
+                    NSValue *v = [NSValue valueWithCGPoint:p];
+                    [pathArr addObject:v];
+                    last = p;
+                }
+            }
+        }else{
+            id dic = self.piontYs[i];
+            for (HistoryModel *model in self.models) {
+                if ([model isEqual:dic[@"model"]]) {
+                    NSString *toCenterYSpace = dic[@"toCenterYSpace"];
+                    CGPoint p = CGPointMake(kWidth/7.0*i+(kWidth/7.0/2), centerY+toCenterYSpace.floatValue);
+                    NSValue *v = [NSValue valueWithCGPoint:p];
+                    [pathArr addObject:v];
+                    last = p;
+                }
+            }
+        }
+    }
+    [path0 moveToPoint:CGPointMake(0.0, centerY)];
+    [path0 addLineToPoint:first];
+    for (NSInteger i=0; i<pathArr.count - 3; i++) {
+        CGPoint t0 = [pathArr[i+0] CGPointValue];
+        CGPoint t1 = [pathArr[i+1] CGPointValue];
+        CGPoint t2 = [pathArr[i+2] CGPointValue];
+        CGPoint t3 = [pathArr[i+3] CGPointValue];
+        //
+        for (int i=0; i<100; i++) {
+            CGFloat t = i/100.0;
+            CGPoint point = [self getPoint:t p0:t0 p1:t1 p2:t2 p3:t3];
+            [path0 addLineToPoint:point];
+        }
+    }
+    [path0 addLineToPoint:last];
+    if (pathArr.count == 7) {
+        [path0 addLineToPoint:CGPointMake(kWidth,centerY)];
+    }
+    //
+    //关闭path
+    
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.frame = CGRectMake(0.0, 0.0, rect.size.width, rect.size.height);
+    shapeLayer.lineWidth = 1.0;
+    shapeLayer.lineCap = @"round";
+    shapeLayer.strokeColor = [[UIColor whiteColor] CGColor];
+    shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+    shapeLayer.path = [path0 CGPath];
+    shapeLayer.strokeStart = 0.0;
+    shapeLayer.strokeEnd = 1.0;
+    [self.layer addSublayer:shapeLayer];
+    self.shapeLayer = shapeLayer;
+}
+/**
+ Catmull-Rom算法
+ 根据四个点计算中间点
+ */
+- (CGPoint)getPoint:(CGFloat)t p0:(CGPoint)p0 p1:(CGPoint)p1 p2:(CGPoint)p2 p3:(CGPoint)p3 {
+    CGFloat t2 = t*t;
+    CGFloat t3 = t2*t;
+    
+    CGFloat f0 = -0.5*t3 + t2 - 0.5*t;
+    CGFloat f1 = 1.5*t3 - 2.5*t2 + 1.0;
+    CGFloat f2 = -1.5*t3 + 2.0*t2 + 0.5*t;
+    CGFloat f3 = 0.5*t3 - 0.5*t2;
+    
+    CGFloat x = p0.x*f0 + p1.x*f1 + p2.x*f2 +p3.x*f3;
+    CGFloat y = p0.y*f0 + p1.y*f1 + p2.y*f2 +p3.y*f3;
+    
+    return CGPointMake(x, y);
+    
+}
 - (NSMutableArray *)pionts{
     if (!_pionts) {
         _pionts = [NSMutableArray array];
@@ -223,5 +376,12 @@
         _piontNums = [NSMutableArray array];
     }
     return _piontNums;
+}
+
+- (NSMutableArray *)piontYs{
+    if (!_piontYs) {
+        _piontYs = [NSMutableArray array];
+    }
+    return _piontYs;
 }
 @end
