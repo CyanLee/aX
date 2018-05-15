@@ -37,6 +37,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //获取设备码
+    NSString *deviceUUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    //用keyChain保存设备码
+    [GSKeyChainDataManager saveUUID:deviceUUID key:@"deviceId"];
+    
     NSString *languageStr = UD_GET_OBJ(@"LanguageKey");
     if (languageStr != nil) {
         if ([languageStr isEqualToString:@"base"]) {

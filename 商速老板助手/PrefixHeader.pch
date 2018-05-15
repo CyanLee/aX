@@ -17,5 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "AppDelegate.h"
 #import "SelectPhotoManager.h"
+#import "GSKeyChainDataManager.h"
+#import "MD5Tools.h"
 
 #endif /* PrefixHeader_pch */

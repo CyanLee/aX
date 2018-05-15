@@ -12,4 +12,9 @@
 @interface NetTools : NSObject
 
 + (void)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(id responseObject))success failure:(void (^)( NSString * errStr))failure;
+
++ (void)POST:(NSString *)URLString parameters:(id)parameters imageData:(NSData *)imageData constructingBodyWithBlocksuccess:(void (^)(id responseObject))success failure:(void (^)( id errStr))failure;
+
++ (NSString*)dictionaryToJson:(NSDictionary *)dic;
+
 @end

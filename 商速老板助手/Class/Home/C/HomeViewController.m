@@ -183,6 +183,24 @@
         //保存到本地
         NSData *data = UIImagePNGRepresentation(image);
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+        
+        //使用MD5对设备码进行加密
+        UserModel *userModel = [UserModel getUserModel];
+        NSString *result = [MD5Tools md5:[GSKeyChainDataManager readUUIDkey:@"deviceId"]];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setValue:result forKey:@"deviceId"];
+        [dic setValue:@"open" forKey:@"imgflag"];
+        [dic setValue:@"" forKey:@"nickName"];
+        [dic setValue:userModel.userId forKey:@"userId"];
+        
+        NSString *str = [NetTools dictionaryToJson:dic];
+        NSString *utf = [APP_UPLOAD_THE_PICTURE_URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [NetTools POST:utf parameters:dic imageData:data constructingBodyWithBlocksuccess:^(id responseObject) {
+            NSLog(@"responseObject = %@",responseObject);
+        } failure:^(NSString *errStr) {
+            NSLog(@"errStr = %@",errStr);
+        }];
+        
     };
 }
 
@@ -256,6 +274,5 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 @end

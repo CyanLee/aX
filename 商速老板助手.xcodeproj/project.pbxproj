@@ -70,6 +70,9 @@
 		342985D620A6880100341EAC /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985BE20A6880100341EAC /* UIView+WebCache.m */; };
 		342985D720A6880100341EAC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985C020A6880100341EAC /* UIView+WebCacheOperation.m */; };
 		342985DB20A7DA1A00341EAC /* SelectPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985DA20A7DA1A00341EAC /* SelectPhotoManager.m */; };
+		342985E520A95DB800341EAC /* GSKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985E320A95DB800341EAC /* GSKeyChain.m */; };
+		342985E620A95DB800341EAC /* GSKeyChainDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985E420A95DB800341EAC /* GSKeyChainDataManager.m */; };
+		342985EA20A9611800341EAC /* MD5Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 342985E920A9611800341EAC /* MD5Tools.m */; };
 		4D05D7FD2091793400CFD881 /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D7FC2091793400CFD881 /* TabController.m */; };
 		4D05D80C20917D4A00CFD881 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80B20917D4A00CFD881 /* NavViewController.m */; };
 		4D05D80F20917E1C00CFD881 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05D80E20917E1C00CFD881 /* HomeViewController.m */; };
@@ -311,6 +314,12 @@
 		342985C020A6880100341EAC /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		342985D920A7DA1A00341EAC /* SelectPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoManager.h; sourceTree = "<group>"; };
 		342985DA20A7DA1A00341EAC /* SelectPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoManager.m; sourceTree = "<group>"; };
+		342985E120A95DB700341EAC /* GSKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKeyChain.h; sourceTree = "<group>"; };
+		342985E220A95DB700341EAC /* GSKeyChainDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKeyChainDataManager.h; sourceTree = "<group>"; };
+		342985E320A95DB800341EAC /* GSKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKeyChain.m; sourceTree = "<group>"; };
+		342985E420A95DB800341EAC /* GSKeyChainDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKeyChainDataManager.m; sourceTree = "<group>"; };
+		342985E820A9611800341EAC /* MD5Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Tools.h; sourceTree = "<group>"; };
+		342985E920A9611800341EAC /* MD5Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5Tools.m; sourceTree = "<group>"; };
 		4D05D7FB2091793400CFD881 /* TabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		4D05D7FC2091793400CFD881 /* TabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
 		4D05D80A20917D4A00CFD881 /* NavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -697,6 +706,26 @@
 			path = SelectPhotoManager;
 			sourceTree = "<group>";
 		};
+		342985E020A95D9300341EAC /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				342985E120A95DB700341EAC /* GSKeyChain.h */,
+				342985E320A95DB800341EAC /* GSKeyChain.m */,
+				342985E220A95DB700341EAC /* GSKeyChainDataManager.h */,
+				342985E420A95DB800341EAC /* GSKeyChainDataManager.m */,
+			);
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		342985E720A9610A00341EAC /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				342985E820A9611800341EAC /* MD5Tools.h */,
+				342985E920A9611800341EAC /* MD5Tools.m */,
+			);
+			path = MD5;
+			sourceTree = "<group>";
+		};
 		4D29B0EE209172AB004C8324 = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +936,8 @@
 		4D29B13C20917461004C8324 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				342985E720A9610A00341EAC /* MD5 */,
+				342985E020A95D9300341EAC /* KeyChain */,
 				342985D820A7DA1A00341EAC /* SelectPhotoManager */,
 				3429859120A6880100341EAC /* SDWebImage */,
 				4D61374620A429780031AF1D /* MJRefresh */,
@@ -1515,6 +1546,7 @@
 				4D73D59D209BF42C00A77475 /* ReportViewController.m in Sources */,
 				342985C320A6880100341EAC /* SDImageCache.m in Sources */,
 				4D766EA520A29CB400AB16BD /* GraphView.m in Sources */,
+				342985E620A95DB800341EAC /* GSKeyChainDataManager.m in Sources */,
 				4D7B90F7209410DD00322767 /* CoverView.m in Sources */,
 				4D29B15A209174DD004C8324 /* MASConstraint.m in Sources */,
 				342984C1209B667000341EAC /* HistoryPartitionView.m in Sources */,
@@ -1529,6 +1561,7 @@
 				4D61377920A429780031AF1D /* MJRefreshHeader.m in Sources */,
 				4D970A57209962E200D0BD14 /* NetTools.m in Sources */,
 				4D29B162209174DD004C8324 /* ViewController+MASAdditions.m in Sources */,
+				342985E520A95DB800341EAC /* GSKeyChain.m in Sources */,
 				342985D020A6880100341EAC /* UIButton+WebCache.m in Sources */,
 				4D7A368B209D473100A62B8A /* SalesModel.m in Sources */,
 				342985CB20A6880100341EAC /* SDWebImageFrame.m in Sources */,
@@ -1614,6 +1647,7 @@
 				4D970A672099955C00D0BD14 /* SVRadialGradientLayer.m in Sources */,
 				4D970A8A2099A5E900D0BD14 /* NSString+MJExtension.m in Sources */,
 				342984C4209BFBE200341EAC /* HistoryModel.m in Sources */,
+				342985EA20A9611800341EAC /* MD5Tools.m in Sources */,
 				4D61377E20A429780031AF1D /* MJRefreshBackNormalFooter.m in Sources */,
 				342985C920A6880100341EAC /* SDWebImageDownloader.m in Sources */,
 				4D970A4C20994B6500D0BD14 /* AFNetworkReachabilityManager.m in Sources */,

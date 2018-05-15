@@ -38,4 +38,8 @@ static NSString *APP_SALE_BACK_URL = @"http://www.shopspeed.cn:80/shopspeed_poin
 
 /// 9:店铺信息查询
 static NSString *APP_STORE_INFO_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getMerchantsForApp.do";
+
+///11:上传头像
+static NSString *APP_UPLOAD_THE_PICTURE_URL = @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/modifyLogoAndNikeName.do";
+
 #endif /* APP_IPS_h */
