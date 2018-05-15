@@ -76,7 +76,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LanguageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.titleLabel.text = [self.dataArr objectAtIndex:indexPath.section];
-    
+    cell.selectionStyle = 0;
+    cell.titleLabel.textColor = [UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1];
     if (indexPath.section == self.stateNum) {
         cell.clickBtn.hidden = NO;
     }else{
@@ -100,10 +101,11 @@
     rightBtn.frame = CGRectMake(0, 0, 50, 20);
     [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    rightBtn.titleLabel.font =[UIFont systemFontOfSize:20];
+    rightBtn.titleLabel.font =[UIFont systemFontOfSize:17];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:0];
     [rightBtn setTitle:title forState:UIControlStateNormal];
     [rightBtn addTarget:self action:selectorAction forControlEvents:UIControlEventTouchUpInside];
-    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+   // [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     //配置返回按钮距离屏幕边缘的距离
     UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
