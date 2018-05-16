@@ -219,6 +219,24 @@
     if (!_photoManager) {
         _photoManager =[[SelectPhotoManager alloc]init];
     }
+    
+    //使用MD5对设备码进行加密
+    UserModel *userModel = [UserModel getUserModel];
+    NSString *result = [MD5Tools md5:[GSKeyChainDataManager readUUIDkey:@"deviceId"]];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setValue:result forKey:@"deviceId"];
+    [dic setValue:@"open" forKey:@"imgflag"];
+    [dic setValue:@"测试店铺名称" forKey:@"nickName"];
+    [dic setValue:@"13922190717" forKey:@"userId"];
+    UIImage *image = [UIImage imageNamed:@"12"];
+    NSData *data = UIImagePNGRepresentation(image);
+    [NetTools POST:APP_UPLOAD_THE_PICTURE_URL parameters:dic imageData:data constructingBodyWithBlocksuccess:^(id responseObject) {
+        NSLog(@"responseObject = %@",responseObject);
+    } failure:^(NSString *errStr) {
+        NSLog(@"errStr = %@",errStr);
+    }];
+    return;
+    
     [_photoManager startSelectPhotoWithImageName:@"选择头像"];
     __weak typeof(self)mySelf=self;
     //选取照片成功

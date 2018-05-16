@@ -28,35 +28,38 @@
 }
 
 + (void)POST:(NSString *)URLString parameters:(id)parameters imageData:(NSData *)imageData constructingBodyWithBlocksuccess:(void (^)(id responseObject))success failure:(void (^)(id errStr))failure{
-    
-    /*
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-         [formData appendPartWithFileData:imageData name:@"image1" fileName:@"image1" mimeType:@"image/png"];
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%f",1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"--> %@", responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error.userInfo);
-    }];
-    */
-    
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     session.requestSerializer = [AFJSONRequestSerializer serializer];
     session.responseSerializer = [AFHTTPResponseSerializer serializer];
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
-    [session.requestSerializer setValue:[[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding] forHTTPHeaderField:@"image1"];
-    [session POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"--> %@", responseObject);
+    NSString *fileName = [NSString stringWithFormat:@"%@.png", @"image1"];
+    [session POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:imageData name:@"image1" fileName:fileName mimeType:@"image/png"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSObject *responseObject) {
+        if ([responseObject isKindOfClass:[NSData class]]) {
+            NSDictionary * dic = [self serializationJsonData:(NSData*)responseObject];
+            if ([NetTools serverError:dic] == 0) {
+                success(dic);
+            }else{
+                failure([NetTools getServerErrorDes:dic]);
+            }
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error.userInfo);
+        DLog(@"boom网络炸了");
+        failure(notNet);
     }];
 }
 
-
+/// 序列化data
++ (NSDictionary *)serializationJsonData:(NSData *)data{
+    NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSData * jsonData = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+    return jsonDict;
+}
 
 + (NSInteger)serverError:(id)responseObject{
     if ([responseObject objectForKey:@"resultCode"]) {
@@ -68,7 +71,7 @@
 
 + (NSString *)getServerErrorDes:(id)responseObject{
     if ([responseObject objectForKey:@"resultDesc"]) {
-        return [responseObject objectForKey:@"resultDesc"];
+        return  [responseObject objectForKey:@"resultDesc"];
     }else{
        return notNet;
     }
