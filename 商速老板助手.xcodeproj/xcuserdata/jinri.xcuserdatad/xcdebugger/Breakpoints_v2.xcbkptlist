@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;/Class/Home/C/HomeViewController.m"
-            timestampString = "548037364.074216"
+            filePath = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;/Tools/AFNetworking/NetTools.m"
+            timestampString = "548126088.188897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "-storeBtnDidClicked"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "+POST:parameters:imageData:constructingBodyWithBlocksuccess:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;/Class/Home/C/HomeViewController.m"
-            timestampString = "548037365.074697"
+            filePath = "&#x5546;&#x901f;&#x8001;&#x677f;&#x52a9;&#x624b;/Tools/AFNetworking/NetTools.m"
+            timestampString = "548126089.631492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "-storeBtnDidClicked"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "+POST:parameters:imageData:constructingBodyWithBlocksuccess:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

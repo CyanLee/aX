@@ -83,7 +83,6 @@
     // 设置回调
     dispatch_source_set_event_handler(weakSelf.timer, ^{
         NSLog(@"------------%@", [NSThread currentThread]);
-        self.count--;
         [weakSelf updataUI:self.count];
         if (self.count == 0) {
             // 取消定时器
@@ -99,6 +98,7 @@
 
 -(void)updataUI:(NSInteger)count{
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.count--;
         [self.clickBtn setTitle:[NSString stringWithFormat:@"%ld",(long)count] forState:UIControlStateNormal];
     });
 }
