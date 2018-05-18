@@ -245,24 +245,24 @@
 - (void)loginDidClicked{
     DLog(@"%s",__func__);
     
-    /*
+    
     NSString *name = self.nameTF.text;
     if (name.length == 0 || [name isEqualToString:@""]){
-     [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
-     return;
-     }
-     
-     NSString *pws = self.pwsTF.text;
-     if (pws.length == 0 || [pws isEqualToString:@""]){
-     [SVProgressHUD showErrorWithStatus:@"请输入密码"];
-     return;
-     }
-     */
-
+        [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *pws = self.pwsTF.text;
+    if (pws.length == 0 || [pws isEqualToString:@""]){
+        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+        return;
+    }
+    
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
-    [dic setObject:@"111111" forKey:@"userPwd"];
-    [dic setObject:@"13922190717" forKey:@"userId"];
+    [dic setObject:pws forKey:@"userPwd"];
+    [dic setObject:name forKey:@"userId"];
     [SVProgressHUD showWithStatus:NSLocalized(@"Logging in", nil)];
     [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD dismiss];

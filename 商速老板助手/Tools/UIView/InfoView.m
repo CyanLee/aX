@@ -157,8 +157,8 @@
     self.graphView.models = graphViewModels;
     HistoryModel *today = [graphViewModels lastObject];
     if (!today) {
-        self.turnover.text = @"暂无";
-        self.receipt.text = @"暂无";
+        self.turnover.text = @"0";
+        self.receipt.text = @"0";
     }else{ // 判断日期是否今天
         NSDate *date = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -171,14 +171,14 @@
             self.turnover.text = [NSString stringWithFormat:@"%.2f",money];
             self.receipt.text = today.saleNums;
         }else{
-            self.turnover.text = @"暂无";
-            self.receipt.text = @"暂无";
+            self.turnover.text = @"0";
+            self.receipt.text = @"0";
         }
     }
-    if ([self.turnover.text isEqualToString:@"暂无"]) self.turnover.font = [UIFont systemFontOfSize:20];
-    else self.turnover.font = [UIFont systemFontOfSize:40];
-    if ([self.receipt.text isEqualToString:@"暂无"]) self.receipt.font = [UIFont systemFontOfSize:20];
-    else self.receipt.font = [UIFont systemFontOfSize:40];
+//    if ([self.turnover.text isEqualToString:@"暂无"]) self.turnover.font = [UIFont systemFontOfSize:20];
+//    else self.turnover.font = [UIFont systemFontOfSize:40];
+//    if ([self.receipt.text isEqualToString:@"暂无"]) self.receipt.font = [UIFont systemFontOfSize:20];
+//    else self.receipt.font = [UIFont systemFontOfSize:40];
 }
 
 @end

@@ -243,7 +243,7 @@
         return;
     }
     
-    UserModel *userModel = [UserModel getUserModel];
+   // UserModel *userModel = [UserModel getUserModel];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:phone forKey:@"userId"];
     [dic setObject:phone forKey:@"telNo"];
