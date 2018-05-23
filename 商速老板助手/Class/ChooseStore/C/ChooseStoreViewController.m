@@ -11,6 +11,9 @@
 #import "APP_IPS.h"
 
 #import "ChooseStoreModel.h"
+
+#import "UserModel.h"
+
 @interface ChooseStoreViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,weak)UITableView *tab;
@@ -38,8 +41,14 @@
 
 - (void)getDatas{
     
+    UserModel *user = [UserModel getUserModel];
+    if (!user) {
+        // 没登录
+        return;
+    }
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[@"userId"] = @"13922190717";
+    
+    dic[@"userId"] = user.userId;
     [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
         DLog(@"responseObject == %@",responseObject);
         if ([responseObject objectForKey:@"resultList"]) {

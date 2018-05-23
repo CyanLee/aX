@@ -1876,7 +1876,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4TG68M466;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1894,7 +1894,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4TG68M466;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/商速老板助手/PrefixHeader.pch";
 				INFOPLIST_FILE = "商速老板助手/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

@@ -245,7 +245,6 @@
 - (void)loginDidClicked{
     DLog(@"%s",__func__);
     
-    
     NSString *name = self.nameTF.text;
     if (name.length == 0 || [name isEqualToString:@""]){
         [SVProgressHUD showErrorWithStatus:@"请输入用户名"];
@@ -261,6 +260,8 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"866955030036774" forKey:@"deviceID"];
+   // "userPwd":"12345678",
+   // "userId":"13922190717"
     [dic setObject:pws forKey:@"userPwd"];
     [dic setObject:name forKey:@"userId"];
     [SVProgressHUD showWithStatus:NSLocalized(@"Logging in", nil)];
