@@ -8,7 +8,7 @@
 
 #import "GraphView.h"
 #import "HistoryModel.h"
-
+#import "DotLabel.h"
 #define uniformSpace 12
 @interface GraphView ()
 
@@ -69,8 +69,8 @@
         }
         
         for (int i = 0; i < 7; i ++) {
-            UILabel *point = [[UILabel alloc] init];
-            point.text = @"😝";
+            DotLabel *point = [[DotLabel alloc] init];
+            //point.text = @"😝";
             point.font = [UIFont systemFontOfSize:14];
             point.textAlignment = 1;
             point.textColor = [UIColor whiteColor];

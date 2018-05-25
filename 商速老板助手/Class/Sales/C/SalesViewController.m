@@ -17,6 +17,7 @@
 #import "HistoryViewController.h"
 #import "LanguageViewController.h"
 #import "ChooseStoreViewController.h"
+#import "UserModel.h"
 typedef enum : NSUInteger {
     Type_APP_SALE_SORT_10_URL = 0,
     Type_APP_SALE_MONEY_10_URL,
@@ -66,6 +67,13 @@ typedef enum : NSUInteger {
 
 - (void)getDatasWithType:(GetDataType)type TimeType:(NSInteger)timeType{
     
+    
+    UserModel *user = [UserModel getUserModel];
+    if (!user) {
+        // 没登录
+        return;
+    }
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     NSString *postUrl = @"";
     // 有问题的接口
@@ -74,7 +82,7 @@ typedef enum : NSUInteger {
         /// 商店销量前10
         case Type_APP_SALE_SORT_10_URL:
             //dic[@"countType"] = @"3";
-            dic[@"userId"] = @"13922190717";
+            dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
@@ -83,7 +91,7 @@ typedef enum : NSUInteger {
         /// 销售金额前10
         case Type_APP_SALE_MONEY_10_URL:
             //dic[@"countType"] = @"";
-            dic[@"userId"] = @"13922190717";
+            dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
@@ -92,7 +100,7 @@ typedef enum : NSUInteger {
         /// 商店类别销售情况
         case Type_APP_SALE_GOODS_URL:
             //dic[@"countType"] = @"2";
-            dic[@"userId"] = @"13922190717";
+            dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
@@ -103,7 +111,7 @@ typedef enum : NSUInteger {
         /// 收银情况汇总
         case Type_APP_SALE_BACK_URL:
             //dic[@"countType"] = @"4";
-            dic[@"userId"] = @"13922190717";
+            dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = @"139221907171001";
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";

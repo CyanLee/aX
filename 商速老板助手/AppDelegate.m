@@ -82,6 +82,7 @@
 
 
 - (void)getStartImg{
+    // @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do"
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"999999999" forKey:@"deviceID"];
     [NetTools POST:APP_START_IMG_URL parameters:dic success:^(id responseObject) {
