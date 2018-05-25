@@ -19,6 +19,7 @@
 #import "ChooseStoreViewController.h"
 
 #import "HistoryModel.h"
+#import "ChooseStoreModel.h"
 @interface HomeViewController ()
 @property (nonatomic,weak)UIView *headerView;
 @property (nonatomic,weak)UIButton *storeBtn;
@@ -29,6 +30,8 @@
 @property (nonatomic, strong)SelectPhotoManager *photoManager;
 
 @property (nonatomic,assign)BOOL gettingGraphViewDatas;
+
+@property (nonatomic,strong)ChooseStoreModel *defModel;
 @end
 
 @implementation HomeViewController
@@ -36,7 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi:)name:@"tongzhi" object:nil];
     [self setupNav];
     
     [self setupHeaderView];
@@ -45,12 +48,39 @@
     
     [self setupInfoView];
     
-    if (![UserModel getUserModel]) {
-        [self autoLogin];
-    }
+    //    if (![UserModel getUserModel]) {
+    //        [self autoLogin];
+    //    }
     /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
-    [self getGraphViewDatas:4];
+    //    [self getGraphViewDatas:4];
+    
+    [self getDefineMerCodeDatas];
+}
+
+- (void)getDefineMerCodeDatas{
+    
+    UserModel *user = [UserModel getUserModel];
+    if (!user) {
+        // 没登录
+        return;
+    }
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"userId"] = user.userId;
+    [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
+        DLog(@"responseObject == %@",responseObject);
+        if ([responseObject objectForKey:@"resultList"]) {
+            NSMutableArray *arr = [ChooseStoreModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultList"]];
+            if (arr.count != 0) {
+                self.defModel = [arr firstObject];
+                [self getGraphViewDatas:4];
+            }
+        }
+    } failure:^(NSString *errStr) {
+        DLog(@"获取merCode失败 errStr == %@",errStr);
+    }];
+    
 }
 /*
  byType
@@ -62,11 +92,12 @@
 /// 获得曲线图数据
 - (void)getGraphViewDatas:(NSInteger)byType{
     UserModel *user = [UserModel getUserModel];
-   // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
+    // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
-    [dic setObject:user.userId forKey:@"userId"];//IIIIIIIIIIII
-    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:user.userId forKey:@"userId"];
+    //[dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:self.defModel.merchantCode forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
     [dic setObject:@"2018-03-31" forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];
@@ -95,7 +126,7 @@
 - (void)autoLogin{
     UserModel *model = [UserModel getUserModel];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[GSKeyChainDataManager readUUIDkey:@"deviceId"] forKey:@"deviceID"];
+    [dic setObject:@"866955030036774" forKey:@"deviceID"];
     [dic setObject:@"12345678" forKey:@"userPwd"];
     [dic setObject:model.userId forKey:@"userId"];
     
@@ -141,7 +172,14 @@
         make.width.mas_equalTo(100);
         make.centerY.equalTo(self.storeBtn).mas_offset(-4);
     }];
-    [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
+    NSDictionary *dic = UD_GET_OBJ(@"merchant");
+    if (dic[@"merchantName"] != nil) {
+//        [_chooseBtn setTitle:dic[@"merchantName"] forState:UIControlStateNormal];
+        [btn setTitle:dic[@"merchantName"] forState:0];
+    }else{
+        [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
+    }
+//    [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
     [btn setTitleColor:[UIColor whiteColor] forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:10];
     btn.layer.cornerRadius = 4;
@@ -220,23 +258,6 @@
         _photoManager =[[SelectPhotoManager alloc]init];
     }
     
-//    //使用MD5对设备码进行加密
-//    UserModel *userModel = [UserModel getUserModel];
-//    NSString *result = [MD5Tools md5:[GSKeyChainDataManager readUUIDkey:@"deviceId"]];
-//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:result forKey:@"deviceId"];
-//    [dic setValue:@"open" forKey:@"imgflag"];
-//    [dic setValue:@"测试店铺名称" forKey:@"nickName"];
-//    [dic setValue:@"13922190717" forKey:@"userId"];
-//    UIImage *image = [UIImage imageNamed:@"12"];
-//    NSData *data = UIImagePNGRepresentation(image);
-//    [NetTools POST:APP_UPLOAD_THE_PICTURE_URL parameters:dic imageData:data constructingBodyWithBlocksuccess:^(id responseObject) {
-//        NSLog(@"responseObject = %@",responseObject);
-//    } failure:^(NSString *errStr) {
-//        NSLog(@"errStr = %@",errStr);
-//    }];
-//    return;
-    
     //使用MD5对设备码进行加密
     UserModel *userModel = [UserModel getUserModel];
     if (![UserModel getUserModel]) {
@@ -312,12 +333,12 @@
 
 - (void)jump2Report{
     /*
-    ReportViewController *report = [[ReportViewController alloc] init];
-    report.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:report animated:true];
+     ReportViewController *report = [[ReportViewController alloc] init];
+     report.hidesBottomBarWhenPushed = true;
+     [self.navigationController pushViewController:report animated:true];
      */
     SalesViewController *sales = [[SalesViewController alloc] init];
-//    sales.hidesBottomBarWhenPushed = true;
+    //    sales.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:sales animated:true];
 }
 
@@ -360,4 +381,13 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)tongzhi:(NSNotification *)text{
+    [self.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+}
+
 @end
+

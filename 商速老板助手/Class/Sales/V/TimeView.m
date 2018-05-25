@@ -15,6 +15,8 @@
 @property (nonatomic,weak)UIView *switchTime;
 
 @property (nonatomic,strong)NSMutableArray *times;
+
+@property (nonatomic,strong)NSMutableArray *timeBtns;
 @end
 
 @implementation TimeView
@@ -77,6 +79,7 @@
             }];
             btn.layer.cornerRadius = btnW/2;
             btn.layer.masksToBounds = true;
+            [self.timeBtns addObject:btn];
             [btn addTarget:self action:@selector(btnDidClicked:) forControlEvents:1<<6];
         }
     }
@@ -88,7 +91,7 @@
     NSInteger count = models.count;
     if (count == 0) {
         for (UIButton *btn in self.times) {
-             [btn setTitle:@"" forState:0];
+            [btn setTitle:@"" forState:0];
         }
     }
     for (int i = 0; i < count; i ++) {
@@ -111,11 +114,24 @@
     }
 }
 - (void)btnDidClicked:(UIButton *)btn{
+    for (UIButton *b in self.timeBtns) {
+        [b setTitleColor:[UIColor whiteColor] forState:0];
+        [b setBackgroundColor:DefineRedColor];
+    }
+    [btn setTitleColor:DefineRedColor forState:0];
+    [btn setBackgroundColor:[UIColor whiteColor]];
+    
     if (self.btnDidClickedBlock) {
         self.btnDidClickedBlock(btn);
     }
 }
 
+- (NSMutableArray *)timeBtns{
+    if (!_timeBtns) {
+        _timeBtns = [NSMutableArray array];
+    }
+    return _timeBtns;
+}
 
 - (NSMutableArray *)times{
     if (!_times) {
@@ -124,3 +140,4 @@
     return _times;
 }
 @end
+

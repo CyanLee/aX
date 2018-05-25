@@ -43,7 +43,7 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi:)name:@"tongzhi" object:nil];
     self.timeType = -1;
     
     [self setupHeaderView];
@@ -78,6 +78,9 @@ typedef enum : NSUInteger {
     NSString *postUrl = @"";
     // 有问题的接口
     dic[@"countType"] = timeType == -1 ? @"4":[NSString stringWithFormat:@"%ld",timeType];
+    
+    NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
+    
     switch (type) {
         /// 商店销量前10
         case Type_APP_SALE_SORT_10_URL:
@@ -168,6 +171,7 @@ typedef enum : NSUInteger {
 }
 - (void)jump2ChooseStore{
     ChooseStoreViewController *choose = [[ChooseStoreViewController alloc]init];
+
     [self.navigationController pushViewController:choose animated:true];
 }
 
@@ -260,6 +264,7 @@ typedef enum : NSUInteger {
 
 - (void)dealloc{
     DLog(@"dealloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - tableView 代理
@@ -300,6 +305,11 @@ typedef enum : NSUInteger {
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
     };
 }
+
+- (void)tongzhi:(NSNotification *)text{
+    [self.headerView.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

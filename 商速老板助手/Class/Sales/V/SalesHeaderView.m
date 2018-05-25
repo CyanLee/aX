@@ -112,7 +112,12 @@
     if (_chooseBtn == nil) {
         _chooseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _chooseBtn.backgroundColor = DefineRedColor;
-        [_chooseBtn setTitle:NSLocalized(@"choose Merchant", nil) forState:UIControlStateNormal];
+        NSDictionary *dic = UD_GET_OBJ(@"merchant");
+        if (dic[@"merchantName"] != nil) {
+            [_chooseBtn setTitle:dic[@"merchantName"] forState:UIControlStateNormal];
+        }else{
+            [_chooseBtn setTitle:NSLocalized(@"choose Merchant", nil) forState:UIControlStateNormal];
+        }
         _chooseBtn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         [_chooseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self addSubview:_chooseBtn];
