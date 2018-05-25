@@ -84,7 +84,7 @@
 - (void)getStartImg{
     // @"http://www.shopspeed.cn:80/shopspeed_points/BossAssistant/getOpenScreen.do"
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"999999999" forKey:@"deviceID"];
+    [dic setObject:[GSKeyChainDataManager readUUIDkey:@"deviceId"] forKey:@"deviceID"];
     [NetTools POST:APP_START_IMG_URL parameters:dic success:^(id responseObject) {
         DLog(@"启动页 responseObject == %@",responseObject);
         NSString *url = [NSString stringWithFormat:@"http://www.shopspeed.cn:80/shopspeed_points/%@",responseObject[@"logoImgUrl"]];
@@ -100,7 +100,7 @@
 - (UIViewController *)setupRootViewController{
     return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
                                            : [[LoginViewController alloc]init]] :[[TabController alloc] init];
-//    return [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+//    return [[UINavigationController alloc] initWithRootViewController:[TabController new]];
 
 }
 

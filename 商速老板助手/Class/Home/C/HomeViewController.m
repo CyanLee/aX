@@ -65,7 +65,7 @@
    // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
-    [dic setObject:user.userId forKey:@"userId"];
+    [dic setObject:user.userId forKey:@"userId"];//IIIIIIIIIIII
     [dic setObject:@"139221907171001" forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
     [dic setObject:@"2018-03-31" forKey:@"endDate"];
@@ -95,7 +95,7 @@
 - (void)autoLogin{
     UserModel *model = [UserModel getUserModel];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"866955030036774" forKey:@"deviceID"];
+    [dic setObject:[GSKeyChainDataManager readUUIDkey:@"deviceId"] forKey:@"deviceID"];
     [dic setObject:@"12345678" forKey:@"userPwd"];
     [dic setObject:model.userId forKey:@"userId"];
     
@@ -220,7 +220,6 @@
         _photoManager =[[SelectPhotoManager alloc]init];
     }
     
-<<<<<<< HEAD
 //    //使用MD5对设备码进行加密
 //    UserModel *userModel = [UserModel getUserModel];
 //    NSString *result = [MD5Tools md5:[GSKeyChainDataManager readUUIDkey:@"deviceId"]];
@@ -237,7 +236,7 @@
 //        NSLog(@"errStr = %@",errStr);
 //    }];
 //    return;
-=======
+    
     //使用MD5对设备码进行加密
     UserModel *userModel = [UserModel getUserModel];
     if (![UserModel getUserModel]) {
@@ -258,7 +257,6 @@
         NSLog(@"errStr = %@",errStr);
     }];
     return;
->>>>>>> 1eb7e22a643f14d20e6a562c242a5c593b043682
     
     [_photoManager startSelectPhotoWithImageName:@"选择头像"];
     __weak typeof(self)mySelf=self;
