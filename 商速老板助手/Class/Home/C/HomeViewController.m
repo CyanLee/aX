@@ -387,6 +387,7 @@
 
 - (void)tongzhi:(NSNotification *)text{
     [self.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+    self.defModel = [ChooseStoreModel mj_objectWithKeyValues:text.object];
 }
 
 @end
