@@ -19,6 +19,7 @@
 #import "ChooseStoreViewController.h"
 
 #import "HistoryModel.h"
+#import "ChooseStoreModel.h"
 @interface HomeViewController ()
 @property (nonatomic,weak)UIView *headerView;
 @property (nonatomic,weak)UIButton *storeBtn;
@@ -29,6 +30,8 @@
 @property (nonatomic, strong)SelectPhotoManager *photoManager;
 
 @property (nonatomic,assign)BOOL gettingGraphViewDatas;
+
+@property (nonatomic,strong)ChooseStoreModel *defModel;
 @end
 
 @implementation HomeViewController
@@ -45,12 +48,39 @@
     
     [self setupInfoView];
     
-    if (![UserModel getUserModel]) {
-        [self autoLogin];
-    }
+//    if (![UserModel getUserModel]) {
+//        [self autoLogin];
+//    }
     /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
-    [self getGraphViewDatas:4];
+//    [self getGraphViewDatas:4];
+    
+    [self getDefineMerCodeDatas];
+}
+
+- (void)getDefineMerCodeDatas{
+    
+    UserModel *user = [UserModel getUserModel];
+    if (!user) {
+        // 没登录
+        return;
+    }
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"userId"] = user.userId;
+    [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
+        DLog(@"responseObject == %@",responseObject);
+        if ([responseObject objectForKey:@"resultList"]) {
+            NSMutableArray *arr = [ChooseStoreModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultList"]];
+            if (arr.count != 0) {
+                self.defModel = [arr firstObject];
+                [self getGraphViewDatas:4];
+            }
+        }
+    } failure:^(NSString *errStr) {
+        DLog(@"获取merCode失败 errStr == %@",errStr);
+    }];
+    
 }
 /*
  byType
@@ -66,7 +96,8 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
     [dic setObject:user.userId forKey:@"userId"];
-    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    //[dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:self.defModel.merchantCode forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
     [dic setObject:@"2018-03-31" forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];

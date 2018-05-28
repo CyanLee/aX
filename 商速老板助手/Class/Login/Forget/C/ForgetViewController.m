@@ -147,7 +147,7 @@
     pwsTf.placeholder = @"请输入新密码";
     pwsTf.textAlignment = 0;
     pwsTf.font = [UIFont systemFontOfSize:13];
-    pwsTf.keyboardType = UIKeyboardTypeNumberPad;
+    //pwsTf.keyboardType = UIKeyboardTypeNumberPad;
     self.pwsTf = pwsTf;
     
     //<
@@ -172,7 +172,7 @@
     againTf.placeholder = @"请确认新密码";
     againTf.textAlignment = 0;
     againTf.font = [UIFont systemFontOfSize:13];
-    againTf.keyboardType = UIKeyboardTypeNumberPad;
+    //againTf.keyboardType = UIKeyboardTypeNumberPad;
     self.againTf = againTf;
     
     //<
@@ -201,7 +201,7 @@
         return;
     }
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"13106762742" forKey:@"TelNo"];
+    [dic setObject:phone forKey:@"TelNo"];
     [dic setObject:@"86" forKey:@"AreaCode"];
     [NetTools POST:APP_CODE_URL parameters:dic success:^(id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"验证码已发送"];
