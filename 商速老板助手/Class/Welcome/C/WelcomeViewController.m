@@ -50,7 +50,7 @@
 -(UIButton *)clickBtn{
     if (_clickBtn == nil) {
         _clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _clickBtn.backgroundColor = [UIColor colorWithRed:83/255.0 green:96/255.0 blue:96/255.0 alpha:0.3];
+        _clickBtn.backgroundColor = [UIColor whiteColor];
         [_clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_clickBtn setTitle:[NSString stringWithFormat:@"%ld",self.count] forState:UIControlStateNormal];
         [_clickBtn addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];

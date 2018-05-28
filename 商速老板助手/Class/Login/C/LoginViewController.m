@@ -259,7 +259,7 @@
     
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"866955030036774" forKey:@"deviceID"];
+    [dic setObject:[GSKeyChainDataManager readUUIDkey:@"deviceId"] forKey:@"deviceID"];
    // "userPwd":"12345678",
    // "userId":"13922190717"
     [dic setObject:pws forKey:@"userPwd"];

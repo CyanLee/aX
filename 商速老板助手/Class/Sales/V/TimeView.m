@@ -91,7 +91,7 @@
     NSInteger count = models.count;
     if (count == 0) {
         for (UIButton *btn in self.times) {
-             [btn setTitle:@"" forState:0];
+            [btn setTitle:@"" forState:0];
         }
     }
     for (int i = 0; i < count; i ++) {
@@ -140,3 +140,4 @@
     return _times;
 }
 @end
+

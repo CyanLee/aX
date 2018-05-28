@@ -48,18 +48,21 @@
     
     [self setupInfoView];
     
+<<<<<<< HEAD
 //    if (![UserModel getUserModel]) {
 //        [self autoLogin];
 //    }
     /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
 //    [self getGraphViewDatas:4];
+=======
     //    if (![UserModel getUserModel]) {
     //        [self autoLogin];
     //    }
     /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
     //    [self getGraphViewDatas:4];
+>>>>>>> 2c9c11969e8396ab9784cff33359f249954e9165
     
     [self getDefineMerCodeDatas];
 }

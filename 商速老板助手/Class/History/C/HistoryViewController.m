@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi:)name:@"tongzhi" object:nil];
     self.maxPage = MaxPage;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupHeaderView];
@@ -164,6 +165,14 @@
         NSData *data = UIImagePNGRepresentation(image);
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
     };
+}
+
+- (void)tongzhi:(NSNotification *)text{
+    [self.headerView.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

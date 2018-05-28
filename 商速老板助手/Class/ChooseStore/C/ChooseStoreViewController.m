@@ -13,6 +13,7 @@
 #import "ChooseStoreModel.h"
 
 #import "UserModel.h"
+#import "LanguageCell.h"
 
 @interface ChooseStoreViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -21,6 +22,9 @@
 @property (nonatomic,assign)NSInteger maxPage;
 
 @property (nonatomic,strong)NSMutableArray *datas;
+
+@property (nonatomic,assign) NSInteger stateNum;
+
 @end
 
 @implementation ChooseStoreViewController
@@ -37,6 +41,28 @@
     [self setupTab];
     
     [self getDatas];
+    self.stateNum = 0;
+    [self addRightNavItemWithTitle:NSLocalized(@"save", nil) withSel:@selector(sett:)];
+}
+
+
+//添加导航右按键 与 点击事件 文字
+-(UIButton *)addRightNavItemWithTitle:(NSString *)title withSel:(SEL)selectorAction{
+    UIButton * rightBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 50, 20);
+    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -10)];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    rightBtn.titleLabel.font =[UIFont systemFontOfSize:17];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:0];
+    [rightBtn setTitle:title forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:selectorAction forControlEvents:UIControlEventTouchUpInside];
+    // [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    //配置返回按钮距离屏幕边缘的距离
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceItem.width = 0;
+    self.navigationItem.rightBarButtonItems = @[spaceItem, backItem];
+    return rightBtn;
 }
 
 - (void)getDatas{
@@ -105,7 +131,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    self.stateNum = indexPath.row;
+    [self.tab reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -113,22 +140,29 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChooseStoreViewController"];
+    LanguageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChooseStoreViewController"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:@"ChooseStoreViewController"];
+        cell = [[LanguageCell alloc] initWithStyle:0 reuseIdentifier:@"ChooseStoreViewController"];
     }
     ChooseStoreModel *model = self.datas[indexPath.row];
-    cell.textLabel.text = model.merchantName;
-    cell.textLabel.font = [UIFont systemFontOfSize:15];
-    cell.textLabel.textColor = [UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1];
+    if (indexPath.row == self.stateNum) {
+        cell.clickBtn.hidden = NO;
+    }else{
+        cell.clickBtn.hidden = YES;
+    }
+    cell.titleLabel.text = model.merchantName;
+    cell.titleLabel.font = [UIFont systemFontOfSize:15];
+    cell.titleLabel.textColor = [UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1];
     cell.selectionStyle = 0;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -150,6 +184,16 @@
         _datas = [NSMutableArray array];
     }
     return _datas;
+}
+
+-(void)sett:(UIButton *)sender{
+    ChooseStoreModel *model = [self.datas objectAtIndex:self.stateNum];
+    NSString *str = model.merchantCode;
+    NSString *str2 = model.merchantName;
+    NSDictionary *dic = @{@"merchantCode":str,@"merchantName":str2};
+    UD_SET_OBJ(dic, @"merchant");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"tongzhi" object:dic];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
