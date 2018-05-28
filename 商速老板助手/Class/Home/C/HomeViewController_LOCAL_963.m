@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi:)name:@"tongzhi" object:nil];
+    
     [self setupNav];
     
     [self setupHeaderView];
@@ -54,12 +54,6 @@
     /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
 //    [self getGraphViewDatas:4];
-    //    if (![UserModel getUserModel]) {
-    //        [self autoLogin];
-    //    }
-    /// 获得曲线图数据
-    self.gettingGraphViewDatas = true;
-    //    [self getGraphViewDatas:4];
     
     [self getDefineMerCodeDatas];
 }
@@ -98,7 +92,7 @@
 /// 获得曲线图数据
 - (void)getGraphViewDatas:(NSInteger)byType{
     UserModel *user = [UserModel getUserModel];
-    // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
+   // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
     [dic setObject:user.userId forKey:@"userId"];
@@ -178,14 +172,7 @@
         make.width.mas_equalTo(100);
         make.centerY.equalTo(self.storeBtn).mas_offset(-4);
     }];
-    NSDictionary *dic = UD_GET_OBJ(@"merchant");
-    if (dic[@"merchantName"] != nil) {
-//        [_chooseBtn setTitle:dic[@"merchantName"] forState:UIControlStateNormal];
-        [btn setTitle:dic[@"merchantName"] forState:0];
-    }else{
-        [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
-    }
-//    [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
+    [btn setTitle:NSLocalized(@"choose Merchant",nil) forState:0];
     [btn setTitleColor:[UIColor whiteColor] forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:10];
     btn.layer.cornerRadius = 4;
@@ -339,12 +326,12 @@
 
 - (void)jump2Report{
     /*
-     ReportViewController *report = [[ReportViewController alloc] init];
-     report.hidesBottomBarWhenPushed = true;
-     [self.navigationController pushViewController:report animated:true];
+    ReportViewController *report = [[ReportViewController alloc] init];
+    report.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:report animated:true];
      */
     SalesViewController *sales = [[SalesViewController alloc] init];
-    //    sales.hidesBottomBarWhenPushed = true;
+//    sales.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:sales animated:true];
 }
 
@@ -387,14 +374,4 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)tongzhi:(NSNotification *)text{
-    [self.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
-    self.defModel = [ChooseStoreModel mj_objectWithKeyValues:text.object];
-}
-
 @end
-

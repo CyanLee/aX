@@ -48,12 +48,6 @@
     
     [self setupInfoView];
     
-//    if (![UserModel getUserModel]) {
-//        [self autoLogin];
-//    }
-    /// 获得曲线图数据
-    self.gettingGraphViewDatas = true;
-//    [self getGraphViewDatas:4];
     //    if (![UserModel getUserModel]) {
     //        [self autoLogin];
     //    }
@@ -393,7 +387,6 @@
 
 - (void)tongzhi:(NSNotification *)text{
     [self.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
-    self.defModel = [ChooseStoreModel mj_objectWithKeyValues:text.object];
 }
 
 @end
