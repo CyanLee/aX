@@ -170,8 +170,6 @@
 
 - (void)tongzhi:(NSNotification *)text{
     [self.headerView.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
-   // NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
-    //NSDictionary *Mdic = [ChooseStoreModel mj_objectWithKeyValues:text.object];
     [self getDatas];
 }
 

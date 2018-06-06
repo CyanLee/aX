@@ -48,19 +48,8 @@
     [self setupTimeView];
     
     [self setupInfoView];
-    
-//    if (![UserModel getUserModel]) {
-//        [self autoLogin];
-//    }
-    /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
-//    [self getGraphViewDatas:4];
-    //    if (![UserModel getUserModel]) {
-    //        [self autoLogin];
-    //    }
-    /// 获得曲线图数据
     self.gettingGraphViewDatas = true;
-    //    [self getGraphViewDatas:4];
     
     [self getDefineMerCodeDatas];
 }
@@ -81,18 +70,31 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
     dic[@"userId"] = user.userId;
-    [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
-        if ([responseObject objectForKey:@"resultList"]) {
-            NSMutableArray *arr = [ChooseStoreModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultList"]];
-            if (arr.count != 0) {
-                self.defModel = [arr firstObject];
-                [self getGraphViewDatas:4];
+    NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
+    if (Mdic) { // 如果本地有mercode，那么取出来用就好
+        self.defModel = [ChooseStoreModel mj_objectWithKeyValues:Mdic];
+        [self getGraphViewDatas:4];
+    }else{// 如果本地没有mercode，那么读取，之后同步。
+        [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
+            if ([responseObject objectForKey:@"resultList"]) {
+                NSMutableArray *arr = [ChooseStoreModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultList"]];
+                if (arr.count != 0) {
+                    self.defModel = [arr firstObject];
+                    [self synchronizeDefMerCode];
+                    [self getGraphViewDatas:4];
+                }
             }
-        }
-    } failure:^(NSString *errStr) {
-        DLog(@"获取merCode失败 errStr == %@",errStr);
-    }];
-    
+        } failure:^(NSString *errStr) {
+            DLog(@"获取merCode失败 errStr == %@",errStr);
+        }];
+    }
+}
+
+- (void)synchronizeDefMerCode{
+    NSString *str = self.defModel.merchantCode;
+    NSString *str2 = self.defModel.merchantName;
+    NSDictionary *dic = @{@"merchantCode":str,@"merchantName":str2};
+    UD_SET_OBJ(dic, @"merchant");
 }
 /*
  byType
@@ -262,21 +264,6 @@
         // 没登录
         return;
     }
-//    NSString *result = [MD5Tools md5:[GSKeyChainDataManager readUUIDkey:@"deviceId"]];
-//    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-//    [dic setValue:result forKey:@"deviceId"];
-//    [dic setValue:@"open" forKey:@"imgflag"];
-//    [dic setValue:@"测试店铺名称" forKey:@"nickName"];
-//    [dic setValue:userModel.userId forKey:@"userId"];
-//    UIImage *image = [UIImage imageNamed:@"12"];
-//    NSData *data = UIImagePNGRepresentation(image);
-//    [NetTools POST:APP_UPLOAD_THE_PICTURE_URL parameters:dic imageData:data constructingBodyWithBlocksuccess:^(id responseObject) {
-//        NSLog(@"responseObject = %@",responseObject);
-//    } failure:^(NSString *errStr) {
-//        NSLog(@"errStr = %@",errStr);
-//    }];
-//    return;
-    
     [_photoManager startSelectPhotoWithImageName:@"选择头像"];
     __weak typeof(self)mySelf=self;
     //选取照片成功
