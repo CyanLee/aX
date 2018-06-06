@@ -75,6 +75,11 @@
 }
 
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)didClickKeyboard:(NSNotification *)noti{
     [self.cover mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
@@ -218,10 +223,8 @@
 }
 
 - (void)forgetDidClicked{
-    DLog(@"%s",__func__);
     ForgetViewController *forget = [[ForgetViewController alloc] init];
     [self.navigationController pushViewController:forget animated:true];
-    
 }
 - (void)setupLoginBtn{
     UIButton *btn = [[UIButton alloc]init];

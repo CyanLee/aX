@@ -69,6 +69,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);
         make.left.mas_equalTo(30);
+        make.width.mas_equalTo(100);
     }];
     titleLabel.font = [UIFont systemFontOfSize:13];
     titleLabel.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];
@@ -82,6 +83,7 @@
     [salesMoney mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);
         make.left.mas_equalTo(SCREEN_WIDTH * 0.35);
+        make.width.mas_equalTo(100);
     }];
     salesMoney.font = [UIFont systemFontOfSize:13];
     salesMoney.textColor = [UIColor colorWithRed:76.0/255.0 green:76.0/255.0 blue:76.0/255.0 alpha:1];

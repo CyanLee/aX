@@ -37,12 +37,13 @@
 }
 
 - (void)getDatas{
+    NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
     UserModel *user = [UserModel getUserModel];
     NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"4" forKey:@"countType"];
     [dic setObject:user.userId forKey:@"userId"];
-    [dic setObject:@"139221907171001" forKey:@"merchantCode"];
+    [dic setObject:Mdic[@"merchantCode"] forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
     [dic setObject:@"2018-03-31" forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];

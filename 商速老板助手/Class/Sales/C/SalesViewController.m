@@ -86,7 +86,7 @@ typedef enum : NSUInteger {
         case Type_APP_SALE_SORT_10_URL:
             //dic[@"countType"] = @"3";
             dic[@"userId"] = user.userId;
-            dic[@"merchantCode"] = @"139221907171001";
+            dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             postUrl = APP_SALE_SORT_10_URL;
@@ -95,7 +95,7 @@ typedef enum : NSUInteger {
         case Type_APP_SALE_MONEY_10_URL:
             //dic[@"countType"] = @"";
             dic[@"userId"] = user.userId;
-            dic[@"merchantCode"] = @"139221907171001";
+            dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             postUrl = APP_SALE_MONEY_10_URL;
@@ -104,7 +104,7 @@ typedef enum : NSUInteger {
         case Type_APP_SALE_GOODS_URL:
             //dic[@"countType"] = @"2";
             dic[@"userId"] = user.userId;
-            dic[@"merchantCode"] = @"139221907171001";
+            dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             dic[@"curPageNo"] = @"1";
@@ -115,7 +115,7 @@ typedef enum : NSUInteger {
         case Type_APP_SALE_BACK_URL:
             //dic[@"countType"] = @"4";
             dic[@"userId"] = user.userId;
-            dic[@"merchantCode"] = @"139221907171001";
+            dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
             dic[@"endDate"] = @"2018-03-15";
             dic[@"curPageNo"] = @"1";
