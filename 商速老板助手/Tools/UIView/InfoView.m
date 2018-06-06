@@ -160,13 +160,7 @@
         self.turnover.text = @"0";
         self.receipt.text = @"0";
     }else{ // 判断日期是否今天
-        NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        //设置格式：zzz表示时区
-        [dateFormatter setDateFormat:@"yyyy/MM/dd"];
-        //NSDate转NSString
-        NSString *currentDateString = [dateFormatter stringFromDate:date];
-        if ([currentDateString isEqualToString:today.dealDate]) {
+        if ([[AppDelegate getNow] isEqualToString:today.dealDate]) {
             CGFloat money = today.txAmt.floatValue;
             self.turnover.text = [NSString stringWithFormat:@"%.2f",money];
             self.receipt.text = today.saleNums;
@@ -175,10 +169,6 @@
             self.receipt.text = @"0";
         }
     }
-//    if ([self.turnover.text isEqualToString:@"暂无"]) self.turnover.font = [UIFont systemFontOfSize:20];
-//    else self.turnover.font = [UIFont systemFontOfSize:40];
-//    if ([self.receipt.text isEqualToString:@"暂无"]) self.receipt.font = [UIFont systemFontOfSize:20];
-//    else self.receipt.font = [UIFont systemFontOfSize:40];
 }
 
 @end

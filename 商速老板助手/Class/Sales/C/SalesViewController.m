@@ -88,7 +88,7 @@ typedef enum : NSUInteger {
             dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
-            dic[@"endDate"] = @"2018-03-15";
+            dic[@"endDate"] = [AppDelegate getNow];
             postUrl = APP_SALE_SORT_10_URL;
             break;
         /// 销售金额前10
@@ -97,7 +97,7 @@ typedef enum : NSUInteger {
             dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
-            dic[@"endDate"] = @"2018-03-15";
+            dic[@"endDate"] = [AppDelegate getNow];
             postUrl = APP_SALE_MONEY_10_URL;
             break;
         /// 商店类别销售情况
@@ -106,7 +106,7 @@ typedef enum : NSUInteger {
             dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
-            dic[@"endDate"] = @"2018-03-15";
+            dic[@"endDate"] = [AppDelegate getNow];
             dic[@"curPageNo"] = @"1";
             dic[@"numsPage"] = @"5";
             postUrl = APP_SALE_GOODS_URL;
@@ -117,7 +117,7 @@ typedef enum : NSUInteger {
             dic[@"userId"] = user.userId;
             dic[@"merchantCode"] = Mdic[@"merchantCode"];
             dic[@"startDate"] = @"2018-02-15";
-            dic[@"endDate"] = @"2018-03-15";
+            dic[@"endDate"] = [AppDelegate getNow];
             dic[@"curPageNo"] = @"1";
             dic[@"numsPage"] = @"5";
             postUrl = APP_SALE_BACK_URL;
@@ -252,13 +252,13 @@ typedef enum : NSUInteger {
     
 }
 - (void)timeViewBtnDidClickedBlock:(UIButton *)btn{
-    DLog(@"btn == %@",btn);
+    DLog(@"btn == %d",btn.tag+1);
     //日 countType = 1
     //周 countType = 2
     //月 countType = 3
     //年 countType = 4
     // dic[@"countType"] = @"4";
-    self.timeType = btn.tag;
+    self.timeType = btn.tag + 1;
     [self getDatasWithType:self.type TimeType:self.timeType];
 }
 
@@ -308,6 +308,7 @@ typedef enum : NSUInteger {
 
 - (void)tongzhi:(NSNotification *)text{
     [self.headerView.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+    [self getDatasWithType:self.type TimeType:self.timeType];
 }
 
 

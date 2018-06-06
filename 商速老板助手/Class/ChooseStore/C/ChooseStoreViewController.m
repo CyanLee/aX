@@ -23,7 +23,7 @@
 
 @property (nonatomic,strong)NSMutableArray *datas;
 
-@property (nonatomic,assign) NSInteger stateNum;
+@property (nonatomic,strong) ChooseStoreModel *selectModel;
 
 @end
 
@@ -38,10 +38,15 @@
     
     self.maxPage = MaxPage;
     
+    NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
+    if (Mdic) {
+        self.selectModel = [ChooseStoreModel mj_objectWithKeyValues:Mdic];
+    }
+    
     [self setupTab];
     
     [self getDatas];
-    self.stateNum = 0;
+    
     [self addRightNavItemWithTitle:NSLocalized(@"save", nil) withSel:@selector(sett:)];
 }
 
@@ -131,7 +136,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.stateNum = indexPath.row;
+    self.selectModel = self.datas[indexPath.row];
     [self.tab reloadData];
 }
 
@@ -145,8 +150,12 @@
         cell = [[LanguageCell alloc] initWithStyle:0 reuseIdentifier:@"ChooseStoreViewController"];
     }
     ChooseStoreModel *model = self.datas[indexPath.row];
-    if (indexPath.row == self.stateNum) {
-        cell.clickBtn.hidden = NO;
+    if (self.selectModel) {
+        if (model.merchantCode.integerValue == self.selectModel.merchantCode.integerValue) {
+            cell.clickBtn.hidden = NO;
+        }else{
+            cell.clickBtn.hidden = YES;
+        }
     }else{
         cell.clickBtn.hidden = YES;
     }
@@ -154,7 +163,6 @@
     cell.titleLabel.font = [UIFont systemFontOfSize:15];
     cell.titleLabel.textColor = [UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1];
     cell.selectionStyle = 0;
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -187,9 +195,9 @@
 }
 
 -(void)sett:(UIButton *)sender{
-    ChooseStoreModel *model = [self.datas objectAtIndex:self.stateNum];
-    NSString *str = model.merchantCode;
-    NSString *str2 = model.merchantName;
+    if (!self.selectModel)return;
+    NSString *str = self.selectModel.merchantCode;
+    NSString *str2 = self.selectModel.merchantName;
     NSDictionary *dic = @{@"merchantCode":str,@"merchantName":str2};
     UD_SET_OBJ(dic, @"merchant");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"tongzhi" object:dic];

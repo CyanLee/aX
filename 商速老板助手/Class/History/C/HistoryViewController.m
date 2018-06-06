@@ -14,6 +14,7 @@
 #import "APP_IPS.h"
 #import "ChooseStoreViewController.h"
 #import "UserModel.h"
+#import "ChooseStoreModel.h"
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,weak) UITableView *tableView;
@@ -21,7 +22,6 @@
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,assign)NSInteger maxPage;
 @property (nonatomic, strong)SelectPhotoManager *photoManager;
-
 @end
 
 @implementation HistoryViewController
@@ -45,7 +45,7 @@
     [dic setObject:user.userId forKey:@"userId"];
     [dic setObject:Mdic[@"merchantCode"] forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
-    [dic setObject:@"2018-03-31" forKey:@"endDate"];
+    [dic setObject:[AppDelegate getNow] forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];
     [dic setObject:numsPage forKey:@"numsPage"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
@@ -170,6 +170,9 @@
 
 - (void)tongzhi:(NSNotification *)text{
     [self.headerView.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
+   // NSDictionary *Mdic = UD_GET_OBJ(@"merchant");
+    //NSDictionary *Mdic = [ChooseStoreModel mj_objectWithKeyValues:text.object];
+    [self getDatas];
 }
 
 -(void)dealloc{

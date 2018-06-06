@@ -32,6 +32,7 @@
 @property (nonatomic,assign)BOOL gettingGraphViewDatas;
 
 @property (nonatomic,strong)ChooseStoreModel *defModel;
+@property (nonatomic,assign)NSInteger type;
 @end
 
 @implementation HomeViewController
@@ -62,6 +63,12 @@
     //    [self getGraphViewDatas:4];
     
     [self getDefineMerCodeDatas];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.view endEditing:true];
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)getDefineMerCodeDatas{
@@ -97,14 +104,13 @@
 /// 获得曲线图数据
 - (void)getGraphViewDatas:(NSInteger)byType{
     UserModel *user = [UserModel getUserModel];
-    // NSString *numsPage = [NSString stringWithFormat:@"%ld",(long)self.maxPage];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[NSString stringWithFormat:@"%ld",byType] forKey:@"countType"];
     [dic setObject:user.userId forKey:@"userId"];
     //[dic setObject:@"139221907171001" forKey:@"merchantCode"];
     [dic setObject:self.defModel.merchantCode forKey:@"merchantCode"];
     [dic setObject:@"2018-01-05" forKey:@"startDate"];
-    [dic setObject:@"2018-03-31" forKey:@"endDate"];
+    [dic setObject:[AppDelegate getNow] forKey:@"endDate"];
     [dic setObject:@"1" forKey:@"curPageNo"];
     [dic setObject:@"1000000000" forKey:@"numsPage"];
     [NetTools POST:APP_HISTORY_URL parameters:dic success:^(id responseObject) {
@@ -128,20 +134,7 @@
 }
 
 
-- (void)autoLogin{
-    UserModel *model = [UserModel getUserModel];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"866955030036774" forKey:@"deviceID"];
-    [dic setObject:@"12345678" forKey:@"userPwd"];
-    [dic setObject:model.userId forKey:@"userId"];
-    
-    [NetTools POST:APP_LOGON_URL parameters:dic success:^(id responseObject) {
-        DLog(@"");
-    } failure:^(NSString *errStr) {
-        DLog(@"");
-        [SVProgressHUD showErrorWithStatus:errStr];
-    }];
-}
+
 
 #pragma mark
 #pragma mark -- header
@@ -380,7 +373,8 @@
 - (void)timeViewBtnDidClickedBlock:(UIButton *)btn{
     DLog(@"btn == %@",btn);
     if (self.gettingGraphViewDatas)return;
-    [self getGraphViewDatas:btn.tag+1];
+    self.type = btn.tag+1;
+    [self getGraphViewDatas:self.type];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -393,6 +387,8 @@
 - (void)tongzhi:(NSNotification *)text{
     [self.chooseBtn setTitle:text.object[@"merchantName"] forState:UIControlStateNormal];
     self.defModel = [ChooseStoreModel mj_objectWithKeyValues:text.object];
+    if (self.type == 0) self.type = 4;
+    [self getGraphViewDatas:self.type];
 }
 
 @end

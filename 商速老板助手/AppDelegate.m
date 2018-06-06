@@ -104,6 +104,12 @@
 
 }
 
++ (NSString *)getNow{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    return currentDateStr;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
