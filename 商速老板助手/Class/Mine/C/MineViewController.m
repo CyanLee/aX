@@ -8,18 +8,18 @@
 
 #import "MineViewController.h"
 #import "LoginViewController.h"
-
+#import "NavViewController.h"
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
-    
+
 @property(nonatomic,strong) UITableView *tableView;
-    
+
 @end
 
 @implementation MineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.title = @"个人中心";
     [self createTableView];
 }
@@ -39,23 +39,25 @@
     self.tableView = tableView;
 }
 
-    -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        return 1;
-    }
-    
-    -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-        cell.textLabel.text = @"退出登录";
-        return cell;
-    }
-    
-    -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        NSUserDefaults *def =  [NSUserDefaults standardUserDefaults];
-        [def setObject:nil forKey:@"UserModel"];
-        [def synchronize];
-        [SVProgressHUD showSuccessWithStatus:@"退出成功"];
-        [self presentViewController:[LoginViewController new] animated:YES completion:nil];
-    }
-    
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = @"退出登录";
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSUserDefaults *def =  [NSUserDefaults standardUserDefaults];
+   // [def setObject:nil forKey:@"UserModel"];
+   // [def synchronize];
+    [def removeObjectForKey:@"UserModel"];
+    //[def synchronize];
+    [SVProgressHUD showSuccessWithStatus:@"退出成功"];
+    [self presentViewController:[[NavViewController alloc] initWithRootViewController: [LoginViewController new]] animated:YES completion:nil];
+}
+
 @end

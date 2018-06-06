@@ -147,6 +147,7 @@
     pwsTf.placeholder = @"请输入新密码";
     pwsTf.textAlignment = 0;
     pwsTf.font = [UIFont systemFontOfSize:13];
+    pwsTf.secureTextEntry = true;
     //pwsTf.keyboardType = UIKeyboardTypeNumberPad;
     self.pwsTf = pwsTf;
     
@@ -172,6 +173,7 @@
     againTf.placeholder = @"请确认新密码";
     againTf.textAlignment = 0;
     againTf.font = [UIFont systemFontOfSize:13];
+    againTf.secureTextEntry = true;
     //againTf.keyboardType = UIKeyboardTypeNumberPad;
     self.againTf = againTf;
     

@@ -75,7 +75,6 @@
     
     dic[@"userId"] = user.userId;
     [NetTools POST:APP_STORE_INFO_URL parameters:dic success:^(id responseObject) {
-        DLog(@"responseObject == %@",responseObject);
         if ([responseObject objectForKey:@"resultList"]) {
             NSMutableArray *arr = [ChooseStoreModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultList"]];
             if (arr.count != 0) {

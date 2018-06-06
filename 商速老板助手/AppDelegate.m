@@ -14,7 +14,7 @@
 #import "UserModel.h"
 #import "NSBundle+Language.h"
 #import "WelcomeViewController.h"
-
+#import "NavViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -98,7 +98,7 @@
 
 
 - (UIViewController *)setupRootViewController{
-    return [UserModel getUserModel] == nil ? [[UINavigationController alloc] initWithRootViewController
+    return [UserModel getUserModel] == nil ? [[NavViewController alloc] initWithRootViewController
                                            : [[LoginViewController alloc]init]] :[[TabController alloc] init];
 //    return [[UINavigationController alloc] initWithRootViewController:[TabController new]];
 
